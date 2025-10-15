@@ -1,0 +1,64 @@
+.clock{
+    width: 520px;
+    padding: 40px;
+    background-color: #f3f3f3;
+    box-shadow: 10px 10px 50px #808080;
+    border-radius: 8px;
+    }
+
+    .clock .display{
+        padding: 40px 10px 10px;
+        border-radius: 6px;
+        background-color: #dddddd;
+        box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08) inset,
+                    0 1px 1px #fafafa;
+        position: relative;
+    }
+
+    .clock .display .weekdays{
+        font-size: 18px;
+        font-weight: 600;
+        width: 100%;
+        position: absolute;
+        top: 10px;
+        left: 0;
+        text-align: center;
+        font-family: 'Text Me One', sans-serif;
+    }
+
+    .weekdays span{
+        padding: 0 10px;
+        opacity: 0.2;
+    }
+
+    .weekdays span.active{
+        opacity: 1;
+    }
+
+    .display .timeDisplay{
+        display: flex;
+        justify-content: center;
+    }
+
+    .timeDisplay .time{
+        font-size: 80px;
+        display: flex;
+        justify-content: center;
+        letter-spacing: 3px;
+        font-family: 'Digital-7 Mono', sans-serif;
+    }
+
+    .timeDisplay .format{
+        font-size: 30px;
+        margin-top: 32px;
+        margin-left: 10px;
+        font-family: 'Text Me One', sans-serif;
+    }
+
+    .time .dot{
+        animation: blinker 1s linear infinite;
+    }
+
+    @keyframes blinker {
+        25%{opacity: 0;}
+    }
