@@ -2,7 +2,7 @@
 
 A modern and responsive personal portfolio website showcasing my projects, skills, education, sponsors, and contact information. Built with **HTML**, **CSS**, and **JavaScript**, this portfolio is designed to present work in a clean, professional, and interactive way.
 
-**Live demo:** [https://uidd-protfilo.vercel.app/](https://uidd-protfilo.vercel.app/)
+**Live demo:** [https://uidd-portfolio.vercel.app/](https://uidd-portfolio.vercel.app/)
 
 ---
 
@@ -237,28 +237,34 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ### Project Screenshots
 
 #### 1. Main Dashboard / Overview
-<img width="1272" height="960" src="https://github.com/user-attachments/assets/7e8ea809-c730-4fc3-b69e-eff5870dbc7a" alt="Screenshot 1" />
+<img width="1272" height="960" alt="Screenshot 2025-10-08 113641" src="https://github.com/user-attachments/assets/6631eebc-703b-43e7-b232-06095fb6b608" />
 
 #### 2. Education Parner / Sidebar
-<img width="429" height="728" src="https://github.com/user-attachments/assets/56b4692b-0ef4-4f61-8840-94e65e2e7641" alt="Screenshot 2" />
+<img width="429" height="728" alt="Screenshot 2025-10-08 113802" src="https://github.com/user-attachments/assets/9be32859-3a03-4725-8051-b767c1b52660" />
 
-#### 3. Feature / Detail Screen
-<img width="448" height="698" src="https://github.com/user-attachments/assets/d1adb014-5b56-41a3-bf51-badcab5705f9" alt="Screenshot 3" />
+#### 3. Skils / Detail Screen
+<img width="448" height="698" alt="Screenshot 2025-10-08 113814" src="https://github.com/user-attachments/assets/3dc2cacb-6d6c-49f4-9442-2553c3308a40" />
 
-#### 4. Feature / Detail Screen
-<img width="447" height="800" src="https://github.com/user-attachments/assets/a32a2230-a06c-4422-993d-4e863362da21" alt="Screenshot 4" />
+#### 4. Education / Detail Screen
+<img width="447" height="800" alt="Screenshot 2025-10-08 113828" src="https://github.com/user-attachments/assets/b1dae814-d929-4862-828a-f5f80547a025" />
 
-#### 6. Modal / Pop-up
-<img width="415" height="579" src="https://github.com/user-attachments/assets/44422d7c-5cee-41b8-8a06-d50821d2ea47" alt="Screenshot 5" />
+#### 6. Cetification / Pop-up
+<img width="415" height="579" alt="Screenshot 2025-10-08 113844" src="https://github.com/user-attachments/assets/71dd43c3-875d-4f2f-bc64-3c9ff39c7875" />
 
-#### 7. Modal / Info Card
-<img width="427" height="638" src="https://github.com/user-attachments/assets/20a15590-39a0-4320-995c-6e352cc465cf" alt="Screenshot 6" />
+#### 7. Project / Info Card
+<img width="427" height="638" alt="Screenshot 2025-10-08 113856" src="https://github.com/user-attachments/assets/16d22845-4e19-4346-84f4-1c0e93774598" />
 
-#### 8. Scrollable Section / Long View
-<img width="432" height="927" src="https://github.com/user-attachments/assets/0e53b774-904e-4069-bbcb-5a57ff805bb6" alt="Screenshot 7" />
+#### 8. Price Section / Long View
+<img width="432" height="927" alt="Screenshot 2025-10-08 113907" src="https://github.com/user-attachments/assets/9a3ad110-41c6-4491-bdc7-2868f4e66ced" />
 
-#### 9. Contact Us / Full-screen View
-<img width="1112" height="960" src="https://github.com/user-attachments/assets/ba889065-ff5e-4bdc-b68e-10f298d8ef3a" alt="Screenshot 8" />
+#### 9.Live Demo / Full-screen View
+<img width="1091" height="958" alt="Screenshot 2025-10-15 185633" src="https://github.com/user-attachments/assets/477698f0-ea24-438f-96b7-5af2b61ab883" />
+
+#### 10. Contact Us / Full-screen View
+<img width="1112" height="960" alt="Screenshot 2025-10-08 113917" src="https://github.com/user-attachments/assets/c482bdc0-510b-4acf-8d9d-e6031ce51d2b" />
+
+
+
 
 
 
