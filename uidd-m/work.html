@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Work - UIDD | Portfolio of Digital Projects & Case Studies</title>
+    <meta name="description" content="Explore UIDD's portfolio of innovative digital projects including web design, development, and branding solutions for clients across industries.">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@800&family=Montserrat:wght@500&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+    <style>
+        :root {
+            --primary-blue: #4AB2E5;
+            --pure-black: #000000;
+            --white: #FFFFFF;
+            --dark-gray: #1A1A1A;
+            --deep-navy: #101820;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--pure-black);
+            color: var(--white);
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', sans-serif;
+            text-transform: uppercase;
+        }
+        
+        .glow-text {
+            text-shadow: 0 0 10px var(--primary-blue), 0 0 20px var(--primary-blue), 0 0 30px var(--primary-blue);
+        }
+        
+        .glow-border {
+            box-shadow: 0 0 15px var(--primary-blue), 0 0 30px rgba(74, 178, 229, 0.5);
+        }
+        
+        .glow-border-light {
+            box-shadow: 0 0 8px var(--primary-blue), 0 0 15px rgba(74, 178, 229, 0.3);
+        }
+        
+        .glassmorphism {
+            background: rgba(16, 24, 32, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(74, 178, 229, 0.2);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+        }
+        
+        .glassmorphism-light {
+            background: rgba(26, 26, 26, 0.6);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(74, 178, 229, 0.15);
+        }
+        
+        .bg-circuit {
+            background-image: 
+                linear-gradient(rgba(74, 178, 229, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(74, 178, 229, 0.1) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+        
+        .bg-particles {
+            background-image: 
+                radial-gradient(circle at 20% 30%, rgba(74, 178, 229, 0.15) 2%, transparent 10%),
+                radial-gradient(circle at 80% 70%, rgba(74, 178, 229, 0.15) 2%, transparent 10%),
+                radial-gradient(circle at 40% 80%, rgba(74, 178, 229, 0.1) 2%, transparent 10%),
+                radial-gradient(circle at 70% 20%, rgba(74, 178, 229, 0.1) 2%, transparent 10%);
+            background-size: 400px 400px, 300px 300px, 500px 500px, 450px 450px;
+            animation: particleMove 20s infinite linear;
+        }
+        
+        @keyframes particleMove {
+            0% { background-position: 0 0, 0 0, 0 0, 0 0; }
+            100% { background-position: 400px 400px, 300px 300px, 500px 500px, 450px 450px; }
+        }
+        
+        .card-hover {
+            transition: all 0.4s ease;
+            transform-style: preserve-3d;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-12px) rotateX(5deg) rotateY(2deg);
+            box-shadow: 0 20px 40px rgba(74, 178, 229, 0.3);
+        }
+        
+        .btn-glow {
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn-glow:hover {
+            box-shadow: 0 0 20px var(--primary-blue), 0 0 40px rgba(74, 178, 229, 0.5);
+            transform: scale(1.05);
+        }
+        
+        .btn-glow::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: 0.5s;
+        }
+        
+        .btn-glow:hover::before {
+            left: 100%;
+        }
+        
+        .social-icon {
+            transition: all 0.3s ease;
+        }
+        
+        .social-icon:hover {
+            text-shadow: 0 0 12px var(--primary-blue), 0 0 24px var(--primary-blue);
+            transform: scale(1.2) translateY(-2px);
+        }
+        
+        .section-divider {
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--primary-blue), transparent);
+            margin: 80px auto;
+            width: 80%;
+            max-width: 500px;
+            position: relative;
+        }
+        
+        .section-divider::before {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 12px;
+            height: 12px;
+            background-color: var(--primary-blue);
+            border-radius: 50%;
+            box-shadow: 0 0 12px var(--primary-blue), 0 0 24px var(--primary-blue);
+        }
+        
+        .gradient-text {
+            background: linear-gradient(90deg, #4AB2E5, #FFFFFF);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .project-card {
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .project-card:hover {
+            transform: scale(1.03);
+        }
+        
+        .project-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(16, 24, 32, 0.8), rgba(74, 178, 229, 0.9));
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .project-card:hover .project-overlay {
+            opacity: 1;
+        }
+        
+        .filter-button {
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .filter-button.active {
+            background: rgba(74, 178, 229, 0.2);
+            border-color: var(--primary-blue);
+            box-shadow: 0 0 10px rgba(74, 178, 229, 0.3);
+        }
+        
+        .project-item {
+            transition: all 0.5s ease;
+        }
+        
+        .project-item.hidden {
+            display: none;
+        }
+        
+        .stats-card {
+            transition: all 0.4s ease;
+        }
+        
+        .stats-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(74, 178, 229, 0.3);
+        }
+        
+        .case-study-section {
+            scroll-margin-top: 100px;
+        }
+        
+        .client-logo {
+            filter: grayscale(100%);
+            opacity: 0.7;
+            transition: all 0.3s ease;
+        }
+        
+        .client-logo:hover {
+            filter: grayscale(0%);
+            opacity: 1;
+        }
+    </style>
+</head>
+<body class="bg-black text-white">
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 glassmorphism py-4">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <div class="flex items-center">
+                <a href="index.html" class="text-2xl font-bold glow-text">UIDD</a>
+            </div>
+            <div class="hidden md:flex space-x-10">
+                <a href="index.html" class="hover:text-[#4AB2E5] transition-colors font-medium">HOME</a>
+                <a href="about.html" class="hover:text-[#4AB2E5] transition-colors font-medium">ABOUT</a>
+                <a href="services.html" class="hover:text-[#4AB2E5] transition-colors font-medium">SERVICES</a>
+                <a href="work.html" class="text-[#4AB2E5] font-medium">WORK</a>
+                <a href="contact.html" class="hover:text-[#4AB2E5] transition-colors font-medium">CONTACT</a>
+            </div>
+            <div class="md:hidden">
+                <button id="menu-toggle" class="text-white focus:outline-none">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden glassmorphism py-4 px-6">
+            <div class="flex flex-col space-y-4">
+                <a href="index.html" class="hover:text-[#4AB2E5] transition-colors font-medium">HOME</a>
+                <a href="about.html" class="hover:text-[#4AB2E5] transition-colors font-medium">ABOUT</a>
+                <a href="services.html" class="hover:text-[#4AB2E5] transition-colors font-medium">SERVICES</a>
+                <a href="work.html" class="text-[#4AB2E5] font-medium">WORK</a>
+                <a href="contact.html" class="hover:text-[#4AB2E5] transition-colors font-medium">CONTACT</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-32 pb-20 relative overflow-hidden bg-gradient-to-br from-[#000000] to-[#101820]">
+        <div class="bg-circuit bg-particles absolute inset-0"></div>
+        <div class="container mx-auto px-6 text-center relative z-10">
+            <h1 class="text-5xl md:text-7xl font-bold mb-6 glow-text" data-aos="fade-up">OUR WORK</h1>
+            <p class="text-xl md:text-2xl max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="200">
+                Showcasing innovative digital solutions that drive results and transform businesses
+            </p>
+        </div>
+    </section>
+
+    <!-- Portfolio Stats -->
+    <section class="py-16 bg-[#101820] relative overflow-hidden">
+        <div class="bg-circuit absolute inset-0 opacity-20"></div>
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <div class="stats-card glassmorphism-light rounded-2xl p-6 text-center" data-aos="fade-up" data-aos-delay="200">
+                    <div class="text-3xl md:text-4xl font-bold text-[#4AB2E5] mb-2">50+</div>
+                    <div class="text-lg">Projects Completed</div>
+                </div>
+                <div class="stats-card glassmorphism-light rounded-2xl p-6 text-center" data-aos="fade-up" data-aos-delay="300">
+                    <div class="text-3xl md:text-4xl font-bold text-[#4AB2E5] mb-2">25+</div>
+                    <div class="text-lg">Happy Clients</div>
+                </div>
+                <div class="stats-card glassmorphism-light rounded-2xl p-6 text-center" data-aos="fade-up" data-aos-delay="400">
+                    <div class="text-3xl md:text-4xl font-bold text-[#4AB2E5] mb-2">15+</div>
+                    <div class="text-lg">Industries Served</div>
+                </div>
+                <div class="stats-card glassmorphism-light rounded-2xl p-6 text-center" data-aos="fade-up" data-aos-delay="500">
+                    <div class="text-3xl md:text-4xl font-bold text-[#4AB2E5] mb-2">98%</div>
+                    <div class="text-lg">Client Satisfaction</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Filter -->
+    <section class="py-12 bg-black">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-wrap justify-center gap-4" data-aos="fade-up">
+                <button class="filter-button glassmorphism-light py-3 px-6 rounded-lg font-medium active" data-filter="all">All Projects</button>
+                <button class="filter-button glassmorphism-light py-3 px-6 rounded-lg font-medium" data-filter="web-design">Web Design</button>
+                <button class="filter-button glassmorphism-light py-3 px-6 rounded-lg font-medium" data-filter="web-development">Web Development</button>
+                <button class="filter-button glassmorphism-light py-3 px-6 rounded-lg font-medium" data-filter="branding">Branding</button>
+                <button class="filter-button glassmorphism-light py-3 px-6 rounded-lg font-medium" data-filter="ecommerce">E-commerce</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Grid -->
+    <section class="py-20 bg-[#101820] relative overflow-hidden">
+        <div class="bg-circuit absolute inset-0 opacity-20"></div>
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="portfolio-grid">
+                <!-- Project 1 - Web Design -->
+                <div class="project-item web-design" data-aos="fade-up" data-aos-delay="200">
+                    <div class="project-card rounded-xl bg-[#1A1A1A] glow-border-light">
+                        <div class="h-64 bg-gradient-to-br from-[#1A1A1A] to-[#101820] rounded-xl"></div>
+                        <div class="project-overlay rounded-xl">
+                            <h3 class="text-2xl font-bold mb-2">NEXUS FINANCIAL</h3>
+                            <p class="mb-4">Modern banking platform with advanced security and intuitive UX</p>
+                            <div class="flex flex-wrap gap-2 justify-center mb-4">
+                                <span class="bg-black/60 px-3 py-1 rounded-full text-sm">UI/UX Design</span>
+                                <span class="bg-black/60 px-3 py-1 rounded-full text-sm">Responsive</span>
+                                <span class="bg-black/60 px-3 py-1 rounded-full text-sm">Fintech</span>
+                            </div>
+                            <a href="#nexus-financial" class="btn-glow bg-white text-black font-bold py-2 px-6 rounded-full text-sm">View Case Study</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 2 - Web Development -->
+                <div class="project-item web-development" data-aos="fade-up" data-aos-delay="300">
+                    <div class="project-card rounded-xl bg-[#1A1A1A] glow-border-light">
+                        <div class="h-64 bg-gradient-to-br from-[#1A1A1A] to-[#101820] rounded-xl"></div>
+                        <div class="project-overlay rounded-xl">
+                            <h3 class="text-2xl font-bold mb-2">AURA FASHION</h3>
+                            <p class="mb-4">Luxury e-commerce experience with immersive product showcases</p>
+                            <div class="flex flex-wrap gap-2 justify-center mb-4">
+                                <span class="bg-black/60 px-3 py-1 rounded-full text-sm">E-commerce</span>
+                                <span class="bg-black/60 px-3 py-1 rounded-full text-sm">Vue.js</span>
+                                <span class="bg-black/60 px-3 py-1 rounded-full text-sm">Laravel</span>
+                            </div>
+                            <a href="#aura-fashion" class="btn-glow bg-white text-black font-bold py-2 px-6 rounded-full text-sm">View Case Study</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 3 - Branding -->
+                <div class="project-item branding" data-aos="fade-up" data-aos-delay="400">
+                    <div class="project-card rounded-xl bg-[#1A1A1A] glow-border-light">
+                        <div class="h-64 bg-gradient-to-br from-[#1A1A1A] to-[#101820] rounded-xl"></div>
+                        <div class="project-overlay rounded-xl">
+                            <h3 class="text-2xl font-bold mb-2">QUANTUM ANALYTICS</h3>
+                            <p class="mb-4">Data visualization dashboard for real-time business intelligence</p>
+                            <div class="flex flex-wrap gap-2 justify-center mb-4">
+                                <span class="bg-black/60 px-3 py-1 rounded-full text-sm">Branding</span>
+                                <span class="bg-black/60 px-3 py-1 rounded-full text-sm">Dashboard</span>
+                                <span class="bg-black/60 px-3 py-1 rounded-full text-sm">Data Viz</span>
+                            </div>
+                            <a href="#quantum-analytics" class="btn-glow bg-white text-black font-bold py-2 px-6 rounded-full text-sm">View Case Study</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 4 - E-commerce -->
+                <div class="project-item ecommerce" data-aos="fade-up" data-aos-delay="500">
+                    <div class="project-card rounded-xl bg-[#1A1A1A] glow-border-light">
+                        <div class="h-64 bg-gradient-to-br from-[#1A1A1A] to-[#101820] rounded-xl"></div>
+                        <div class="project-overlay rounded-xl">
+                            <h3 class="text-2xl font-bold mb-2">ZENITH HEALTH</h3>
+                            <p class="mb-4">Telemedicine platform with secure video consultations</p>
+                            <div class="flex flex-wrap gap-2 justify-center mb-4">
+                                <span class="bg-black/60 px-3 py-1 rounded-full text-sm">Healthcare</span>
+                                <span class="bg-black/60 px-3 py-1 rounded-full text-sm">React Native</span>
+                                <span class="bg-black/60 px-3py-1 rounded-full text-sm">E-commerce</span>
+                            </div>
+                            <a href="#zenith-health" class="btn-glow bg-white text-black font-bold py-2 px-6 rounded-full text-sm">View Case Study</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 5 - Web Design -->
+                <div class="project-item web-design" data-aos="fade-up" data-aos-delay="600">
+                    <div class="project-card rounded-xl bg-[#1A1A1A] glow-border-light">
+                        <div class="h-64 bg-gradient-to-br from-[#1A1A1A] to-[#101820] rounded-xl"></div>
+                        <div class="project-overlay rounded-xl">
+                            <h3 class="text-2xl font-bold mb-2">NOVA LEARNING</h3>
+                            <p class="mb-4">Interactive e-learning platform with gamification elements</p>
+                            <div class="flex flex-wrap gap-2 justify-center mb-4">
+                                <span class="bg-black/60 px-3 py-1 rounded-full text-sm">EdTech</span>
+                                <span class="bg-black/60 px-3 py-1 rounded-full text-sm">UI/UX</span>
+                                <span class="bg-black/60 px-3 py-1 rounded-full text-sm">Gamification</span>
+                            </div>
+                            <a href="#nova-learning" class="btn-glow bg-white text-black font-bold py-2 px-6 rounded-full text-sm">View Case Study</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 6 - Web Development -->
+                <div class="project-item web-development" data-aos="fade-up" data-aos-delay="700">
+                    <div class="project-card rounded-xl bg-[#1A1A1A] glow-border-light">
+                        <div class="h-64 bg-gradient-to-br from-[#1A1A1A] to-[#101820] rounded-xl"></div>
+                        <div class="project-overlay rounded-xl">
+                            <h3 class="text-2xl font-bold mb-2">ORBIT TRAVEL</h3>
+                            <p class="mb-4">Travel booking platform with immersive virtual tours</p>
+                            <div class="flex flex-wrap gap-2 justify-center mb-4">
+                                <span class="bg-black/60 px-3 py-1 rounded-full text-sm">Travel</span>
+                                <span class="bg-black/60 px-3 py-1 rounded-full text-sm">Vue.js</span>
+                                <span class="bg-black/60 px-3 py-1 rounded-full text-sm">Booking System</span>
+                            </div>
+                            <a href="#orbit-travel" class="btn-glow bg-white text-black font-bold py-2 px-6 rounded-full text-sm">View Case Study</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Case Studies -->
+    <section class="py-20 bg-black relative overflow-hidden">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 gradient-text" data-aos="fade-up">FEATURED CASE STUDIES</h2>
+            
+            <!-- Case Study 1 -->
+            <div id="nexus-financial" class="case-study-section mb-32 scroll-mt-24">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center" data-aos="fade-up">
+                    <div>
+                        <h3 class="text-3xl font-bold mb-6">Nexus Financial - Modern Banking Platform</h3>
+                        <p class="text-lg mb-6">We transformed the digital banking experience for Nexus Financial by creating an intuitive, secure platform that simplifies complex financial operations for both retail and business customers.</p>
+                        
+                        <div class="mb-6">
+                            <h4 class="text-xl font-bold mb-3 text-[#4AB2E5]">Challenge</h4>
+                            <p class="mb-4">Nexus Financial needed to modernize their outdated banking platform while maintaining the highest security standards and regulatory compliance.</p>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <h4 class="text-xl font-bold mb-3 text-[#4AB2E5]">Solution</h4>
+                            <ul class="space-y-2">
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-[#4AB2E5] mt-1 mr-3"></i>
+                                    <span>Designed an intuitive user interface for complex banking operations</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-[#4AB2E5] mt-1 mr-3"></i>
+                                    <span>Implemented advanced security features and two-factor authentication</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-[#4AB2E5] mt-1 mr-3"></i>
+                                    <span>Developed real-time transaction monitoring and alerts</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-[#4AB2E5] mt-1 mr-3"></i>
+                                    <span>Created responsive design for seamless mobile banking experience</span>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <div class="flex flex-wrap gap-4">
+                            <span class="bg-[#4AB2E5] text-black px-4 py-2 rounded-full font-medium">React</span>
+                            <span class="bg-[#4AB2E5] text-black px-4 py-2 rounded-full font-medium">Node.js</span>
+                            <span class="bg-[#4AB2E5] text-black px-4 py-2 rounded-full font-medium">MongoDB</span>
+                            <span class="bg-[#4AB2E5] text-black px-4 py-2 rounded-full font-medium">AWS</span>
+                        </div>
+                    </div>
+                    <div class="glassmorphism rounded-2xl p-8" data-aos="fade-left">
+                        <h4 class="text-xl font-bold mb-6 text-center">Project Results</h4>
+                        <div class="grid grid-cols-2 gap-6">
+                            <div class="text-center">
+                                <div class="text-3xl font-bold text-[#4AB2E5] mb-2">45%</div>
+                                <div class="text-lg">Increase in Mobile Usage</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-3xl font-bold text-[#4AB2E5] mb-2">62%</div>
+                                <div class="text-lg">Faster Transaction Times</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-3xl font-bold text-[#4AB2E5] mb-2">28%</div>
+                                <div class="text-lg">Growth in New Accounts</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-3xl font-bold text-[#4AB2E5] mb-2">4.8/5</div>
+                                <div class="text-lg">User Satisfaction Score</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Case Study 2 -->
+            <div id="aura-fashion" class="case-study-section mb-32 scroll-mt-24">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center" data-aos="fade-up">
+                    <div class="order-2 lg:order-1">
+                        <h3 class="text-3xl font-bold mb-6">Aura Fashion - Luxury E-commerce Experience</h3>
+                        <p class="text-lg mb-6">We created an immersive online shopping experience for Aura Fashion that captures the essence of luxury while providing seamless functionality across all devices.</p>
+                        
+                        <div class="mb-6">
+                            <h4 class="text-xl font-bold mb-3 text-[#4AB2E5]">Challenge</h4>
+                            <p class="mb-4">Aura Fashion needed to transition from brick-and-mortar to digital while maintaining their premium brand positioning and providing exceptional customer experience.</p>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <h4 class="text-xl font-bold mb-3 text-[#4AB2E5]">Solution</h4>
+                            <ul class="space-y-2">
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-[#4AB2E5] mt-1 mr-3"></i>
+                                    <span>Developed high-fidelity product visualization with zoom and 360° views</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-[#4AB2E5] mt-1 mr-3"></i>
+                                    <span>Implemented AI-powered size recommendations and styling suggestions</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-[#4AB2E5] mt-1 mr-3"></i>
+                                    <span>Created personalized shopping experience with user profiles</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-[#4AB2E5] mt-1 mr-3"></i>
+                                    <span>Integrated seamless payment processing and inventory management</span>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <div class="flex flex-wrap gap-4">
+                            <span class="bg-[#4AB2E5] text-black px-4 py-2 rounded-full font-medium">Vue.js</span>
+                            <span class="bg-[#4AB2E5] text-black px-4 py-2 rounded-full font-medium">Laravel</span>
+                            <span class="bg-[#4AB2E5] text-black px-4 py-2 rounded-full font-medium">MySQL</span>
+                            <span class="bg-[#4AB2E5] text-black px-4 py-2 rounded-full font-medium">Stripe</span>
+                        </div>
+                    </div>
+                    <div class="order-1 lg:order-2 glassmorphism rounded-2xl p-8" data-aos="fade-right">
+                        <h4 class="text-xl font-bold mb-6 text-center">Project Results</h4>
+                        <div class="grid grid-cols-2 gap-6">
+                            <div class="text-center">
+                                <div class="text-3xl font-bold text-[#4AB2E5] mb-2">127%</div>
+                                <div class="text-lg">Revenue Increase</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-3xl font-bold text-[#4AB2E5] mb-2">3.2x</div>
+                                <div class="text-lg">Higher Conversion Rate</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-3xl font-bold text-[#4AB2E5] mb-2">41%</div>
+                                <div class="text-lg">Reduced Cart Abandonment</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-3xl font-bold text-[#4AB2E5] mb-2">68%</div>
+                                <div class="text-lg">Mobile Transactions</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Client Testimonials -->
+    <section class="py-20 bg-[#101820] relative overflow-hidden">
+        <div class="bg-circuit absolute inset-0 opacity-20"></div>
+        <div class="container mx-auto px-6 relative z-10">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 gradient-text" data-aos="fade-up">CLIENT TESTIMONIALS</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="card-hover glassmorphism-light rounded-2xl p-8" data-aos="fade-up" data-aos-delay="200">
+                    <div class="flex items-center mb-6">
+                        <div class="w-16 h-16 rounded-full bg-gradient-to-br from-[#101820] to-[#1A1A1A] flex items-center justify-center glow-border-light mr-4">
+                            <i class="fas fa-user text-2xl text-[#4AB2E5]"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-lg">Michael Chen</h4>
+                            <p class="text-[#4AB2E5]">CEO, Nexus Financial</p>
+                        </div>
+                    </div>
+                    <p class="text-lg italic">"UIDD transformed our digital banking platform beyond expectations. Their attention to detail and understanding of financial technology resulted in a 45% increase in mobile engagement."</p>
+                </div>
+                
+                <div class="card-hover glassmorphism-light rounded-2xl p-8" data-aos="fade-up" data-aos-delay="400">
+                    <div class="flex items-center mb-6">
+                        <div class="w-16 h-16 rounded-full bg-gradient-to-br from-[#101820] to-[#1A1A1A] flex items-center justify-center glow-border-light mr-4">
+                            <i class="fas fa-user text-2xl text-[#4AB2E5]"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-lg">Sarah Johnson</h4>
+                            <p class="text-[#4AB2E5]">Founder, Aura Fashion</p>
+                        </div>
+                    </div>
+                    <p class="text-lg italic">"The team at UIDD understood our vision for a luxury e-commerce experience and delivered beyond our expectations. Our online sales have increased by 127% since launch."</p>
+                </div>
+                
+                <div class="card-hover glassmorphism-light rounded-2xl p-8" data-aos="fade-up" data-aos-delay="600">
+                    <div class="flex items-center mb-6">
+                        <div class="w-16 h-16 rounded-full bg-gradient-to-br from-[#101820] to-[#1A1A1A] flex items-center justify-center glow-border-light mr-4">
+                            <i class="fas fa-user text-2xl text-[#4AB2E5]"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-lg">David Rodriguez</h4>
+                            <p class="text-[#4AB2E5]">CTO, Quantum Analytics</p>
+                        </div>
+                    </div>
+                    <p class="text-lg italic">"UIDD's technical expertise and creative approach helped us build a complex data visualization platform that our clients love. Their development process was seamless and efficient."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Client Logos -->
+    <section class="py-16 bg-black">
+        <div class="container mx-auto px-6">
+            <h3 class="text-2xl font-bold text-center mb-12 gradient-text" data-aos="fade-up">TRUSTED BY INDUSTRY LEADERS</h3>
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 items-center">
+                <div class="client-logo text-center text-xl font-bold py-4" data-aos="fade-up" data-aos-delay="200">NEXUS</div>
+                <div class="client-logo text-center text-xl font-bold py-4" data-aos="fade-up" data-aos-delay="300">AURA</div>
+                <div class="client-logo text-center text-xl font-bold py-4" data-aos="fade-up" data-aos-delay="400">QUANTUM</div>
+                <div class="client-logo text-center text-xl font-bold py-4" data-aos="fade-up" data-aos-delay="500">ZENITH</div>
+                <div class="client-logo text-center text-xl font-bold py-4" data-aos="fade-up" data-aos-delay="600">NOVA</div>
+                <div class="client-logo text-center text-xl font-bold py-4" data-aos="fade-up" data-aos-delay="700">ORBIT</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-[#101820] relative overflow-hidden">
+        <div class="bg-circuit absolute inset-0 opacity-20"></div>
+        <div class="container mx-auto px-6 text-center relative z-10">
+            <h2 class="text-4xl md:text-5xl font-bold mb-8 gradient-text" data-aos="fade-up">READY TO START YOUR PROJECT?</h2>
+            <p class="text-xl mb-10 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="200">
+                Let's discuss how we can create an exceptional digital experience for your business.
+            </p>
+            <div class="flex flex-col md:flex-row justify-center gap-6" data-aos="fade-up" data-aos-delay="400">
+                <a href="services.html" class="btn-glow border-2 border-[#4AB2E5] text-[#4AB2E5] font-bold py-3 px-8 rounded-full text-lg">Our Services</a>
+                <a href="contact.html" class="btn-glow bg-gradient-to-r from-[#4AB2E5] to-[#2A92C5] text-black font-bold py-3 px-8 rounded-full text-lg">Get In Touch</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black py-12 border-t border-[#4AB2E5]/20">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <span class="text-2xl font-bold glow-text">UIDD</span>
+                </div>
+                <div class="flex space-x-8 mb-6 md:mb-0">
+                    <a href="#" class="social-icon text-2xl text-[#4AB2E5]">
+                        <i class="fas fa-globe"></i>
+                    </a>
+                    <a href="#" class="social-icon text-2xl text-[#4AB2E5]">
+                        <i class="fab fa-facebook"></i>
+                    </a>
+                    <a href="#" class="social-icon text-2xl text-[#4AB2E5]">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="social-icon text-2xl text-[#4AB2E5]">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="border-t border-[#4AB2E5]/20 mt-8 pt-8 text-center">
+                <p class="text-lg">Copyright © 2025 UIDD — All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize AOS (Animate On Scroll)
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
+        });
+
+        // Mobile menu toggle
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+
+        // Portfolio filtering
+        document.querySelectorAll('.filter-button').forEach(button => {
+            button.addEventListener('click', function() {
+                // Remove active class from all buttons
+                document.querySelectorAll('.filter-button').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                
+                // Add active class to clicked button
+                this.classList.add('active');
+                
+                // Get filter value
+                const filterValue = this.getAttribute('data-filter');
+                
+                // Show/hide projects based on filter
+                document.querySelectorAll('.project-item').forEach(project => {
+                    if (filterValue === 'all' || project.classList.contains(filterValue)) {
+                        project.classList.remove('hidden');
+                    } else {
+                        project.classList.add('hidden');
+                    }
+                });
+            });
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+                
+                // Close mobile menu if open
+                document.getElementById('mobile-menu').classList.add('hidden');
+            });
+        });
+    </script>
+</body>
+</html>

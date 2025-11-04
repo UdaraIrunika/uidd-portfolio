@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact UIDD | Get in Touch with Our Creative Agency</title>
+    <meta name="description" content="Get in touch with UIDD for web design, development, and branding services. Contact us to discuss your project and start your digital transformation.">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@800&family=Montserrat:wght@500&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+    <style>
+        :root {
+            --primary-blue: #4AB2E5;
+            --pure-black: #000000;
+            --white: #FFFFFF;
+            --dark-gray: #1A1A1A;
+            --deep-navy: #101820;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--pure-black);
+            color: var(--white);
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', sans-serif;
+            text-transform: uppercase;
+        }
+        
+        .glow-text {
+            text-shadow: 0 0 10px var(--primary-blue), 0 0 20px var(--primary-blue), 0 0 30px var(--primary-blue);
+        }
+        
+        .glow-border {
+            box-shadow: 0 0 15px var(--primary-blue), 0 0 30px rgba(74, 178, 229, 0.5);
+        }
+        
+        .glow-border-light {
+            box-shadow: 0 0 8px var(--primary-blue), 0 0 15px rgba(74, 178, 229, 0.3);
+        }
+        
+        .glassmorphism {
+            background: rgba(16, 24, 32, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(74, 178, 229, 0.2);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+        }
+        
+        .glassmorphism-light {
+            background: rgba(26, 26, 26, 0.6);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(74, 178, 229, 0.15);
+        }
+        
+        .bg-circuit {
+            background-image: 
+                linear-gradient(rgba(74, 178, 229, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(74, 178, 229, 0.1) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+        
+        .bg-particles {
+            background-image: 
+                radial-gradient(circle at 20% 30%, rgba(74, 178, 229, 0.15) 2%, transparent 10%),
+                radial-gradient(circle at 80% 70%, rgba(74, 178, 229, 0.15) 2%, transparent 10%),
+                radial-gradient(circle at 40% 80%, rgba(74, 178, 229, 0.1) 2%, transparent 10%),
+                radial-gradient(circle at 70% 20%, rgba(74, 178, 229, 0.1) 2%, transparent 10%);
+            background-size: 400px 400px, 300px 300px, 500px 500px, 450px 450px;
+            animation: particleMove 20s infinite linear;
+        }
+        
+        @keyframes particleMove {
+            0% { background-position: 0 0, 0 0, 0 0, 0 0; }
+            100% { background-position: 400px 400px, 300px 300px, 500px 500px, 450px 450px; }
+        }
+        
+        .card-hover {
+            transition: all 0.4s ease;
+            transform-style: preserve-3d;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-12px) rotateX(5deg) rotateY(2deg);
+            box-shadow: 0 20px 40px rgba(74, 178, 229, 0.3);
+        }
+        
+        .btn-glow {
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn-glow:hover {
+            box-shadow: 0 0 20px var(--primary-blue), 0 0 40px rgba(74, 178, 229, 0.5);
+            transform: scale(1.05);
+        }
+        
+        .btn-glow::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: 0.5s;
+        }
+        
+        .btn-glow:hover::before {
+            left: 100%;
+        }
+        
+        .social-icon {
+            transition: all 0.3s ease;
+        }
+        
+        .social-icon:hover {
+            text-shadow: 0 0 12px var(--primary-blue), 0 0 24px var(--primary-blue);
+            transform: scale(1.2) translateY(-2px);
+        }
+        
+        .section-divider {
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--primary-blue), transparent);
+            margin: 80px auto;
+            width: 80%;
+            max-width: 500px;
+            position: relative;
+        }
+        
+        .section-divider::before {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 12px;
+            height: 12px;
+            background-color: var(--primary-blue);
+            border-radius: 50%;
+            box-shadow: 0 0 12px var(--primary-blue), 0 0 24px var(--primary-blue);
+        }
+        
+        .gradient-text {
+            background: linear-gradient(90deg, #4AB2E5, #FFFFFF);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .input-glow:focus {
+            box-shadow: 0 0 12px rgba(74, 178, 229, 0.6);
+            border-color: var(--primary-blue);
+        }
+        
+        .contact-method {
+            transition: all 0.3s ease;
+        }
+        
+        .contact-method:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(74, 178, 229, 0.3);
+        }
+        
+        .floating {
+            animation: floating 6s ease-in-out infinite;
+        }
+        
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .map-container {
+            border-radius: 16px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .map-placeholder {
+            background: linear-gradient(135deg, #1A1A1A, #101820);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            min-height: 300px;
+        }
+        
+        .form-success {
+            display: none;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+        
+        .form-success.show {
+            display: block;
+            opacity: 1;
+        }
+    </style>
+</head>
+<body class="bg-black text-white">
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 glassmorphism py-4">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <div class="flex items-center">
+                <a href="index.html" class="text-2xl font-bold glow-text">UIDD</a>
+            </div>
+            <div class="hidden md:flex space-x-10">
+                <a href="index.html" class="hover:text-[#4AB2E5] transition-colors font-medium">HOME</a>
+                <a href="about.html" class="hover:text-[#4AB2E5] transition-colors font-medium">ABOUT</a>
+                <a href="services.html" class="hover:text-[#4AB2E5] transition-colors font-medium">SERVICES</a>
+                <a href="work.html" class="hover:text-[#4AB2E5] transition-colors font-medium">WORK</a>
+                <a href="contact.html" class="text-[#4AB2E5] font-medium">CONTACT</a>
+            </div>
+            <div class="md:hidden">
+                <button id="menu-toggle" class="text-white focus:outline-none">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden glassmorphism py-4 px-6">
+            <div class="flex flex-col space-y-4">
+                <a href="index.html" class="hover:text-[#4AB2E5] transition-colors font-medium">HOME</a>
+                <a href="about.html" class="hover:text-[#4AB2E5] transition-colors font-medium">ABOUT</a>
+                <a href="services.html" class="hover:text-[#4AB2E5] transition-colors font-medium">SERVICES</a>
+                <a href="work.html" class="hover:text-[#4AB2E5] transition-colors font-medium">WORK</a>
+                <a href="contact.html" class="text-[#4AB2E5] font-medium">CONTACT</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-32 pb-20 relative overflow-hidden bg-gradient-to-br from-[#000000] to-[#101820]">
+        <div class="bg-circuit bg-particles absolute inset-0"></div>
+        <div class="container mx-auto px-6 text-center relative z-10">
+            <h1 class="text-5xl md:text-7xl font-bold mb-6 glow-text" data-aos="fade-up">GET IN TOUCH</h1>
+            <p class="text-xl md:text-2xl max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="200">
+                Ready to transform your digital presence? Let's discuss your project and create something amazing together.
+            </p>
+        </div>
+    </section>
+
+    <!-- Contact Methods -->
+    <section class="py-20 bg-[#101820] relative overflow-hidden">
+        <div class="bg-circuit absolute inset-0 opacity-20"></div>
+        <div class="container mx-auto px-6 relative z-10">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 gradient-text" data-aos="fade-up">HOW TO REACH US</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="contact-method glassmorphism-light rounded-2xl p-8 text-center" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-16 h-16 mx-auto mb-6 rounded-full bg-gradient-to-br from-[#101820] to-[#1A1A1A] flex items-center justify-center glow-border-light">
+                        <i class="fas fa-phone text-2xl text-[#4AB2E5]"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">CALL US</h3>
+                    <p class="mb-4">Speak directly with our team</p>
+                    <div class="space-y-2">
+                        <div class="text-[#4AB2E5] font-medium">+94 76 4353 012</div>
+                        <div class="text-[#4AB2E5] font-medium">+94 75 0423 270</div>
+                    </div>
+                </div>
+                
+                <div class="contact-method glassmorphism-light rounded-2xl p-8 text-center" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-16 h-16 mx-auto mb-6 rounded-full bg-gradient-to-br from-[#101820] to-[#1A1A1A] flex items-center justify-center glow-border-light">
+                        <i class="fas fa-envelope text-2xl text-[#4AB2E5]"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">EMAIL US</h3>
+                    <p class="mb-4">Send us your project details</p>
+                    <div class="space-y-2">
+                        <div class="text-[#4AB2E5] font-medium">hello@uidd.com</div>
+                        <div class="text-[#4AB2E5] font-medium">projects@uidd.com</div>
+                    </div>
+                </div>
+                
+                <div class="contact-method glassmorphism-light rounded-2xl p-8 text-center" data-aos="fade-up" data-aos-delay="400">
+                    <div class="w-16 h-16 mx-auto mb-6 rounded-full bg-gradient-to-br from-[#101820] to-[#1A1A1A] flex items-center justify-center glow-border-light">
+                        <i class="fas fa-map-marker-alt text-2xl text-[#4AB2E5]"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">VISIT US</h3>
+                    <p class="mb-4">Come by our studio</p>
+                    <div class="text-[#4AB2E5] font-medium">
+                        123 Digital Avenue<br>
+                        Colombo 00500<br>
+                        Sri Lanka
+                    </div>
+                </div>
+                
+                <div class="contact-method glassmorphism-light rounded-2xl p-8 text-center" data-aos="fade-up" data-aos-delay="500">
+                    <div class="w-16 h-16 mx-auto mb-6 rounded-full bg-gradient-to-br from-[#101820] to-[#1A1A1A] flex items-center justify-center glow-border-light">
+                        <i class="fas fa-clock text-2xl text-[#4AB2E5]"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">BUSINESS HOURS</h3>
+                    <p class="mb-4">When we're available</p>
+                    <div class="space-y-1 text-sm">
+                        <div class="flex justify-between">
+                            <span>Mon - Fri:</span>
+                            <span class="text-[#4AB2E5]">9:00 AM - 6:00 PM</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span>Saturday:</span>
+                            <span class="text-[#4AB2E5]">10:00 AM - 4:00 PM</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span>Sunday:</span>
+                            <span class="text-[#4AB2E5]">Closed</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form & Info -->
+    <section class="py-20 bg-black relative overflow-hidden">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- Contact Form -->
+                <div data-aos="fade-right">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-8 gradient-text">SEND US A MESSAGE</h2>
+                    <p class="text-lg mb-8">Fill out the form below and we'll get back to you within 24 hours. Let's start creating something amazing together.</p>
+                    
+                    <form id="contact-form" class="space-y-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="first-name" class="block mb-2">First Name *</label>
+                                <input type="text" id="first-name" class="w-full glassmorphism-light rounded-xl py-3 px-4 input-glow focus:outline-none" required>
+                            </div>
+                            <div>
+                                <label for="last-name" class="block mb-2">Last Name *</label>
+                                <input type="text" id="last-name" class="w-full glassmorphism-light rounded-xl py-3 px-4 input-glow focus:outline-none" required>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label for="email" class="block mb-2">Email Address *</label>
+                            <input type="email" id="email" class="w-full glassmorphism-light rounded-xl py-3 px-4 input-glow focus:outline-none" required>
+                        </div>
+                        
+                        <div>
+                            <label for="company" class="block mb-2">Company</label>
+                            <input type="text" id="company" class="w-full glassmorphism-light rounded-xl py-3 px-4 input-glow focus:outline-none">
+                        </div>
+                        
+                        <div>
+                            <label for="service" class="block mb-2">Service Interested In</label>
+                            <select id="service" class="w-full glassmorphism-light rounded-xl py-3 px-4 input-glow focus:outline-none">
+                                <option value="">Select a service</option>
+                                <option value="web-design">Web Design</option>
+                                <option value="web-development">Web Development</option>
+                                <option value="branding">Branding</option>
+                                <option value="digital-marketing">Digital Marketing</option>
+                                <option value="mobile-development">Mobile Development</option>
+                                <option value="consulting">Consulting</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label for="budget" class="block mb-2">Project Budget (USD)</label>
+                            <select id="budget" class="w-full glassmorphism-light rounded-xl py-3 px-4 input-glow focus:outline-none">
+                                <option value="">Select budget range</option>
+                                <option value="5k-10k">$5,000 - $10,000</option>
+                                <option value="10k-25k">$10,000 - $25,000</option>
+                                <option value="25k-50k">$25,000 - $50,000</option>
+                                <option value="50k-100k">$50,000 - $100,000</option>
+                                <option value="100k+">$100,000+</option>
+                                <option value="not-sure">Not sure yet</option>
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label for="message" class="block mb-2">Project Details *</label>
+                            <textarea id="message" rows="5" class="w-full glassmorphism-light rounded-xl py-3 px-4 input-glow focus:outline-none" placeholder="Tell us about your project, goals, and timeline..." required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn-glow bg-gradient-to-r from-[#4AB2E5] to-[#2A92C5] text-black font-bold py-3 px-8 rounded-xl w-full text-lg">
+                            Send Message
+                        </button>
+                    </form>
+                    
+                    <div id="form-success" class="form-success glassmorphism-light rounded-xl p-6 mt-6 text-center">
+                        <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-br from-[#4AB2E5] to-[#2A92C5] flex items-center justify-center">
+                            <i class="fas fa-check text-2xl text-white"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-2">Message Sent Successfully!</h3>
+                        <p class="text-lg">Thank you for contacting us. We'll get back to you within 24 hours.</p>
+                    </div>
+                </div>
+                
+                <!-- Contact Info & Map -->
+                <div data-aos="fade-left">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-8 gradient-text">CONTACT INFORMATION</h2>
+                    
+                    <div class="glassmorphism-light rounded-2xl p-8 mb-8 floating">
+                        <h3 class="text-xl font-bold mb-6 text-[#4AB2E5]">STUDIO LOCATION</h3>
+                        <div class="space-y-4 mb-6">
+                            <div class="flex items-start">
+                                <i class="fas fa-map-marker-alt text-[#4AB2E5] mt-1 mr-4"></i>
+                                <div>
+                                    <h4 class="font-bold">Address</h4>
+                                    <p>123 Digital Avenue<br>Colombo 00500<br>Sri Lanka</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-phone text-[#4AB2E5] mt-1 mr-4"></i>
+                                <div>
+                                    <h4 class="font-bold">Phone</h4>
+                                    <p>+94 76 4353 012<br>+94 75 0423 270</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-envelope text-[#4AB2E5] mt-1 mr-4"></i>
+                                <div>
+                                    <h4 class="font-bold">Email</h4>
+                                    <p>hello@uidd.com<br>projects@uidd.com</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-globe text-[#4AB2E5] mt-1 mr-4"></i>
+                                <div>
+                                    <h4 class="font-bold">Website</h4>
+                                    <p>www.uidd.com</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="map-container glow-border-light">
+                            <div class="map-placeholder">
+                                <div class="text-center">
+                                    <i class="fas fa-map text-4xl text-[#4AB2E5] mb-4"></i>
+                                    <p class="text-lg">Interactive Map<br><span class="text-sm">Colombo, Sri Lanka</span></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="glassmorphism-light rounded-2xl p-8">
+                        <h3 class="text-xl font-bold mb-6 text-[#4AB2E5]">FOLLOW US</h3>
+                        <div class="flex space-x-6 justify-center">
+                            <a href="#" class="social-icon text-2xl text-[#4AB2E5]">
+                                <i class="fab fa-facebook"></i>
+                            </a>
+                            <a href="#" class="social-icon text-2xl text-[#4AB2E5]">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#" class="social-icon text-2xl text-[#4AB2E5]">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                            <a href="#" class="social-icon text-2xl text-[#4AB2E5]">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="#" class="social-icon text-2xl text-[#4AB2E5]">
+                                <i class="fab fa-dribbble"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-20 bg-[#101820] relative overflow-hidden">
+        <div class="bg-circuit absolute inset-0 opacity-20"></div>
+        <div class="container mx-auto px-6 relative z-10">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 gradient-text" data-aos="fade-up">FREQUENTLY ASKED QUESTIONS</h2>
+            
+            <div class="max-w-4xl mx-auto space-y-6">
+                <div class="glassmorphism-light rounded-2xl p-6" data-aos="fade-up" data-aos-delay="200">
+                    <h3 class="text-xl font-bold mb-3 flex items-center">
+                        <i class="fas fa-question-circle text-[#4AB2E5] mr-3"></i>
+                        How long does a typical project take?
+                    </h3>
+                    <p class="text-lg">Project timelines vary based on scope and complexity. A simple website might take 4-6 weeks, while a comprehensive web application could take 3-6 months. We provide detailed timelines during our initial consultation.</p>
+                </div>
+                
+                <div class="glassmorphism-light rounded-2xl p-6" data-aos="fade-up" data-aos-delay="300">
+                    <h3 class="text-xl font-bold mb-3 flex items-center">
+                        <i class="fas fa-question-circle text-[#4AB2E5] mr-3"></i>
+                        What is your typical project process?
+                    </h3>
+                    <p class="text-lg">Our process includes discovery & strategy, design & planning, development & implementation, testing & quality assurance, and launch & optimization. We maintain transparent communication throughout each phase.</p>
+                </div>
+                
+                <div class="glassmorphism-light rounded-2xl p-6" data-aos="fade-up" data-aos-delay="400">
+                    <h3 class="text-xl font-bold mb-3 flex items-center">
+                        <i class="fas fa-question-circle text-[#4AB2E5] mr-3"></i>
+                        Do you work with international clients?
+                    </h3>
+                    <p class="text-lg">Yes, we work with clients worldwide. We're experienced in remote collaboration and use modern tools to ensure seamless communication across time zones.</p>
+                </div>
+                
+                <div class="glassmorphism-light rounded-2xl p-6" data-aos="fade-up" data-aos-delay="500">
+                    <h3 class="text-xl font-bold mb-3 flex items-center">
+                        <i class="fas fa-question-circle text-[#4AB2E5] mr-3"></i>
+                        What industries do you specialize in?
+                    </h3>
+                    <p class="text-lg">We have experience across multiple industries including finance, healthcare, e-commerce, education, technology, and more. Our adaptable approach allows us to understand and serve diverse business needs.</p>
+                </div>
+                
+                <div class="glassmorphism-light rounded-2xl p-6" data-aos="fade-up" data-aos-delay="600">
+                    <h3 class="text-xl font-bold mb-3 flex items-center">
+                        <i class="fas fa-question-circle text-[#4AB2E5] mr-3"></i>
+                        Do you provide ongoing support after project completion?
+                    </h3>
+                    <p class="text-lg">Yes, we offer various support and maintenance packages to ensure your digital solution continues to perform optimally. We also provide training and documentation for your team.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-black relative overflow-hidden">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-4xl md:text-5xl font-bold mb-8 gradient-text" data-aos="fade-up">READY TO START YOUR PROJECT?</h2>
+            <p class="text-xl mb-10 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="200">
+                Let's schedule a consultation to discuss your project requirements and how we can help bring your vision to life.
+            </p>
+            <div class="flex flex-col md:flex-row justify-center gap-6" data-aos="fade-up" data-aos-delay="400">
+                <a href="tel:+94764353012" class="btn-glow border-2 border-[#4AB2E5] text-[#4AB2E5] font-bold py-3 px-8 rounded-full text-lg">
+                    <i class="fas fa-phone mr-2"></i> Call Now
+                </a>
+                <a href="mailto:hello@uidd.com" class="btn-glow bg-gradient-to-r from-[#4AB2E5] to-[#2A92C5] text-black font-bold py-3 px-8 rounded-full text-lg">
+                    <i class="fas fa-envelope mr-2"></i> Email Us
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-[#101820] py-12 border-t border-[#4AB2E5]/20">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <span class="text-2xl font-bold glow-text">UIDD</span>
+                </div>
+                <div class="flex space-x-8 mb-6 md:mb-0">
+                    <a href="#" class="social-icon text-2xl text-[#4AB2E5]">
+                        <i class="fas fa-globe"></i>
+                    </a>
+                    <a href="#" class="social-icon text-2xl text-[#4AB2E5]">
+                        <i class="fab fa-facebook"></i>
+                    </a>
+                    <a href="#" class="social-icon text-2xl text-[#4AB2E5]">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="social-icon text-2xl text-[#4AB2E5]">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="border-t border-[#4AB2E5]/20 mt-8 pt-8 text-center">
+                <p class="text-lg">Copyright © 2025 UIDD — All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize AOS (Animate On Scroll)
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
+        });
+
+        // Mobile menu toggle
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+
+        // Contact form submission
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // In a real implementation, you would send the form data to a server here
+            // For this example, we'll just show the success message
+            
+            // Hide the form
+            this.style.display = 'none';
+            
+            // Show success message
+            document.getElementById('form-success').classList.add('show');
+            
+            // You could also reset the form here if needed
+            // this.reset();
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+                
+                // Close mobile menu if open
+                document.getElementById('mobile-menu').classList.add('hidden');
+            });
+        });
+    </script>
+</body>
+</html>

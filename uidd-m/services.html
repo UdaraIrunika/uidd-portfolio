@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services - UIDD | Web Design, Development & Branding Solutions</title>
+    <meta name="description" content="UIDD offers comprehensive digital services including web design, web development, branding, and digital marketing solutions tailored to your business needs.">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@800&family=Montserrat:wght@500&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+    <style>
+        :root {
+            --primary-blue: #4AB2E5;
+            --pure-black: #000000;
+            --white: #FFFFFF;
+            --dark-gray: #1A1A1A;
+            --deep-navy: #101820;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--pure-black);
+            color: var(--white);
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', sans-serif;
+            text-transform: uppercase;
+        }
+        
+        .glow-text {
+            text-shadow: 0 0 10px var(--primary-blue), 0 0 20px var(--primary-blue), 0 0 30px var(--primary-blue);
+        }
+        
+        .glow-border {
+            box-shadow: 0 0 15px var(--primary-blue), 0 0 30px rgba(74, 178, 229, 0.5);
+        }
+        
+        .glow-border-light {
+            box-shadow: 0 0 8px var(--primary-blue), 0 0 15px rgba(74, 178, 229, 0.3);
+        }
+        
+        .glassmorphism {
+            background: rgba(16, 24, 32, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(74, 178, 229, 0.2);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+        }
+        
+        .glassmorphism-light {
+            background: rgba(26, 26, 26, 0.6);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(74, 178, 229, 0.15);
+        }
+        
+        .bg-circuit {
+            background-image: 
+                linear-gradient(rgba(74, 178, 229, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(74, 178, 229, 0.1) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+        
+        .bg-particles {
+            background-image: 
+                radial-gradient(circle at 20% 30%, rgba(74, 178, 229, 0.15) 2%, transparent 10%),
+                radial-gradient(circle at 80% 70%, rgba(74, 178, 229, 0.15) 2%, transparent 10%),
+                radial-gradient(circle at 40% 80%, rgba(74, 178, 229, 0.1) 2%, transparent 10%),
+                radial-gradient(circle at 70% 20%, rgba(74, 178, 229, 0.1) 2%, transparent 10%);
+            background-size: 400px 400px, 300px 300px, 500px 500px, 450px 450px;
+            animation: particleMove 20s infinite linear;
+        }
+        
+        @keyframes particleMove {
+            0% { background-position: 0 0, 0 0, 0 0, 0 0; }
+            100% { background-position: 400px 400px, 300px 300px, 500px 500px, 450px 450px; }
+        }
+        
+        .card-hover {
+            transition: all 0.4s ease;
+            transform-style: preserve-3d;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-12px) rotateX(5deg) rotateY(2deg);
+            box-shadow: 0 20px 40px rgba(74, 178, 229, 0.3);
+        }
+        
+        .btn-glow {
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn-glow:hover {
+            box-shadow: 0 0 20px var(--primary-blue), 0 0 40px rgba(74, 178, 229, 0.5);
+            transform: scale(1.05);
+        }
+        
+        .btn-glow::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: 0.5s;
+        }
+        
+        .btn-glow:hover::before {
+            left: 100%;
+        }
+        
+        .social-icon {
+            transition: all 0.3s ease;
+        }
+        
+        .social-icon:hover {
+            text-shadow: 0 0 12px var(--primary-blue), 0 0 24px var(--primary-blue);
+            transform: scale(1.2) translateY(-2px);
+        }
+        
+        .section-divider {
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--primary-blue), transparent);
+            margin: 80px auto;
+            width: 80%;
+            max-width: 500px;
+            position: relative;
+        }
+        
+        .section-divider::before {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 12px;
+            height: 12px;
+            background-color: var(--primary-blue);
+            border-radius: 50%;
+            box-shadow: 0 0 12px var(--primary-blue), 0 0 24px var(--primary-blue);
+        }
+        
+        .floating {
+            animation: floating 6s ease-in-out infinite;
+        }
+        
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .gradient-text {
+            background: linear-gradient(90deg, #4AB2E5, #FFFFFF);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .service-process {
+            counter-reset: process-counter;
+        }
+        
+        .process-step {
+            position: relative;
+            padding-left: 80px;
+            margin-bottom: 60px;
+        }
+        
+        .process-step::before {
+            counter-increment: process-counter;
+            content: counter(process-counter);
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #4AB2E5, #2A92C5);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: bold;
+            box-shadow: 0 0 15px var(--primary-blue);
+        }
+        
+        .process-step::after {
+            content: '';
+            position: absolute;
+            left: 30px;
+            top: 65px;
+            width: 2px;
+            height: calc(100% + 20px);
+            background-color: var(--primary-blue);
+            opacity: 0.5;
+        }
+        
+        .process-step:last-child::after {
+            display: none;
+        }
+        
+        .pricing-card {
+            transition: all 0.4s ease;
+        }
+        
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(74, 178, 229, 0.3);
+        }
+        
+        .feature-list li {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 12px;
+        }
+        
+        .feature-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--primary-blue);
+            font-weight: bold;
+        }
+        
+        .tab-button {
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .tab-button.active {
+            background: rgba(74, 178, 229, 0.2);
+            border-color: var(--primary-blue);
+            box-shadow: 0 0 10px rgba(74, 178, 229, 0.3);
+        }
+        
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="bg-black text-white">
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 glassmorphism py-4">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <div class="flex items-center">
+                <a href="index.html" class="text-2xl font-bold glow-text">UIDD</a>
+            </div>
+            <div class="hidden md:flex space-x-10">
+                <a href="index.html" class="hover:text-[#4AB2E5] transition-colors font-medium">HOME</a>
+                <a href="about.html" class="hover:text-[#4AB2E5] transition-colors font-medium">ABOUT</a>
+                <a href="services.html" class="text-[#4AB2E5] font-medium">SERVICES</a>
+                <a href="work.html" class="hover:text-[#4AB2E5] transition-colors font-medium">WORK</a>
+                <a href="contact.html" class="hover:text-[#4AB2E5] transition-colors font-medium">CONTACT</a>
+            </div>
+            <div class="md:hidden">
+                <button id="menu-toggle" class="text-white focus:outline-none">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden glassmorphism py-4 px-6">
+            <div class="flex flex-col space-y-4">
+                <a href="index.html" class="hover:text-[#4AB2E5] transition-colors font-medium">HOME</a>
+                <a href="about.html" class="hover:text-[#4AB2E5] transition-colors font-medium">ABOUT</a>
+                <a href="services.html" class="text-[#4AB2E5] font-medium">SERVICES</a>
+                <a href="work.html" class="hover:text-[#4AB2E5] transition-colors font-medium">WORK</a>
+                <a href="contact.html" class="hover:text-[#4AB2E5] transition-colors font-medium">CONTACT</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-32 pb-20 relative overflow-hidden bg-gradient-to-br from-[#000000] to-[#101820]">
+        <div class="bg-circuit bg-particles absolute inset-0"></div>
+        <div class="container mx-auto px-6 text-center relative z-10">
+            <h1 class="text-5xl md:text-7xl font-bold mb-6 glow-text" data-aos="fade-up">OUR SERVICES</h1>
+            <p class="text-xl md:text-2xl max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="200">
+                Comprehensive digital solutions tailored to transform your vision into exceptional digital experiences
+            </p>
+        </div>
+    </section>
+
+    <!-- Services Overview -->
+    <section class="py-20 bg-[#101820] relative overflow-hidden">
+        <div class="bg-circuit absolute inset-0 opacity-20"></div>
+        <div class="container mx-auto px-6 relative z-10">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 gradient-text" data-aos="fade-up">WHAT WE OFFER</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Web Design -->
+                <div class="card-hover glassmorphism-light rounded-2xl p-8" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-20 h-20 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-[#101820] to-[#1A1A1A] flex items-center justify-center glow-border-light">
+                        <i class="fas fa-desktop text-3xl text-[#4AB2E5]"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-center mb-4">WEB DESIGN</h3>
+                    <p class="text-center mb-6">Creating visually stunning, user-centered interfaces that captivate and convert.</p>
+                    <ul class="feature-list space-y-2 mb-6">
+                        <li>UI/UX Design</li>
+                        <li>Responsive Design</li>
+                        <li>Interactive Prototypes</li>
+                        <li>User Research</li>
+                    </ul>
+                    <a href="#web-design" class="block text-center text-[#4AB2E5] font-medium hover:underline">Learn More</a>
+                </div>
+                
+                <!-- Web Development -->
+                <div class="card-hover glassmorphism-light rounded-2xl p-8" data-aos="fade-up" data-aos-delay="400">
+                    <div class="w-20 h-20 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-[#101820] to-[#1A1A1A] flex items-center justify-center glow-border-light">
+                        <i class="fas fa-code text-3xl text-[#4AB2E5]"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-center mb-4">WEB DEVELOPMENT</h3>
+                    <p class="text-center mb-6">Building robust, scalable applications with cutting-edge technologies.</p>
+                    <ul class="feature-list space-y-2 mb-6">
+                        <li>Frontend Development</li>
+                        <li>Backend Development</li>
+                        <li>E-commerce Solutions</li>
+                        <li>API Integration</li>
+                    </ul>
+                    <a href="#web-development" class="block text-center text-[#4AB2E5] font-medium hover:underline">Learn More</a>
+                </div>
+                
+                <!-- Branding -->
+                <div class="card-hover glassmorphism-light rounded-2xl p-8" data-aos="fade-up" data-aos-delay="600">
+                    <div class="w-20 h-20 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-[#101820] to-[#1A1A1A] flex items-center justify-center glow-border-light">
+                        <i class="fas fa-palette text-3xl text-[#4AB2E5]"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-center mb-4">BRANDING</h3>
+                    <p class="text-center mb-6">Crafting compelling brand identities that resonate with your audience.</p>
+                    <ul class="feature-list space-y-2 mb-6">
+                        <li>Logo Design</li>
+                        <li>Brand Strategy</li>
+                        <li>Visual Identity</li>
+                        <li>Brand Guidelines</li>
+                    </ul>
+                    <a href="#branding" class="block text-center text-[#4AB2E5] font-medium hover:underline">Learn More</a>
+                </div>
+                
+                <!-- Digital Marketing -->
+                <div class="card-hover glassmorphism-light rounded-2xl p-8" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-20 h-20 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-[#101820] to-[#1A1A1A] flex items-center justify-center glow-border-light">
+                        <i class="fas fa-chart-line text-3xl text-[#4AB2E5]"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-center mb-4">DIGITAL MARKETING</h3>
+                    <p class="text-center mb-6">Driving growth through data-driven strategies and targeted campaigns.</p>
+                    <ul class="feature-list space-y-2 mb-6">
+                        <li>SEO Optimization</li>
+                        <li>Content Strategy</li>
+                        <li>Social Media Marketing</li>
+                        <li>Analytics & Reporting</li>
+                    </ul>
+                    <a href="#digital-marketing" class="block text-center text-[#4AB2E5] font-medium hover:underline">Learn More</a>
+                </div>
+                
+                <!-- Mobile Development -->
+                <div class="card-hover glassmorphism-light rounded-2xl p-8" data-aos="fade-up" data-aos-delay="400">
+                    <div class="w-20 h-20 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-[#101820] to-[#1A1A1A] flex items-center justify-center glow-border-light">
+                        <i class="fas fa-mobile-alt text-3xl text-[#4AB2E5]"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-center mb-4">MOBILE DEVELOPMENT</h3>
+                    <p class="text-center mb-6">Creating seamless mobile experiences for iOS and Android platforms.</p>
+                    <ul class="feature-list space-y-2 mb-6">
+                        <li>iOS App Development</li>
+                        <li>Android App Development</li>
+                        <li>Cross-Platform Solutions</li>
+                        <li>App Store Optimization</li>
+                    </ul>
+                    <a href="#mobile-development" class="block text-center text-[#4AB2E5] font-medium hover:underline">Learn More</a>
+                </div>
+                
+                <!-- Consulting -->
+                <div class="card-hover glassmorphism-light rounded-2xl p-8" data-aos="fade-up" data-aos-delay="600">
+                    <div class="w-20 h-20 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-[#101820] to-[#1A1A1A] flex items-center justify-center glow-border-light">
+                        <i class="fas fa-headset text-3xl text-[#4AB2E5]"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-center mb-4">CONSULTING</h3>
+                    <p class="text-center mb-6">Strategic guidance to optimize your digital presence and operations.</p>
+                    <ul class="feature-list space-y-2 mb-6">
+                        <li>Digital Strategy</li>
+                        <li>Technology Audits</li>
+                        <li>Process Optimization</li>
+                        <li>Team Training</li>
+                    </ul>
+                    <a href="#consulting" class="block text-center text-[#4AB2E5] font-medium hover:underline">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service Tabs -->
+    <section class="py-20 bg-black relative overflow-hidden">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 gradient-text" data-aos="fade-up">SERVICE DETAILS</h2>
+            
+            <div class="max-w-5xl mx-auto">
+                <!-- Tab Buttons -->
+                <div class="flex flex-wrap justify-center gap-4 mb-12" data-aos="fade-up">
+                    <button class="tab-button glassmorphism-light py-3 px-6 rounded-lg font-medium active" data-tab="web-design">Web Design</button>
+                    <button class="tab-button glassmorphism-light py-3 px-6 rounded-lg font-medium" data-tab="web-development">Web Development</button>
+                    <button class="tab-button glassmorphism-light py-3 px-6 rounded-lg font-medium" data-tab="branding">Branding</button>
+                    <button class="tab-button glassmorphism-light py-3 px-6 rounded-lg font-medium" data-tab="digital-marketing">Digital Marketing</button>
+                </div>
+                
+                <!-- Tab Contents -->
+                <div class="tab-content active" id="web-design" data-aos="fade-up">
+                    <div class="glassmorphism rounded-2xl p-8">
+                        <h3 class="text-3xl font-bold mb-6">Web Design Services</h3>
+                        <p class="text-lg mb-6">We create visually stunning, user-centered designs that not only look incredible but also drive engagement and conversions. Our design process combines aesthetic excellence with strategic thinking to deliver interfaces that users love.</p>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                            <div>
+                                <h4 class="text-xl font-bold mb-4 text-[#4AB2E5]">What's Included</h4>
+                                <ul class="feature-list space-y-3">
+                                    <li>User Research & Personas</li>
+                                    <li>Information Architecture</li>
+                                    <li>Wireframing & Prototyping</li>
+                                    <li>UI Design & Visual Identity</li>
+                                    <li>Responsive Design</li>
+                                    <li>Interaction Design</li>
+                                    <li>Usability Testing</li>
+                                    <li>Design System Creation</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold mb-4 text-[#4AB2E5]">Technologies</h4>
+                                <ul class="feature-list space-y-3">
+                                    <li>Figma, Sketch, Adobe XD</li>
+                                    <li>InVision, Proto.io</li>
+                                    <li>HTML5, CSS3, JavaScript</li>
+                                    <li>React, Vue.js</li>
+                                    <li>Tailwind CSS, Bootstrap</li>
+                                    <li>Webflow, Framer</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="text-center">
+                            <a href="contact.html" class="btn-glow bg-gradient-to-r from-[#4AB2E5] to-[#2A92C5] text-black font-bold py-3 px-8 rounded-full text-lg inline-block">Start Your Project</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tab-content" id="web-development">
+                    <div class="glassmorphism rounded-2xl p-8">
+                        <h3 class="text-3xl font-bold mb-6">Web Development Services</h3>
+                        <p class="text-lg mb-6">We build robust, scalable web applications using the latest technologies and best practices. Our development process ensures high performance, security, and maintainability for your digital products.</p>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                            <div>
+                                <h4 class="text-xl font-bold mb-4 text-[#4AB2E5]">Frontend Development</h4>
+                                <ul class="feature-list space-y-3">
+                                    <li>React.js & Next.js</li>
+                                    <li>Vue.js & Nuxt.js</li>
+                                    <li>Angular & TypeScript</li>
+                                    <li>Progressive Web Apps</li>
+                                    <li>Performance Optimization</li>
+                                    <li>Cross-browser Compatibility</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold mb-4 text-[#4AB2E5]">Backend Development</h4>
+                                <ul class="feature-list space-y-3">
+                                    <li>Node.js & Express</li>
+                                    <li>Python & Django</li>
+                                    <li>PHP & Laravel</li>
+                                    <li>Database Design</li>
+                                    <li>API Development</li>
+                                    <li>Server Configuration</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="text-center">
+                            <a href="contact.html" class="btn-glow bg-gradient-to-r from-[#4AB2E5] to-[#2A92C5] text-black font-bold py-3 px-8 rounded-full text-lg inline-block">Start Your Project</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tab-content" id="branding">
+                    <div class="glassmorphism rounded-2xl p-8">
+                        <h3 class="text-3xl font-bold mb-6">Branding Services</h3>
+                        <p class="text-lg mb-6">We develop compelling brand identities that communicate your values and resonate with your target audience. Our branding process combines strategic thinking with creative execution to build memorable brands.</p>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                            <div>
+                                <h4 class="text-xl font-bold mb-4 text-[#4AB2E5]">Brand Strategy</h4>
+                                <ul class="feature-list space-y-3">
+                                    <li>Brand Positioning</li>
+                                    <li>Target Audience Analysis</li>
+                                    <li>Competitive Research</li>
+                                    <li>Brand Architecture</li>
+                                    <li>Messaging Framework</li>
+                                    <li>Brand Voice & Tone</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold mb-4 text-[#4AB2E5]">Visual Identity</h4>
+                                <ul class="feature-list space-y-3">
+                                    <li>Logo Design</li>
+                                    <li>Color Palette</li>
+                                    <li>Typography System</li>
+                                    <li>Imagery & Photography</li>
+                                    <li>Iconography</li>
+                                    <li>Brand Guidelines</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="text-center">
+                            <a href="contact.html" class="btn-glow bg-gradient-to-r from-[#4AB2E5] to-[#2A92C5] text-black font-bold py-3 px-8 rounded-full text-lg inline-block">Start Your Project</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tab-content" id="digital-marketing">
+                    <div class="glassmorphism rounded-2xl p-8">
+                        <h3 class="text-3xl font-bold mb-6">Digital Marketing Services</h3>
+                        <p class="text-lg mb-6">We drive growth through data-driven digital marketing strategies that increase visibility, engagement, and conversions. Our approach combines creativity with analytics to deliver measurable results.</p>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                            <div>
+                                <h4 class="text-xl font-bold mb-4 text-[#4AB2E5]">Search & Content</h4>
+                                <ul class="feature-list space-y-3">
+                                    <li>SEO Strategy & Optimization</li>
+                                    <li>Content Strategy</li>
+                                    <li>Keyword Research</li>
+                                    <li>Technical SEO Audits</li>
+                                    <li>Content Creation</li>
+                                    <li>Blog Management</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold mb-4 text-[#4AB2E5]">Social & Advertising</h4>
+                                <ul class="feature-list space-y-3">
+                                    <li>Social Media Strategy</li>
+                                    <li>Paid Social Advertising</li>
+                                    <li>Google Ads Management</li>
+                                    <li>Email Marketing</li>
+                                    <li>Conversion Rate Optimization</li>
+                                    <li>Analytics & Reporting</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="text-center">
+                            <a href="contact.html" class="btn-glow bg-gradient-to-r from-[#4AB2E5] to-[#2A92C5] text-black font-bold py-3 px-8 rounded-full text-lg inline-block">Start Your Project</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="py-20 bg-[#101820] relative overflow-hidden">
+        <div class="bg-circuit absolute inset-0 opacity-20"></div>
+        <div class="container mx-auto px-6 relative z-10">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 gradient-text" data-aos="fade-up">OUR PROCESS</h2>
+            
+            <div class="max-w-4xl mx-auto service-process">
+                <div class="process-step" data-aos="fade-right">
+                    <h3 class="text-2xl font-bold mb-4">DISCOVERY & STRATEGY</h3>
+                    <p class="text-lg">We begin by deeply understanding your business, goals, and target audience. Through research and analysis, we develop a comprehensive strategy that aligns with your objectives.</p>
+                </div>
+                
+                <div class="process-step" data-aos="fade-right" data-aos-delay="100">
+                    <h3 class="text-2xl font-bold mb-4">DESIGN & PLANNING</h3>
+                    <p class="text-lg">Our design team creates wireframes, prototypes, and visual designs that bring your vision to life. We focus on user experience and interface design that engages and converts.</p>
+                </div>
+                
+                <div class="process-step" data-aos="fade-right" data-aos-delay="200">
+                    <h3 class="text-2xl font-bold mb-4">DEVELOPMENT & IMPLEMENTATION</h3>
+                    <p class="text-lg">Using cutting-edge technologies, our development team builds robust, scalable solutions. We follow agile methodologies to ensure transparency and timely delivery.</p>
+                </div>
+                
+                <div class="process-step" data-aos="fade-right" data-aos-delay="300">
+                    <h3 class="text-2xl font-bold mb-4">TESTING & QUALITY ASSURANCE</h3>
+                    <p class="text-lg">We conduct thorough testing across devices and browsers to ensure optimal performance, security, and user experience. Your satisfaction is our priority.</p>
+                </div>
+                
+                <div class="process-step" data-aos="fade-right" data-aos-delay="400">
+                    <h3 class="text-2xl font-bold mb-4">LAUNCH & OPTIMIZATION</h3>
+                    <p class="text-lg">We manage the deployment process and provide ongoing support to ensure your digital solution continues to perform at its best and evolves with your needs.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-black relative overflow-hidden">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-4xl md:text-5xl font-bold mb-8 gradient-text" data-aos="fade-up">READY TO GET STARTED?</h2>
+            <p class="text-xl mb-10 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="200">
+                Let's discuss your project and how we can help bring your vision to life with our comprehensive digital services.
+            </p>
+            <div class="flex flex-col md:flex-row justify-center gap-6" data-aos="fade-up" data-aos-delay="400">
+                <a href="work.html" class="btn-glow border-2 border-[#4AB2E5] text-[#4AB2E5] font-bold py-3 px-8 rounded-full text-lg">View Our Work</a>
+                <a href="contact.html" class="btn-glow bg-gradient-to-r from-[#4AB2E5] to-[#2A92C5] text-black font-bold py-3 px-8 rounded-full text-lg">Get In Touch</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-[#101820] py-12 border-t border-[#4AB2E5]/20">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <span class="text-2xl font-bold glow-text">UIDD</span>
+                </div>
+                <div class="flex space-x-8 mb-6 md:mb-0">
+                    <a href="#" class="social-icon text-2xl text-[#4AB2E5]">
+                        <i class="fas fa-globe"></i>
+                    </a>
+                    <a href="#" class="social-icon text-2xl text-[#4AB2E5]">
+                        <i class="fab fa-facebook"></i>
+                    </a>
+                    <a href="#" class="social-icon text-2xl text-[#4AB2E5]">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="social-icon text-2xl text-[#4AB2E5]">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="border-t border-[#4AB2E5]/20 mt-8 pt-8 text-center">
+                <p class="text-lg">Copyright © 2025 UIDD — All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize AOS (Animate On Scroll)
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
+        });
+
+        // Mobile menu toggle
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+
+        // Tab functionality
+        document.querySelectorAll('.tab-button').forEach(button => {
+            button.addEventListener('click', function() {
+                // Remove active class from all buttons and contents
+                document.querySelectorAll('.tab-button').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                document.querySelectorAll('.tab-content').forEach(content => {
+                    content.classList.remove('active');
+                });
+                
+                // Add active class to clicked button and corresponding content
+                this.classList.add('active');
+                const tabId = this.getAttribute('data-tab');
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+                
+                // Close mobile menu if open
+                document.getElementById('mobile-menu').classList.add('hidden');
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About UIDD - UI Designers & Developers | Creative Technology Agency</title>
+    <meta name="description" content="Learn about UIDD - a Sri Lankan creative agency blending design and technology to craft modern digital experiences that inspire trust and growth.">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@800&family=Montserrat:wght@500&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+    <style>
+        :root {
+            --primary-blue: #4AB2E5;
+            --pure-black: #000000;
+            --white: #FFFFFF;
+            --dark-gray: #1A1A1A;
+            --deep-navy: #101820;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--pure-black);
+            color: var(--white);
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', sans-serif;
+            text-transform: uppercase;
+        }
+        
+        .glow-text {
+            text-shadow: 0 0 10px var(--primary-blue), 0 0 20px var(--primary-blue), 0 0 30px var(--primary-blue);
+        }
+        
+        .glow-border {
+            box-shadow: 0 0 15px var(--primary-blue), 0 0 30px rgba(74, 178, 229, 0.5);
+        }
+        
+        .glow-border-light {
+            box-shadow: 0 0 8px var(--primary-blue), 0 0 15px rgba(74, 178, 229, 0.3);
+        }
+        
+        .glassmorphism {
+            background: rgba(16, 24, 32, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(74, 178, 229, 0.2);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+        }
+        
+        .glassmorphism-light {
+            background: rgba(26, 26, 26, 0.6);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(74, 178, 229, 0.15);
+        }
+        
+        .bg-circuit {
+            background-image: 
+                linear-gradient(rgba(74, 178, 229, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(74, 178, 229, 0.1) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+        
+        .bg-particles {
+            background-image: 
+                radial-gradient(circle at 20% 30%, rgba(74, 178, 229, 0.15) 2%, transparent 10%),
+                radial-gradient(circle at 80% 70%, rgba(74, 178, 229, 0.15) 2%, transparent 10%),
+                radial-gradient(circle at 40% 80%, rgba(74, 178, 229, 0.1) 2%, transparent 10%),
+                radial-gradient(circle at 70% 20%, rgba(74, 178, 229, 0.1) 2%, transparent 10%);
+            background-size: 400px 400px, 300px 300px, 500px 500px, 450px 450px;
+            animation: particleMove 20s infinite linear;
+        }
+        
+        @keyframes particleMove {
+            0% { background-position: 0 0, 0 0, 0 0, 0 0; }
+            100% { background-position: 400px 400px, 300px 300px, 500px 500px, 450px 450px; }
+        }
+        
+        .card-hover {
+            transition: all 0.4s ease;
+            transform-style: preserve-3d;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-12px) rotateX(5deg) rotateY(2deg);
+            box-shadow: 0 20px 40px rgba(74, 178, 229, 0.3);
+        }
+        
+        .btn-glow {
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn-glow:hover {
+            box-shadow: 0 0 20px var(--primary-blue), 0 0 40px rgba(74, 178, 229, 0.5);
+            transform: scale(1.05);
+        }
+        
+        .btn-glow::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: 0.5s;
+        }
+        
+        .btn-glow:hover::before {
+            left: 100%;
+        }
+        
+        .social-icon {
+            transition: all 0.3s ease;
+        }
+        
+        .social-icon:hover {
+            text-shadow: 0 0 12px var(--primary-blue), 0 0 24px var(--primary-blue);
+            transform: scale(1.2) translateY(-2px);
+        }
+        
+        .section-divider {
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--primary-blue), transparent);
+            margin: 80px auto;
+            width: 80%;
+            max-width: 500px;
+            position: relative;
+        }
+        
+        .section-divider::before {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 12px;
+            height: 12px;
+            background-color: var(--primary-blue);
+            border-radius: 50%;
+            box-shadow: 0 0 12px var(--primary-blue), 0 0 24px var(--primary-blue);
+        }
+        
+        .floating {
+            animation: floating 6s ease-in-out infinite;
+        }
+        
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .gradient-text {
+            background: linear-gradient(90deg, #4AB2E5, #FFFFFF);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .timeline-item {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 8px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: var(--primary-blue);
+            box-shadow: 0 0 10px var(--primary-blue);
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            left: 5px;
+            top: 25px;
+            width: 2px;
+            height: calc(100% + 25px);
+            background-color: var(--primary-blue);
+            opacity: 0.5;
+        }
+        
+        .timeline-item:last-child::after {
+            display: none;
+        }
+        
+        .team-card {
+            transition: all 0.4s ease;
+        }
+        
+        .team-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(74, 178, 229, 0.3);
+        }
+        
+        .stat-card {
+            transition: all 0.4s ease;
+        }
+        
+        .stat-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 25px rgba(74, 178, 229, 0.3);
+        }
+    </style>
+</head>
+<body class="bg-black text-white">
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 glassmorphism py-4">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <div class="flex items-center">
+                <a href="index.html" class="text-2xl font-bold glow-text">UIDD</a>
+            </div>
+            <div class="hidden md:flex space-x-10">
+                <a href="index.html" class="hover:text-[#4AB2E5] transition-colors font-medium">HOME</a>
+                <a href="about.html" class="text-[#4AB2E5] font-medium">ABOUT</a>
+                <a href="services.html" class="hover:text-[#4AB2E5] transition-colors font-medium">SERVICES</a>
+                <a href="work.html" class="hover:text-[#4AB2E5] transition-colors font-medium">WORK</a>
+                <a href="contact.html" class="hover:text-[#4AB2E5] transition-colors font-medium">CONTACT</a>
+            </div>
+            <div class="md:hidden">
+                <button id="menu-toggle" class="text-white focus:outline-none">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden glassmorphism py-4 px-6">
+            <div class="flex flex-col space-y-4">
+                <a href="index.html" class="hover:text-[#4AB2E5] transition-colors font-medium">HOME</a>
+                <a href="about.html" class="text-[#4AB2E5] font-medium">ABOUT</a>
+                <a href="services.html" class="hover:text-[#4AB2E5] transition-colors font-medium">SERVICES</a>
+                <a href="work.html" class="hover:text-[#4AB2E5] transition-colors font-medium">WORK</a>
+                <a href="contact.html" class="hover:text-[#4AB2E5] transition-colors font-medium">CONTACT</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-32 pb-20 relative overflow-hidden bg-gradient-to-br from-[#000000] to-[#101820]">
+        <div class="bg-circuit bg-particles absolute inset-0"></div>
+        <div class="container mx-auto px-6 text-center relative z-10">
+            <h1 class="text-5xl md:text-7xl font-bold mb-6 glow-text" data-aos="fade-up">ABOUT UIDD</h1>
+            <p class="text-xl md:text-2xl max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="200">
+                Pioneering the future of digital experiences through innovative design and cutting-edge technology
+            </p>
+        </div>
+    </section>
+
+    <!-- Our Story Section -->
+    <section class="py-20 bg-[#101820] relative overflow-hidden">
+        <div class="bg-circuit absolute inset-0 opacity-20"></div>
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div data-aos="fade-right">
+                    <h2 class="text-4xl md:text-5xl font-bold mb-8 gradient-text">OUR STORY</h2>
+                    <p class="text-lg mb-6">
+                        Founded in 2018, UIDD emerged from a shared vision to bridge the gap between exceptional design and robust technology. Our journey began in Colombo, Sri Lanka, with a small team of passionate designers and developers determined to create digital experiences that truly make a difference.
+                    </p>
+                    <p class="text-lg mb-6">
+                        Over the years, we've grown into a multidisciplinary agency, but our core philosophy remains unchanged: to deliver solutions that not only meet business objectives but also create meaningful connections between brands and their audiences.
+                    </p>
+                    <p class="text-lg">
+                        Today, we're proud to have collaborated with startups, enterprises, and everything in between, helping them transform their digital presence and achieve remarkable results.
+                    </p>
+                </div>
+                <div class="glassmorphism rounded-2xl p-8 floating" data-aos="fade-left">
+                    <div class="grid grid-cols-2 gap-6">
+                        <div class="stat-card glassmorphism-light rounded-xl p-6 text-center">
+                            <div class="text-4xl font-bold text-[#4AB2E5] mb-2">50+</div>
+                            <div class="text-lg">Projects Completed</div>
+                        </div>
+                        <div class="stat-card glassmorphism-light rounded-xl p-6 text-center">
+                            <div class="text-4xl font-bold text-[#4AB2E5] mb-2">5+</div>
+                            <div class="text-lg">Years Experience</div>
+                        </div>
+                        <div class="stat-card glassmorphism-light rounded-xl p-6 text-center">
+                            <div class="text-4xl font-bold text-[#4AB2E5] mb-2">15+</div>
+                            <div class="text-lg">Team Members</div>
+                        </div>
+                        <div class="stat-card glassmorphism-light rounded-xl p-6 text-center">
+                            <div class="text-4xl font-bold text-[#4AB2E5] mb-2">98%</div>
+                            <div class="text-lg">Client Satisfaction</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Journey Section -->
+    <section class="py-20 bg-black relative overflow-hidden">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 gradient-text" data-aos="fade-up">OUR JOURNEY</h2>
+            
+            <div class="max-w-4xl mx-auto">
+                <div class="timeline-item" data-aos="fade-right">
+                    <h3 class="text-2xl font-bold mb-2">2018 - Foundation</h3>
+                    <p class="text-lg mb-2 text-[#4AB2E5]">Establishing Our Vision</p>
+                    <p class="text-lg">UIDD was founded with a mission to create digital experiences that blend innovative design with cutting-edge technology. Our first office opened in Colombo with a team of 5 passionate individuals.</p>
+                </div>
+                
+                <div class="timeline-item" data-aos="fade-right" data-aos-delay="100">
+                    <h3 class="text-2xl font-bold mb-2">2019 - Growth</h3>
+                    <p class="text-lg mb-2 text-[#4AB2E5]">Expanding Our Expertise</p>
+                    <p class="text-lg">We expanded our service offerings to include full-stack development and branding. Our team grew to 10 members, and we completed our first major enterprise project.</p>
+                </div>
+                
+                <div class="timeline-item" data-aos="fade-right" data-aos-delay="200">
+                    <h3 class="text-2xl font-bold mb-2">2020 - Adaptation</h3>
+                    <p class="text-lg mb-2 text-[#4AB2E5]">Thriving in Challenge</p>
+                    <p class="text-lg">Despite global challenges, we adapted to remote work and continued delivering exceptional results. We launched our first proprietary design system and saw a 40% growth in client base.</p>
+                </div>
+                
+                <div class="timeline-item" data-aos="fade-right" data-aos-delay="300">
+                    <h3 class="text-2xl font-bold mb-2">2021 - Innovation</h3>
+                    <p class="text-lg mb-2 text-[#4AB2E5]">Pushing Boundaries</p>
+                    <p class="text-lg">We introduced advanced technologies like AI integration and progressive web apps to our service offerings. Our team expanded to 15 members with specialized expertise.</p>
+                </div>
+                
+                <div class="timeline-item" data-aos="fade-right" data-aos-delay="400">
+                    <h3 class="text-2xl font-bold mb-2">2022 - Recognition</h3>
+                    <p class="text-lg mb-2 text-[#4AB2E5]">Industry Acknowledgement</p>
+                    <p class="text-lg">Received multiple awards for design excellence and innovation. Expanded our international client portfolio with projects across Asia, Europe, and North America.</p>
+                </div>
+                
+                <div class="timeline-item" data-aos="fade-right" data-aos-delay="500">
+                    <h3 class="text-2xl font-bold mb-2">2023 - Present</h3>
+                    <p class="text-lg mb-2 text-[#4AB2E5]">Leading the Future</p>
+                    <p class="text-lg">Continuing to push the boundaries of digital innovation with emerging technologies like AR/VR integration, blockchain solutions, and advanced data visualization.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Values Section -->
+    <section class="py-20 bg-[#101820] relative overflow-hidden">
+        <div class="bg-circuit absolute inset-0 opacity-20"></div>
+        <div class="container mx-auto px-6 relative z-10">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 gradient-text" data-aos="fade-up">OUR VALUES</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="card-hover glassmorphism-light rounded-2xl p-8" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-16 h-16 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-[#101820] to-[#1A1A1A] flex items-center justify-center glow-border-light">
+                        <i class="fas fa-lightbulb text-3xl text-[#4AB2E5]"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-center mb-4">INNOVATION</h3>
+                    <p class="text-center">We constantly explore new technologies and approaches to deliver cutting-edge solutions that set our clients apart in their industries.</p>
+                </div>
+                
+                <div class="card-hover glassmorphism-light rounded-2xl p-8" data-aos="fade-up" data-aos-delay="400">
+                    <div class="w-16 h-16 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-[#101820] to-[#1A1A1A] flex items-center justify-center glow-border-light">
+                        <i class="fas fa-users text-3xl text-[#4AB2E5]"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-center mb-4">COLLABORATION</h3>
+                    <p class="text-center">We believe the best results come from close partnerships with our clients, working together to transform visions into reality.</p>
+                </div>
+                
+                <div class="card-hover glassmorphism-light rounded-2xl p-8" data-aos="fade-up" data-aos-delay="600">
+                    <div class="w-16 h-16 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-[#101820] to-[#1A1A1A] flex items-center justify-center glow-border-light">
+                        <i class="fas fa-medal text-3xl text-[#4AB2E5]"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-center mb-4">EXCELLENCE</h3>
+                    <p class="text-center">We're committed to delivering the highest quality in every project, paying attention to every detail to ensure exceptional outcomes.</p>
+                </div>
+                
+                <div class="card-hover glassmorphism-light rounded-2xl p-8" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-16 h-16 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-[#101820] to-[#1A1A1A] flex items-center justify-center glow-border-light">
+                        <i class="fas fa-heart text-3xl text-[#4AB2E5]"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-center mb-4">PASSION</h3>
+                    <p class="text-center">Our team is driven by genuine passion for creating digital experiences that make a difference and leave a lasting impact.</p>
+                </div>
+                
+                <div class="card-hover glassmorphism-light rounded-2xl p-8" data-aos="fade-up" data-aos-delay="400">
+                    <div class="w-16 h-16 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-[#101820] to-[#1A1A1A] flex items-center justify-center glow-border-light">
+                        <i class="fas fa-shield-alt text-3xl text-[#4AB2E5]"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-center mb-4">INTEGRITY</h3>
+                    <p class="text-center">We maintain transparency and honesty in all our dealings, building trust through reliable delivery and ethical practices.</p>
+                </div>
+                
+                <div class="card-hover glassmorphism-light rounded-2xl p-8" data-aos="fade-up" data-aos-delay="600">
+                    <div class="w-16 h-16 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-[#101820] to-[#1A1A1A] flex items-center justify-center glow-border-light">
+                        <i class="fas fa-rocket text-3xl text-[#4AB2E5]"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-center mb-4">GROWTH</h3>
+                    <p class="text-center">We're committed to continuous learning and improvement, both for our team and our clients, driving mutual success and innovation.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="py-20 bg-black relative overflow-hidden">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-4 gradient-text" data-aos="fade-up">MEET OUR TEAM</h2>
+            <p class="text-xl text-center mb-16 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="200">
+                The creative minds and technical experts behind UIDD's success
+            </p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="team-card glassmorphism-light rounded-2xl p-8 text-center" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-32 h-32 mx-auto mb-6 rounded-full bg-gradient-to-br from-[#101820] to-[#1A1A1A] flex items-center justify-center glow-border-light">
+                        <i class="fas fa-user text-5xl text-[#4AB2E5]"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-2">Alex Morgan</h3>
+                    <p class="text-[#4AB2E5] mb-4">Creative Director</p>
+                    <p class="text-lg">Leading our design vision with 10+ years of experience in UI/UX and brand strategy.</p>
+                </div>
+                
+                <div class="team-card glassmorphism-light rounded-2xl p-8 text-center" data-aos="fade-up" data-aos-delay="400">
+                    <div class="w-32 h-32 mx-auto mb-6 rounded-full bg-gradient-to-br from-[#101820] to-[#1A1A1A] flex items-center justify-center glow-border-light">
+                        <i class="fas fa-user text-5xl text-[#4AB2E5]"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-2">Sarah Chen</h3>
+                    <p class="text-[#4AB2E5] mb-4">Technical Lead</p>
+                    <p class="text-lg">Architecting robust solutions with expertise in full-stack development and emerging technologies.</p>
+                </div>
+                
+                <div class="team-card glassmorphism-light rounded-2xl p-8 text-center" data-aos="fade-up" data-aos-delay="600">
+                    <div class="w-32 h-32 mx-auto mb-6 rounded-full bg-gradient-to-br from-[#101820] to-[#1A1A1A] flex items-center justify-center glow-border-light">
+                        <i class="fas fa-user text-5xl text-[#4AB2E5]"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-2">David Rodriguez</h3>
+                    <p class="text-[#4AB2E5] mb-4">Project Manager</p>
+                    <p class="text-lg">Ensuring seamless project delivery through agile methodologies and client collaboration.</p>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12" data-aos="fade-up">
+                <p class="text-xl mb-6">Join our growing team of innovators and creators</p>
+                <a href="contact.html" class="btn-glow bg-gradient-to-r from-[#4AB2E5] to-[#2A92C5] text-black font-bold py-3 px-8 rounded-full text-lg inline-block">Careers</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-[#101820] relative overflow-hidden">
+        <div class="bg-circuit absolute inset-0 opacity-20"></div>
+        <div class="container mx-auto px-6 text-center relative z-10">
+            <h2 class="text-4xl md:text-5xl font-bold mb-8 gradient-text" data-aos="fade-up">READY TO CREATE WITH US?</h2>
+            <p class="text-xl mb-10 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="200">
+                Let's discuss how we can transform your vision into an exceptional digital experience
+            </p>
+            <div class="flex flex-col md:flex-row justify-center gap-6" data-aos="fade-up" data-aos-delay="400">
+                <a href="work.html" class="btn-glow border-2 border-[#4AB2E5] text-[#4AB2E5] font-bold py-3 px-8 rounded-full text-lg">View Our Work</a>
+                <a href="contact.html" class="btn-glow bg-gradient-to-r from-[#4AB2E5] to-[#2A92C5] text-black font-bold py-3 px-8 rounded-full text-lg">Get In Touch</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black py-12 border-t border-[#4AB2E5]/20">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <span class="text-2xl font-bold glow-text">UIDD</span>
+                </div>
+                <div class="flex space-x-8 mb-6 md:mb-0">
+                    <a href="#" class="social-icon text-2xl text-[#4AB2E5]">
+                        <i class="fas fa-globe"></i>
+                    </a>
+                    <a href="#" class="social-icon text-2xl text-[#4AB2E5]">
+                        <i class="fab fa-facebook"></i>
+                    </a>
+                    <a href="#" class="social-icon text-2xl text-[#4AB2E5]">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="social-icon text-2xl text-[#4AB2E5]">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="border-t border-[#4AB2E5]/20 mt-8 pt-8 text-center">
+                <p class="text-lg">Copyright © 2025 UIDD — All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize AOS (Animate On Scroll)
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
+        });
+
+        // Mobile menu toggle
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+                
+                // Close mobile menu if open
+                document.getElementById('mobile-menu').classList.add('hidden');
+            });
+        });
+    </script>
+</body>
+</html>
