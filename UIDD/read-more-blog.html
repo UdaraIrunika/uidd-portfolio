@@ -1,0 +1,1043 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern UI Design Principles for 2026 | UIDD Blog</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .blog-detail-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .blog-breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+            color: var(--gray);
+            margin-bottom: 30px;
+        }
+
+        .blog-breadcrumb a {
+            color: var(--primary);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .blog-breadcrumb a:hover {
+            color: var(--accent);
+        }
+
+        .blog-detail-header {
+            margin-bottom: 40px;
+        }
+
+        .blog-detail-title {
+            font-size: 3rem;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, var(--light), var(--primary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .blog-detail-meta {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(0, 217, 255, 0.15);
+        }
+
+        .blog-detail-meta-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--gray);
+            font-size: 0.95rem;
+        }
+
+        .blog-author-detail {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .blog-author-detail-avatar {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            color: var(--dark);
+            font-weight: 600;
+        }
+
+        .blog-author-detail-info h4 {
+            margin: 0;
+            color: var(--light);
+            font-size: 1rem;
+        }
+
+        .blog-author-detail-info p {
+            margin: 0;
+            color: var(--gray);
+            font-size: 0.85rem;
+        }
+
+        .blog-tags-detail {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .blog-tag-detail {
+            padding: 6px 14px;
+            background: rgba(0, 217, 255, 0.1);
+            border: 1px solid rgba(0, 217, 255, 0.3);
+            border-radius: 20px;
+            font-size: 0.85rem;
+            color: var(--primary);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .blog-tag-detail:hover {
+            background: rgba(0, 217, 255, 0.2);
+            border-color: var(--primary);
+        }
+
+        .blog-featured-image {
+            width: 100%;
+            height: 500px;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            margin-bottom: 40px;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .blog-featured-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .blog-content {
+            color: var(--light);
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+
+        .blog-content h2 {
+            font-size: 2rem;
+            margin-top: 50px;
+            margin-bottom: 20px;
+            color: var(--light);
+        }
+
+        .blog-content h3 {
+            font-size: 1.5rem;
+            margin-top: 40px;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+
+        .blog-content p {
+            margin-bottom: 25px;
+            color: var(--gray);
+        }
+
+        .blog-content ul,
+        .blog-content ol {
+            margin-bottom: 25px;
+            padding-left: 30px;
+        }
+
+        .blog-content li {
+            margin-bottom: 12px;
+            color: var(--gray);
+        }
+
+        .blog-content blockquote {
+            border-left: 4px solid var(--primary);
+            padding-left: 25px;
+            margin: 30px 0;
+            font-style: italic;
+            color: var(--light);
+            background: rgba(0, 217, 255, 0.05);
+            padding: 20px 25px;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .blog-content code {
+            background: rgba(0, 217, 255, 0.1);
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            color: var(--primary);
+            font-size: 0.95rem;
+        }
+
+        .blog-content pre {
+            background: rgba(10, 14, 23, 0.9);
+            border: 1px solid rgba(0, 217, 255, 0.2);
+            border-radius: 8px;
+            padding: 20px;
+            overflow-x: auto;
+            margin: 30px 0;
+        }
+
+        .blog-content pre code {
+            background: none;
+            padding: 0;
+            color: var(--light);
+        }
+
+        .blog-content img {
+            max-width: 100%;
+            border-radius: 8px;
+            margin: 30px 0;
+        }
+
+        .blog-share {
+            margin: 50px 0;
+            padding: 30px;
+            background: rgba(19, 24, 44, 0.7);
+            border: 1px solid rgba(0, 217, 255, 0.15);
+            border-radius: var(--border-radius);
+        }
+
+        .blog-share h3 {
+            margin-bottom: 15px;
+            color: var(--light);
+        }
+
+        .share-buttons {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .share-btn {
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .share-btn.twitter {
+            background: #1DA1F2;
+            color: white;
+        }
+
+        .share-btn.facebook {
+            background: #1877F2;
+            color: white;
+        }
+
+        .share-btn.linkedin {
+            background: #0A66C2;
+            color: white;
+        }
+
+        .share-btn.copy {
+            background: rgba(0, 217, 255, 0.1);
+            border: 1px solid rgba(0, 217, 255, 0.3);
+            color: var(--primary);
+        }
+
+        .share-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .blog-author-box {
+            margin: 50px 0;
+            padding: 30px;
+            background: rgba(19, 24, 44, 0.7);
+            border: 1px solid rgba(0, 217, 255, 0.15);
+            border-radius: var(--border-radius);
+            display: flex;
+            gap: 25px;
+            align-items: center;
+        }
+
+        .blog-author-box-avatar {
+            width: 80px;
+            height: 80px;
+            min-width: 80px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: var(--dark);
+            font-weight: 600;
+        }
+
+        .blog-author-box-content h4 {
+            margin-bottom: 8px;
+            color: var(--light);
+            font-size: 1.3rem;
+        }
+
+        .blog-author-box-content p {
+            color: var(--gray);
+            margin-bottom: 15px;
+        }
+
+        .author-social-links {
+            display: flex;
+            gap: 10px;
+        }
+
+        .author-social-link {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            background: rgba(0, 217, 255, 0.1);
+            border: 1px solid rgba(0, 217, 255, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .author-social-link:hover {
+            background: var(--primary);
+            color: var(--dark);
+            transform: translateY(-3px);
+        }
+
+        .related-posts {
+            margin: 60px 0;
+        }
+
+        .related-posts h3 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .related-posts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .related-post-card {
+            background: rgba(10, 14, 23, 0.8);
+            border: 1px solid rgba(0, 217, 255, 0.15);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            transition: var(--transition);
+            text-decoration: none;
+            display: block;
+        }
+
+        .related-post-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(0, 217, 255, 0.3);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .related-post-image {
+            width: 100%;
+            height: 180px;
+            overflow: hidden;
+        }
+
+        .related-post-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .related-post-card:hover .related-post-image img {
+            transform: scale(1.1);
+        }
+
+        .related-post-content {
+            padding: 20px;
+        }
+
+        .related-post-content h4 {
+            color: var(--light);
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        .related-post-content p {
+            color: var(--gray);
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+
+        .related-post-meta {
+            display: flex;
+            gap: 15px;
+            font-size: 0.8rem;
+            color: var(--gray);
+        }
+
+        .comments-section {
+            margin: 60px 0;
+            padding: 40px;
+            background: rgba(19, 24, 44, 0.5);
+            border: 1px solid rgba(0, 217, 255, 0.15);
+            border-radius: var(--border-radius);
+        }
+
+        .comments-section h3 {
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+        }
+
+        .comment-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 40px;
+        }
+
+        .comment-form input,
+        .comment-form textarea {
+            padding: 12px 16px;
+            background: rgba(10, 14, 23, 0.8);
+            border: 1px solid rgba(0, 217, 255, 0.5);
+            border-radius: 8px;
+            color: var(--light);
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+        }
+
+        .comment-form textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .comment-form button {
+            padding: 12px 30px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            border: none;
+            border-radius: 8px;
+            color: var(--dark);
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            align-self: flex-start;
+        }
+
+        .comment-form button:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+
+        @media (max-width: 768px) {
+            .blog-detail-title {
+                font-size: 2rem;
+            }
+
+            .blog-featured-image {
+                height: 300px;
+            }
+
+            .blog-content {
+                font-size: 1rem;
+            }
+
+            .blog-author-box {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .related-posts-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .share-buttons {
+                flex-direction: column;
+            }
+
+            .share-btn {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Background Animation -->
+    <div class="bg-animation">
+        <div class="grid-lines"></div>
+        <div class="floating-shapes">
+            <div class="floating-shape"></div>
+            <div class="floating-shape"></div>
+            <div class="floating-shape"></div>
+        </div>
+        <canvas id="particles-canvas"></canvas>
+    </div>
+
+    <!-- Header -->
+    <header id="header">
+        <div class="container">
+            <nav>
+                <a href="index.html" class="logo">
+                    <span class="logo-text">UIDD<span class="logo-dot"></span></span>
+                </a>
+                
+                <ul class="nav-links">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="services.html" class="nav-link">Services</a></li>
+                    <li><a href="pricing.html" class="nav-link">Pricing</a></li>
+                    <li><a href="projects.html" class="nav-link">Projects</a></li>
+                    <li><a href="blog.html" class="nav-link active">Blog</a></li>
+                    <li><a href="team.html" class="nav-link">Team</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+                
+                <div class="nav-cta">
+                    <a href="contact.html" class="btn btn-secondary">Get Quote</a>
+                </div>
+                
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div class="mobile-menu" id="mobileMenu">
+            <button class="mobile-menu-close" id="mobileMenuClose">
+                <i class="fas fa-times"></i>
+            </button>
+            <ul class="mobile-nav-links">
+                <li><a href="index.html" class="mobile-nav-link">Home</a></li>
+                <li><a href="services.html" class="mobile-nav-link">Services</a></li>
+                <li><a href="pricing.html" class="mobile-nav-link">Pricing</a></li>
+                <li><a href="projects.html" class="mobile-nav-link">Projects</a></li>
+                <li><a href="blog.html" class="mobile-nav-link">Blog</a></li>
+                <li><a href="team.html" class="mobile-nav-link">Team</a></li>
+                <li><a href="about.html" class="mobile-nav-link">About</a></li>
+                <li><a href="contact.html" class="mobile-nav-link">Contact</a></li>
+            </ul>
+            <a href="contact.html" class="btn">Get Quote</a>
+        </div>
+    </header>
+
+    <!-- Blog Detail Section -->
+    <section class="projects" style="padding-top: 150px;">
+        <div class="blog-detail-container">
+            <!-- Breadcrumb -->
+            <div class="blog-breadcrumb fade-in">
+                <a href="index.html">Home</a>
+                <i class="fas fa-chevron-right"></i>
+                <a href="blog.html">Blog</a>
+                <i class="fas fa-chevron-right"></i>
+                <span>Modern UI Design Principles for 2026</span>
+            </div>
+
+            <!-- Blog Header -->
+            <div class="blog-detail-header fade-in">
+                <h1 class="blog-detail-title">Modern UI Design Principles for 2026</h1>
+                
+                <div class="blog-detail-meta">
+                    <div class="blog-author-detail">
+                        <div class="blog-author-detail-avatar">JD</div>
+                        <div class="blog-author-detail-info">
+                            <h4>Jane Design</h4>
+                            <p>UI/UX Designer</p>
+                        </div>
+                    </div>
+                    <div class="blog-detail-meta-item">
+                        <i class="fas fa-calendar-alt"></i>
+                        <span>February 3, 2026</span>
+                    </div>
+                    <div class="blog-detail-meta-item">
+                        <i class="fas fa-clock"></i>
+                        <span>8 min read</span>
+                    </div>
+                    <div class="blog-detail-meta-item">
+                        <i class="fas fa-eye"></i>
+                        <span>2,345 views</span>
+                    </div>
+                </div>
+
+                <div class="blog-tags-detail">
+                    <a href="#" class="blog-tag-detail">Design</a>
+                    <a href="#" class="blog-tag-detail">UI/UX</a>
+                    <a href="#" class="blog-tag-detail">Trends</a>
+                    <a href="#" class="blog-tag-detail">2026</a>
+                </div>
+            </div>
+
+            <!-- Featured Image -->
+            <div class="blog-featured-image fade-in">
+                <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=1200&q=80" alt="Modern UI Design Principles">
+            </div>
+
+            <!-- Blog Content -->
+            <article class="blog-content fade-in">
+                <p>The landscape of UI design is constantly evolving, and 2026 brings exciting new trends and principles that are reshaping how we create digital experiences. As designers, staying ahead of these trends isn't just about following fashion—it's about understanding the deeper shifts in user behavior, technology, and design philosophy.</p>
+
+                <h2>1. Embracing Minimalism with Purpose</h2>
+                <p>Minimalism isn't new, but in 2026, it's being refined to focus on <strong>intentional design</strong>. Every element on the screen must serve a purpose. Gone are the days of decorative elements that don't enhance the user experience.</p>
+
+                <blockquote>
+                    "Design is not just what it looks like and feels like. Design is how it works." - Steve Jobs
+                </blockquote>
+
+                <p>This principle has never been more relevant. Modern minimalism means:</p>
+                <ul>
+                    <li>Generous white space that guides the eye</li>
+                    <li>Clear visual hierarchy that makes navigation intuitive</li>
+                    <li>Strategic use of color to draw attention to key actions</li>
+                    <li>Typography that enhances readability without sacrificing personality</li>
+                </ul>
+
+                <h2>2. Bold Typography Takes Center Stage</h2>
+                <p>Typography is no longer just a supporting actor—it's the star of the show. In 2026, we're seeing:</p>
+
+                <h3>Large, Expressive Headlines</h3>
+                <p>Headlines are getting bolder and larger, often spanning the entire viewport. This creates immediate impact and helps users understand the content hierarchy at a glance.</p>
+
+                <h3>Variable Fonts</h3>
+                <p>Variable fonts allow for incredible flexibility without loading multiple font files. They enable smooth animations and responsive typography that adapts to different screen sizes perfectly.</p>
+
+                <pre><code>@font-face {
+  font-family: 'InterVariable';
+  src: url('Inter-Variable.woff2') format('woff2-variations');
+  font-weight: 100 900;
+  font-display: swap;
+}</code></pre>
+
+                <h2>3. Dark Mode as Default</h2>
+                <p>Dark mode isn't just a feature anymore—it's becoming the default for many applications. Why? Because it:</p>
+                <ul>
+                    <li>Reduces eye strain in low-light environments</li>
+                    <li>Saves battery life on OLED screens</li>
+                    <li>Creates a modern, sophisticated aesthetic</li>
+                    <li>Makes colors and images pop with enhanced contrast</li>
+                </ul>
+
+                <p>However, the key is giving users the choice. Implementing a seamless theme switcher is now a standard expectation, not a nice-to-have feature.</p>
+
+                <h2>4. Micro-Interactions That Delight</h2>
+                <p>Micro-interactions are the small animations and responses that occur when users interact with your interface. In 2026, these details make or break the user experience:</p>
+
+                <ul>
+                    <li><strong>Button hover states</strong> that provide clear feedback</li>
+                    <li><strong>Loading animations</strong> that keep users engaged</li>
+                    <li><strong>Form validation</strong> that happens in real-time</li>
+                    <li><strong>Smooth transitions</strong> between states and pages</li>
+                </ul>
+
+                <h3>The Psychology Behind It</h3>
+                <p>These small details create an emotional connection with users. They make the interface feel alive and responsive, which builds trust and encourages continued engagement.</p>
+
+                <h2>5. Accessibility First, Not Last</h2>
+                <p>In 2026, accessibility isn't an afterthought—it's baked into the design process from day one. This means:</p>
+
+                <ol>
+                    <li>Designing with sufficient color contrast ratios (WCAG AAA when possible)</li>
+                    <li>Ensuring keyboard navigation works flawlessly</li>
+                    <li>Providing alternative text for all images and icons</li>
+                    <li>Creating responsive designs that work on any device or screen size</li>
+                    <li>Testing with actual users who have disabilities</li>
+                </ol>
+
+                <blockquote>
+                    "The power of the Web is in its universality. Access by everyone regardless of disability is an essential aspect." - Tim Berners-Lee
+                </blockquote>
+
+                <h2>6. AI-Powered Personalization</h2>
+                <p>Artificial Intelligence is revolutionizing how we think about user interfaces. In 2026, we're seeing:</p>
+
+                <h3>Adaptive Interfaces</h3>
+                <p>Interfaces that learn from user behavior and adapt accordingly. This might mean rearranging menu items based on frequency of use or suggesting features before users even know they need them.</p>
+
+                <h3>Smart Content</h3>
+                <p>AI-generated content suggestions that feel natural and helpful, not intrusive. The key is maintaining transparency about what's AI-generated and what's human-created.</p>
+
+                <h2>7. Glassmorphism Evolution</h2>
+                <p>Glassmorphism—that frosted glass effect with background blur—continues to evolve. In 2026, it's more refined:</p>
+
+                <ul>
+                    <li>Subtle use that doesn't overwhelm the interface</li>
+                    <li>Performance optimizations that don't slow down the experience</li>
+                    <li>Smart layering that creates depth without confusion</li>
+                    <li>Accessibility considerations for users with visual impairments</li>
+                </ul>
+
+                <h2>Putting It All Together</h2>
+                <p>The most successful designs of 2026 aren't following just one trend—they're thoughtfully combining multiple principles to create cohesive, user-centered experiences. Here's how to approach it:</p>
+
+                <ol>
+                    <li><strong>Start with user research</strong> - Understand your audience before making design decisions</li>
+                    <li><strong>Define clear goals</strong> - Every design choice should support your product objectives</li>
+                    <li><strong>Prototype and test</strong> - Don't assume you know what works; validate with real users</li>
+                    <li><strong>Iterate constantly</strong> - Good design is never finished; it evolves with user needs</li>
+                    <li><strong>Measure success</strong> - Use analytics and user feedback to inform future decisions</li>
+                </ol>
+
+                <h2>Conclusion</h2>
+                <p>As we navigate the design landscape of 2026, remember that trends come and go, but fundamental principles remain constant: create interfaces that are beautiful, functional, and accessible to all. The best designs are those that users don't even notice—they just work, seamlessly and delightfully.</p>
+
+                <p>What design principles are you excited to implement in your next project? Share your thoughts in the comments below!</p>
+            </article>
+
+            <!-- Share Section -->
+            <div class="blog-share fade-in">
+                <h3>Share this article</h3>
+                <div class="share-buttons">
+                    <a href="#" class="share-btn twitter" onclick="shareOnTwitter()">
+                        <i class="fab fa-twitter"></i> Twitter
+                    </a>
+                    <a href="#" class="share-btn facebook" onclick="shareOnFacebook()">
+                        <i class="fab fa-facebook-f"></i> Facebook
+                    </a>
+                    <a href="#" class="share-btn linkedin" onclick="shareOnLinkedIn()">
+                        <i class="fab fa-linkedin-in"></i> LinkedIn
+                    </a>
+                    <a href="#" class="share-btn copy" onclick="copyLink()">
+                        <i class="fas fa-link"></i> Copy Link
+                    </a>
+                </div>
+            </div>
+
+            <!-- Author Box -->
+            <div class="blog-author-box fade-in">
+                <div class="blog-author-box-avatar">JD</div>
+                <div class="blog-author-box-content">
+                    <h4>Jane Design</h4>
+                    <p>Jane is a Senior UI/UX Designer with over 10 years of experience creating beautiful, user-centered digital experiences. She's passionate about design systems, accessibility, and mentoring the next generation of designers.</p>
+                    <div class="author-social-links">
+                        <a href="#" class="author-social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="author-social-link"><i class="fab fa-dribbble"></i></a>
+                        <a href="#" class="author-social-link"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="author-social-link"><i class="fas fa-globe"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Related Posts -->
+            <div class="related-posts fade-in">
+                <h3>Related Articles</h3>
+                <div class="related-posts-grid">
+                    <a href="#" class="related-post-card">
+                        <div class="related-post-image">
+                            <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=500&q=80" alt="React Best Practices">
+                        </div>
+                        <div class="related-post-content">
+                            <h4>React Best Practices & Performance</h4>
+                            <p>Learn how to optimize your React applications for better performance...</p>
+                            <div class="related-post-meta">
+                                <span><i class="fas fa-calendar-alt"></i> Feb 1, 2026</span>
+                                <span><i class="fas fa-clock"></i> 12 min</span>
+                            </div>
+                        </div>
+                    </a>
+
+                    <a href="#" class="related-post-card">
+                        <div class="related-post-image">
+                            <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=500&q=80" alt="Web Design Trends">
+                        </div>
+                        <div class="related-post-content">
+                            <h4>Web Design Trends Shaping 2026</h4>
+                            <p>Discover the latest design trends taking over the industry...</p>
+                            <div class="related-post-meta">
+                                <span><i class="fas fa-calendar-alt"></i> Jan 30, 2026</span>
+                                <span><i class="fas fa-clock"></i> 10 min</span>
+                            </div>
+                        </div>
+                    </a>
+
+                    <a href="#" class="related-post-card">
+                        <div class="related-post-image">
+                            <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=500&q=80" alt="Typography Guide">
+                        </div>
+                        <div class="related-post-content">
+                            <h4>Typography: The Art of Web Design</h4>
+                            <p>Master the fundamentals of web typography and font pairing...</p>
+                            <div class="related-post-meta">
+                                <span><i class="fas fa-calendar-alt"></i> Jan 22, 2026</span>
+                                <span><i class="fas fa-clock"></i> 9 min</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Comments Section -->
+            <div class="comments-section fade-in">
+                <h3>Leave a Comment</h3>
+                <form class="comment-form" onsubmit="handleCommentSubmit(event)">
+                    <input type="text" placeholder="Your Name" required>
+                    <input type="email" placeholder="Your Email" required>
+                    <textarea placeholder="Your Comment" required></textarea>
+                    <button type="submit">
+                        <i class="fas fa-paper-plane"></i> Post Comment
+                    </button>
+                </form>
+
+                <div style="text-align: center; color: var(--gray); padding: 30px;">
+                    <i class="fas fa-comments" style="font-size: 3rem; margin-bottom: 15px; opacity: 0.3;"></i>
+                    <p>Be the first to comment on this article!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Subscribe -->
+    <section style="background: linear-gradient(135deg, rgba(0, 217, 255, 0.1), rgba(8, 255, 200, 0.1)); padding: 60px 0; border-top: 1px solid rgba(0, 217, 255, 0.2);">
+        <div class="container">
+            <div style="max-width: 600px; margin: 0 auto; text-align: center;">
+                <h2 style="margin-bottom: 10px;">Stay Updated</h2>
+                <p style="margin-bottom: 30px; color: var(--gray);">Subscribe to our newsletter for the latest design trends, development tips, and project insights.</p>
+                <form style="display: flex; gap: 12px; flex-wrap: wrap;" onsubmit="handleSubscribe(event)">
+                    <input type="email" placeholder="Enter your email" required style="flex: 1; min-width: 250px; padding: 12px 16px; background: rgba(19, 24, 44, 0.8); border: 1px solid rgba(0, 217, 255, 0.5); border-radius: 8px; color: var(--light); font-family: 'Inter', sans-serif;">
+                    <button type="submit" class="btn" style="padding: 12px 32px;"><i class="fas fa-paper-plane"></i> Subscribe</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <div class="footer-logo">UIDD<span style="color: var(--primary)">.</span></div>
+                    <p>We bridge the gap between design and development to create exceptional digital experiences that users love.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-dribbble"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="services.html"><i class="fas fa-chevron-right"></i> UI/UX Design</a></li>
+                        <li><a href="services.html"><i class="fas fa-chevron-right"></i> Frontend Development</a></li>
+                        <li><a href="services.html"><i class="fas fa-chevron-right"></i> Mobile Development</a></li>
+                        <li><a href="services.html"><i class="fas fa-chevron-right"></i> Design Systems</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Contact</h3>
+                    <ul>
+                        <li><a href="#"><i class="fas fa-map-marker-alt"></i> 123 Tech Street, Silicon Valley</a></li>
+                        <li><a href="tel:+15551234567"><i class="fas fa-phone"></i> +1 (555) 123-4567</a></li>
+                        <li><a href="mailto:hello@uidd.com"><i class="fas fa-envelope"></i> hello@uidd.com</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2024 UIDD - UI Designers & Developers. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Share functions
+        function shareOnTwitter() {
+            const url = encodeURIComponent(window.location.href);
+            const text = encodeURIComponent('Modern UI Design Principles for 2026');
+            window.open(`https://twitter.com/intent/tweet?url=${url}&text=${text}`, '_blank');
+            return false;
+        }
+
+        function shareOnFacebook() {
+            const url = encodeURIComponent(window.location.href);
+            window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}`, '_blank');
+            return false;
+        }
+
+        function shareOnLinkedIn() {
+            const url = encodeURIComponent(window.location.href);
+            window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${url}`, '_blank');
+            return false;
+        }
+
+        function copyLink() {
+            navigator.clipboard.writeText(window.location.href).then(() => {
+                alert('Link copied to clipboard!');
+            });
+            return false;
+        }
+
+        // Comment submission
+        function handleCommentSubmit(event) {
+            event.preventDefault();
+            alert('Thank you for your comment! It will be published after review.');
+            event.target.reset();
+        }
+
+        // Newsletter subscription
+        function handleSubscribe(event) {
+            event.preventDefault();
+            const email = event.target.querySelector('input[type="email"]').value;
+            if (email) {
+                alert('Thank you for subscribing! Check your email for confirmation.');
+                event.target.reset();
+            }
+        }
+
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileMenuClose = document.getElementById('mobileMenuClose');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+        
+        mobileMenuClose.addEventListener('click', () => {
+            mobileMenu.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        });
+        
+        document.querySelectorAll('.mobile-nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            });
+        });
+        
+        // Header scroll effect
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+        
+        // Fade-in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('.fade-in').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+        
+        // Particle animation
+        const canvas = document.getElementById('particles-canvas');
+        const ctx = canvas.getContext('2d');
+        
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        
+        const particles = [];
+        const particleCount = 50;
+        
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 2 + 1;
+                this.speedX = Math.random() * 0.5 - 0.25;
+                this.speedY = Math.random() * 0.5 - 0.25;
+            }
+            
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+                
+                if (this.x > canvas.width) this.x = 0;
+                if (this.x < 0) this.x = canvas.width;
+                if (this.y > canvas.height) this.y = 0;
+                if (this.y < 0) this.y = canvas.height;
+            }
+            
+            draw() {
+                ctx.fillStyle = 'rgba(0, 217, 255, 0.5)';
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+        
+        function initParticles() {
+            particles.length = 0;
+            for (let i = 0; i < particleCount; i++) {
+                particles.push(new Particle());
+            }
+        }
+        
+        function animateParticles() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            particles.forEach(particle => {
+                particle.update();
+                particle.draw();
+            });
+            
+            requestAnimationFrame(animateParticles);
+        }
+        
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            initParticles();
+        });
+        
+        initParticles();
+        animateParticles();
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
