@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Testimonial - Admin Panel</title>
+    <link rel="stylesheet" href="css/admin-style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="admin-page">
+    <div class="admin-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>UIDD<span class="dot">.</span></h2>
+                <button class="sidebar-toggle" id="sidebarToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <a href="dashboard.html" class="nav-item">
+                    <i class="fas fa-home"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="/admin/projects.html" class="nav-item">
+                    <i class="fas fa-briefcase"></i>
+                    <span>Projects</span>
+                </a>
+                <a href="/admin/services.html" class="nav-item">
+                    <i class="fas fa-cog"></i>
+                    <span>Services</span>
+                </a>                <a href="blog.html" class="nav-item">
+                    <i class="fas fa-blog"></i>
+                    <span>Blog</span>
+                </a>                <a href="/admin/pricing.html" class="nav-item">
+                    <i class="fas fa-dollar-sign"></i>
+                    <span>Pricing</span>
+                </a>
+                <a href="/admin/team-members.html" class="nav-item">
+                    <i class="fas fa-users"></i>
+                    <span>Team</span>
+                </a>
+                <a href="/admin/consultations.html" class="nav-item">
+                    <i class="fas fa-phone-alt"></i>
+                    <span>Consultations</span>
+                </a>
+                <a href="/admin/invoices.html" class="nav-item">
+                    <i class="fas fa-file-invoice-dollar"></i>
+                    <span>Invoices</span>
+                </a>
+                <a href="/admin/testimonials.html" class="nav-item active">>
+                    <i class="fas fa-comment"></i>
+                    <span>Testimonials</span>
+                </a>
+                <a href="/admin/users.html" class="nav-item">
+                    <i class="fas fa-users"></i>
+                    <span>Users</span>
+                </a>
+                <a href="/admin/inquiries.html" class="nav-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>Inquiries</span>
+                </a>
+                <a href="/admin/profile.html" class="nav-item">
+                    <i class="fas fa-user-circle"></i>
+                    <span>Profile</span>
+                </a>
+                <a href="/admin/settings.html" class="nav-item">
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Topbar -->
+            <header class="topbar">
+                <button class="menu-toggle" id="menuToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="topbar-right">
+                    <div class="notification">
+                        <button class="notification-btn" id="notificationBtn">
+                            <i class="fas fa-bell"></i>
+                            <span class="notification-badge">5</span>
+                        </button>
+                    </div>
+                    <div class="user-profile">
+                        <span id="usernameDisplay">Admin</span>
+                        <button class="logout-btn" id="logoutBtn">Logout</button>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Notification Modal -->
+            <div class="notification-modal" id="notificationModal">
+                <div class="notification-header">
+                    <h3>Notifications</h3>
+                    <button class="close-notification" id="closeNotification">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="notification-list">
+                    <div class="notification-item unread">
+                        <div class="notification-icon success">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <div class="notification-content">
+                            <p class="notification-title">New Project Added</p>
+                            <p class="notification-text">E-Commerce Platform has been added successfully.</p>
+                            <span class="notification-time">5 minutes ago</span>
+                        </div>
+                    </div>
+                    <div class="notification-item unread">
+                        <div class="notification-icon info">
+                            <i class="fas fa-info-circle"></i>
+                        </div>
+                        <div class="notification-content">
+                            <p class="notification-title">New Inquiry Received</p>
+                            <p class="notification-text">John Smith sent a new inquiry about web development.</p>
+                            <span class="notification-time">1 hour ago</span>
+                        </div>
+                    </div>
+                    <div class="notification-item">
+                        <div class="notification-icon warning">
+                            <i class="fas fa-exclamation-triangle"></i>
+                        </div>
+                        <div class="notification-content">
+                            <p class="notification-title">Project Deadline</p>
+                            <p class="notification-text">Mobile App Redesign deadline is in 2 days.</p>
+                            <span class="notification-time">3 hours ago</span>
+                        </div>
+                    </div>
+                    <div class="notification-item">
+                        <div class="notification-icon success">
+                            <i class="fas fa-user-plus"></i>
+                        </div>
+                        <div class="notification-content">
+                            <p class="notification-title">New User Registered</p>
+                            <p class="notification-text">Sarah Johnson joined as Editor.</p>
+                            <span class="notification-time">Yesterday</span>
+                        </div>
+                    </div>
+                    <div class="notification-item">
+                        <div class="notification-icon error">
+                            <i class="fas fa-times-circle"></i>
+                        </div>
+                        <div class="notification-content">
+                            <p class="notification-title">Payment Failed</p>
+                            <p class="notification-text">Payment for Project #PRJ-045 failed.</p>
+                            <span class="notification-time">2 days ago</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Page Content -->
+            <div class="page-content">
+                <div class="form-header">
+                    <div>
+                        <a href="/admin/testimonials.html" class="btn-back">
+                            <i class="fas fa-arrow-left"></i> Back to Testimonials
+                        </a>
+                        <h1>Add New Testimonial</h1>
+                    </div>
+                </div>
+
+                <form class="edit-form" id="addTestimonialForm" onsubmit="handleSubmit(event)">
+                    <!-- Client Information -->
+                    <div class="form-section">
+                        <div class="section-icon">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="section-content">
+                            <h3>Client Information</h3>
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label for="clientName">Client Name <span class="required">*</span></label>
+                                    <input type="text" id="clientName" name="clientName" placeholder="e.g., John Smith" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="clientPosition">Position/Title <span class="required">*</span></label>
+                                    <input type="text" id="clientPosition" name="clientPosition" placeholder="e.g., CEO" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="clientCompany">Company <span class="required">*</span></label>
+                                    <input type="text" id="clientCompany" name="clientCompany" placeholder="e.g., TechCorp Inc." required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="clientEmail">Email</label>
+                                    <input type="email" id="clientEmail" name="clientEmail" placeholder="client@example.com">
+                                </div>
+                                <div class="form-group full-width">
+                                    <label for="clientPhoto">Client Photo</label>
+                                    <input type="file" id="clientPhoto" name="clientPhoto" accept="image/*">
+                                    <small>Recommended: Square image, 200x200px, Max 1MB</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial Content -->
+                    <div class="form-section">
+                        <div class="section-icon">
+                            <i class="fas fa-quote-left"></i>
+                        </div>
+                        <div class="section-content">
+                            <h3>Testimonial Content</h3>
+                            <div class="form-grid">
+                                <div class="form-group full-width">
+                                    <label for="testimonialText">Testimonial <span class="required">*</span></label>
+                                    <textarea id="testimonialText" name="testimonialText" rows="6" placeholder="Enter the testimonial text..." required></textarea>
+                                    <small>Write a compelling testimonial from the client's perspective</small>
+                                </div>
+                                <div class="form-group">
+                                    <label for="rating">Rating <span class="required">*</span></label>
+                                    <select id="rating" name="rating" required>
+                                        <option value="">Select Rating</option>
+                                        <option value="5">5 Stars - Excellent</option>
+                                        <option value="4">4 Stars - Very Good</option>
+                                        <option value="3">3 Stars - Good</option>
+                                        <option value="2">2 Stars - Fair</option>
+                                        <option value="1">1 Star - Poor</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="projectType">Project Type</label>
+                                    <select id="projectType" name="projectType">
+                                        <option value="">Select Project Type</option>
+                                        <option value="web-development">Web Development</option>
+                                        <option value="mobile-app">Mobile App</option>
+                                        <option value="ui-ux-design">UI/UX Design</option>
+                                        <option value="e-commerce">E-Commerce</option>
+                                        <option value="digital-marketing">Digital Marketing</option>
+                                        <option value="consulting">Consulting</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Additional Details -->
+                    <div class="form-section">
+                        <div class="section-icon">
+                            <i class="fas fa-cog"></i>
+                        </div>
+                        <div class="section-content">
+                            <h3>Additional Details</h3>
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label for="projectName">Related Project</label>
+                                    <input type="text" id="projectName" name="projectName" placeholder="e.g., E-Commerce Platform">
+                                </div>
+                                <div class="form-group">
+                                    <label for="testimonialDate">Date Received</label>
+                                    <input type="date" id="testimonialDate" name="testimonialDate">
+                                </div>
+                                <div class="form-group">
+                                    <label for="displayOrder">Display Order</label>
+                                    <input type="number" id="displayOrder" name="displayOrder" value="1" min="1">
+                                    <small>Lower numbers appear first</small>
+                                </div>
+                                <div class="form-group">
+                                    <label for="status">Status <span class="required">*</span></label>
+                                    <select id="status" name="status" required>
+                                        <option value="published">Published</option>
+                                        <option value="pending">Pending Review</option>
+                                        <option value="draft">Draft</option>
+                                    </select>
+                                </div>
+                                <div class="form-group full-width checkbox-group">
+                                    <label>
+                                        <input type="checkbox" name="featured" value="yes">
+                                        <span>Featured Testimonial</span>
+                                    </label>
+                                    <label>
+                                        <input type="checkbox" name="showHomepage" value="yes">
+                                        <span>Show on Homepage</span>
+                                    </label>
+                                    <label>
+                                        <input type="checkbox" name="verified" value="yes">
+                                        <span>Verified Client</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Form Actions -->
+                    <div class="form-actions">
+                        <button type="submit" class="btn-primary">
+                            <i class="fas fa-save"></i> Save Testimonial
+                        </button>
+                        <a href="/admin/testimonials.html" class="btn-secondary">
+                            <i class="fas fa-times"></i> Cancel
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </main>
+    </div>
+
+    <script src="/admin/js/admin-script.js"></script>
+    <script>
+        // Set today's date as default
+        document.getElementById('testimonialDate').valueAsDate = new Date();
+
+        function handleSubmit(e) {
+            e.preventDefault();
+            alert('Testimonial added successfully!');
+            window.location.href = '/admin/testimonials.html';
+        }
+    </script>
+</body>
+</html>

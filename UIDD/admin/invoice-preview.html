@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invoice Preview - Admin Panel</title>
+    <link rel="stylesheet" href="css/admin-style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="admin-page">
+    <div class="admin-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>UIDD<span class="dot">.</span></h2>
+                <button class="sidebar-toggle" id="sidebarToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <a href="dashboard.html" class="nav-item">
+                    <i class="fas fa-home"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="/admin/projects.html" class="nav-item">
+                    <i class="fas fa-briefcase"></i>
+                    <span>Projects</span>
+                </a>
+                <a href="/admin/services.html" class="nav-item">
+                    <i class="fas fa-cog"></i>
+                    <span>Services</span>
+                </a>                <a href="blog.html" class="nav-item">
+                    <i class="fas fa-blog"></i>
+                    <span>Blog</span>
+                </a>                <a href="/admin/pricing.html" class="nav-item">
+                    <i class="fas fa-dollar-sign"></i>
+                    <span>Pricing</span>
+                </a>
+                <a href="/admin/team-members.html" class="nav-item">
+                    <i class="fas fa-users"></i>
+                    <span>Team</span>
+                </a>
+                <a href="/admin/consultations.html" class="nav-item">
+                    <i class="fas fa-phone-alt"></i>
+                    <span>Consultations</span>
+                </a>
+                <a href="/admin/invoices.html" class="nav-item active">
+                    <i class="fas fa-file-invoice-dollar"></i>
+                    <span>Invoices</span>
+                </a>
+                <a href="/admin/testimonials.html" class="nav-item">
+                    <i class="fas fa-comment"></i>
+                    <span>Testimonials</span>
+                </a>
+                <a href="/admin/users.html" class="nav-item">
+                    <i class="fas fa-users"></i>
+                    <span>Users</span>
+                </a>
+                <a href="/admin/inquiries.html" class="nav-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>Inquiries</span>
+                </a>
+                <a href="/admin/profile.html" class="nav-item">
+                    <i class="fas fa-user-circle"></i>
+                    <span>Profile</span>
+                </a>
+                <a href="/admin/settings.html" class="nav-item">
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Topbar -->
+            <header class="topbar">
+                <button class="menu-toggle" id="menuToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="topbar-right">
+                    <div class="notification">
+                        <button class="notification-btn" id="notificationBtn">
+                            <i class="fas fa-bell"></i>
+                            <span class="notification-badge">5</span>
+                        </button>
+                    </div>
+                    <div class="user-profile">
+                        <span id="usernameDisplay">Admin</span>
+                        <button class="logout-btn" id="logoutBtn">Logout</button>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Notification Modal -->
+            <div class="notification-modal" id="notificationModal">
+                <div class="notification-header">
+                    <h3>Notifications</h3>
+                    <button class="close-notification" id="closeNotification">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="notification-list">
+                    <div class="notification-item unread">
+                        <div class="notification-icon success">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <div class="notification-content">
+                            <p class="notification-title">Invoice Sent</p>
+                            <p class="notification-text">Invoice sent to client successfully.</p>
+                            <span class="notification-time">5 minutes ago</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Page Content -->
+            <div class="page-content">
+                <div class="preview-header">
+                    <div>
+                        <a href="/admin/invoices.html" class="btn-back">
+                            <i class="fas fa-arrow-left"></i> Back to Invoices
+                        </a>
+                    </div>
+                    <div style="display: flex; gap: 10px;">
+                        <button class="btn-secondary" onclick="window.print()">
+                            <i class="fas fa-print"></i> Print
+                        </button>
+                        <button class="btn-secondary">
+                            <i class="fas fa-download"></i> Download PDF
+                        </button>
+                        <button class="btn-secondary">
+                            <i class="fas fa-envelope"></i> Send Email
+                        </button>
+                        <a href="/admin/edit-invoice.html?id=1" class="btn-primary">
+                            <i class="fas fa-edit"></i> Edit
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Invoice Preview -->
+                <div class="invoice-preview">
+                    <!-- Invoice Header -->
+                    <div class="invoice-header">
+                        <div class="company-info">
+                            <h2>UIDD Studio</h2>
+                            <p>123 Design Street, New York, NY 10001</p>
+                            <p>Email: billing@uidd.com | Phone: +1 (555) 123-4567</p>
+                        </div>
+                        <div class="invoice-title">
+                            <h1>INVOICE</h1>
+                        </div>
+                    </div>
+
+                    <div class="invoice-meta">
+                        <div class="meta-item">
+                            <span class="label">Invoice Number:</span>
+                            <span class="value">INV-2026-001</span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="label">Invoice Date:</span>
+                            <span class="value">January 15, 2026</span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="label">Due Date:</span>
+                            <span class="value">February 14, 2026</span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="label">Status:</span>
+                            <span class="value"><span class="badge completed">Paid</span></span>
+                        </div>
+                    </div>
+
+                    <!-- Client Information -->
+                    <div class="invoice-addresses">
+                        <div class="address-block">
+                            <h4>Bill To</h4>
+                            <p><strong>TechCorp Inc</strong></p>
+                            <p>456 Tech Boulevard<br>San Jose, CA 95110<br>USA</p>
+                            <p>Email: billing@techcorp.com<br>Phone: +1 (555) 111-2222</p>
+                        </div>
+                    </div>
+
+                    <!-- Invoice Items -->
+                    <table class="invoice-table">
+                        <thead>
+                            <tr>
+                                <th>Description</th>
+                                <th style="text-align: right;">Quantity</th>
+                                <th style="text-align: right;">Unit Price</th>
+                                <th style="text-align: right;">Line Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Full-stack E-Commerce Development</td>
+                                <td style="text-align: right;">1</td>
+                                <td style="text-align: right;">$12,000.00</td>
+                                <td style="text-align: right;">$13,200.00</td>
+                            </tr>
+                            <tr>
+                                <td>Payment Gateway Integration</td>
+                                <td style="text-align: right;">1</td>
+                                <td style="text-align: right;">$2,000.00</td>
+                                <td style="text-align: right;">$2,200.00</td>
+                            </tr>
+                            <tr>
+                                <td>Admin Dashboard Development</td>
+                                <td style="text-align: right;">1</td>
+                                <td style="text-align: right;">$1,000.00</td>
+                                <td style="text-align: right;">$1,100.00</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <!-- Invoice Summary -->
+                    <div class="invoice-summary">
+                        <div class="summary-row">
+                            <span>Subtotal:</span>
+                            <span>$15,000.00</span>
+                        </div>
+                        <div class="summary-row">
+                            <span>Tax (10%):</span>
+                            <span>$1,500.00</span>
+                        </div>
+                        <div class="summary-row total">
+                            <span>Total Amount:</span>
+                            <span>$16,500.00</span>
+                        </div>
+                    </div>
+
+                    <!-- Payment Information -->
+                    <div class="invoice-payment-info">
+                        <div class="payment-block">
+                            <h4>Payment Information</h4>
+                            <p><strong>Amount Due:</strong> $16,500.00</p>
+                            <p><strong>Amount Paid:</strong> $16,500.00</p>
+                            <p><strong>Payment Status:</strong> <span class="badge completed">Paid</span></p>
+                        </div>
+                        <div class="payment-block">
+                            <h4>Bank Details</h4>
+                            <p>Bank Name: First National Bank</p>
+                            <p>Account Number: 123456789</p>
+                            <p>Routing Number: 021000021</p>
+                            <p>SWIFT Code: FNBAUS33</p>
+                        </div>
+                    </div>
+
+                    <!-- Notes -->
+                    <div class="invoice-notes">
+                        <h4>Notes</h4>
+                        <p>Thank you for your business!</p>
+                    </div>
+
+                    <!-- Terms -->
+                    <div class="invoice-terms">
+                        <h4>Terms & Conditions</h4>
+                        <p>Payment terms as agreed. Please make payment within the specified timeframe. For questions regarding this invoice, please contact us at billing@uidd.com.</p>
+                    </div>
+
+                    <!-- Footer -->
+                    <div class="invoice-footer">
+                        <p>&copy; 2026 UIDD Studio. All rights reserved.</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="/admin/js/admin-script.js"></script>
+    <style>
+        .preview-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: rgba(0, 217, 255, 0.05);
+            border: 1px solid rgba(0, 217, 255, 0.1);
+            border-radius: var(--border-radius);
+        }
+        .preview-header > div:last-child {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .invoice-preview {
+            background: white;
+            color: #333;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+        .invoice-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 40px;
+            border-bottom: 2px solid #00d9ff;
+            padding-bottom: 20px;
+        }
+        .company-info h2 {
+            margin: 0 0 10px 0;
+            color: #00d9ff;
+            font-size: 1.8rem;
+        }
+        .company-info p {
+            margin: 5px 0;
+            font-size: 0.9rem;
+        }
+        .invoice-title h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            color: #00d9ff;
+        }
+        .invoice-meta {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: #f5f5f5;
+            border-radius: 8px;
+        }
+        .meta-item .label {
+            display: block;
+            font-weight: 600;
+            color: #666;
+            margin-bottom: 5px;
+        }
+        .meta-item .value {
+            display: block;
+            font-size: 1.1rem;
+            color: #333;
+        }
+        .invoice-addresses {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        .address-block h4 {
+            margin: 0 0 10px 0;
+            color: #333;
+            font-weight: 600;
+        }
+        .address-block p {
+            margin: 5px 0;
+            color: #666;
+        }
+        .invoice-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        .invoice-table th {
+            background: #00d9ff;
+            color: white;
+            padding: 12px;
+            text-align: left;
+            font-weight: 600;
+        }
+        .invoice-table td {
+            padding: 12px;
+            border-bottom: 1px solid #eee;
+        }
+        .invoice-table tbody tr:hover {
+            background: #f9f9f9;
+        }
+        .invoice-summary {
+            float: right;
+            width: 300px;
+            margin-bottom: 20px;
+        }
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+        .summary-row.total {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #00d9ff;
+            border-top: 2px solid #00d9ff;
+            padding-top: 15px;
+        }
+        .invoice-payment-info {
+            clear: both;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: #f5f5f5;
+            border-radius: 8px;
+        }
+        .payment-block h4 {
+            margin: 0 0 10px 0;
+            color: #333;
+        }
+        .payment-block p {
+            margin: 5px 0;
+            color: #666;
+        }
+        .invoice-notes,
+        .invoice-terms {
+            margin-bottom: 20px;
+        }
+        .invoice-notes h4,
+        .invoice-terms h4 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+        .invoice-notes p,
+        .invoice-terms p {
+            color: #666;
+            line-height: 1.6;
+        }
+        .invoice-footer {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            color: #999;
+            font-size: 0.9rem;
+        }
+        @media print {
+            .preview-header {
+                display: none;
+            }
+            .sidebar,
+            .topbar {
+                display: none;
+            }
+            .page-content {
+                margin: 0;
+                padding: 0;
+            }
+            .invoice-preview {
+                box-shadow: none;
+                background: white;
+            }
+        }
+    </style>
+</body>
+</html>

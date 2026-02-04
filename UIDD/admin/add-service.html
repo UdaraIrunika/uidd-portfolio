@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Service | UIDD Admin</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/admin-style.css">
+</head>
+<body class="admin-page">
+    <div class="admin-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>UIDD<span class="dot">.</span></h2>
+                <button class="sidebar-toggle" id="sidebarToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <a href="/admin/dashboard.html" class="nav-item">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="/admin/projects.html" class="nav-item">
+                    <i class="fas fa-folder"></i>
+                    <span>Projects</span>
+                </a>
+                <a href="/admin/services.html" class="nav-item active">
+                    <i class="fas fa-cogs"></i>
+                    <span>Services</span>
+                </a>                <a href="blog.html" class="nav-item">
+                    <i class="fas fa-blog"></i>
+                    <span>Blog</span>
+                </a>                <a href="/admin/pricing.html" class="nav-item">
+                    <i class="fas fa-tag"></i>
+                    <span>Pricing</span>
+                </a>
+                <a href="/admin/team-members.html" class="nav-item">
+                    <i class="fas fa-users"></i>
+                    <span>Team</span>
+                </a>
+                <a href="/admin/consultations.html" class="nav-item">
+                    <i class="fas fa-phone-alt"></i>
+                    <span>Consultations</span>
+                </a>
+                <a href="/admin/invoices.html" class="nav-item">
+                    <i class="fas fa-file-invoice-dollar"></i>
+                    <span>Invoices</span>
+                </a>
+                <a href="/admin/testimonials.html" class="nav-item">
+                    <i class="fas fa-star"></i>
+                    <span>Testimonials</span>
+                </a>
+                <a href="/admin/users.html" class="nav-item">
+                    <i class="fas fa-users"></i>
+                    <span>Users</span>
+                </a>
+                <a href="/admin/inquiries.html" class="nav-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>Inquiries</span>
+                </a>
+                <a href="/admin/profile.html" class="nav-item">
+                    <i class="fas fa-user-circle"></i>
+                    <span>Profile</span>
+                </a>
+                <a href="/admin/settings.html" class="nav-item">
+                    <i class="fas fa-sliders-h"></i>
+                    <span>Settings</span>
+                </a>
+            </nav>
+            
+            <div class="sidebar-footer">
+                <button class="btn-logout" id="logoutBtn">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Top Bar -->
+            <div class="topbar">
+                <div class="topbar-left">
+                    <button class="btn-menu" id="menuToggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <h1>Add New Service</h1>
+                </div>
+                
+                <div class="topbar-right">
+                    <div class="notifications">
+                        <button class="notification-btn">
+                            <i class="fas fa-bell"></i>
+                            <span class="notification-badge">3</span>
+                        </button>
+                    </div>
+                    
+                    <div class="user-profile">
+                        <img src="https://via.placeholder.com/40" alt="Admin">
+                        <span id="adminUsername">Admin</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Form Content -->
+            <div class="content">
+                <div class="form-header">
+                    <a href="/admin/services.html" class="btn-back">
+                        <i class="fas fa-arrow-left"></i> Back to Services
+                    </a>
+                </div>
+
+                <form class="edit-form" id="serviceForm">
+                    <div class="form-section">
+                        <h3><i class="fas fa-info-circle"></i> Service Details</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Service Name <span class="required">*</span></label>
+                                <input type="text" name="service_name" placeholder="Enter service name" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Category <span class="required">*</span></label>
+                                <select name="category" required>
+                                    <option value="">Select Category</option>
+                                    <option value="design">Design</option>
+                                    <option value="development">Development</option>
+                                    <option value="marketing">Marketing</option>
+                                    <option value="consulting">Consulting</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Short Description <span class="required">*</span></label>
+                            <textarea name="short_desc" rows="2" placeholder="Brief description (max 150 characters)" maxlength="150" required></textarea>
+                            <small>This appears on service cards</small>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Full Description <span class="required">*</span></label>
+                            <textarea name="description" rows="6" placeholder="Detailed service description..." required></textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3><i class="fas fa-dollar-sign"></i> Pricing</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Starting Price ($) <span class="required">*</span></label>
+                                <input type="number" name="price" placeholder="Enter starting price" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Pricing Type</label>
+                                <select name="pricing_type">
+                                    <option value="fixed">Fixed Price</option>
+                                    <option value="hourly">Hourly Rate</option>
+                                    <option value="custom">Custom Quote</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3><i class="fas fa-list"></i> Service Features</h3>
+                        <div id="featuresContainer">
+                            <div class="feature-item">
+                                <input type="text" placeholder="Feature description" name="features[]">
+                                <button type="button" class="btn-remove-feature" onclick="removeFeature(this)">
+                                    <i class="fas fa-times"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <button type="button" class="btn-add-feature" onclick="addFeature()">
+                            <i class="fas fa-plus"></i> Add Feature
+                        </button>
+                    </div>
+
+                    <div class="form-section">
+                        <h3><i class="fas fa-tools"></i> Technologies & Tools</h3>
+                        <div class="form-group">
+                            <label>Technologies Used</label>
+                            <input type="text" name="technologies" placeholder="e.g., React, Node.js, MongoDB">
+                            <small>Separate multiple items with commas</small>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Tools & Software</label>
+                            <input type="text" name="tools" placeholder="e.g., Figma, Adobe XD, VS Code">
+                            <small>Separate multiple items with commas</small>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3><i class="fas fa-image"></i> Media & Display</h3>
+                        <div class="form-group">
+                            <label>Service Icon</label>
+                            <input type="text" name="icon" placeholder="Font Awesome icon class (e.g., fa-laptop-code)">
+                            <small>Font Awesome icon class name</small>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Service Image</label>
+                            <input type="file" name="service_image" accept="image/*">
+                            <small>Upload service thumbnail (JPG, PNG, max 5MB)</small>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Display Order</label>
+                                <input type="number" name="order" value="0" min="0">
+                                <small>Lower numbers appear first</small>
+                            </div>
+                            <div class="form-group">
+                                <label>Status</label>
+                                <select name="status">
+                                    <option value="active" selected>Active</option>
+                                    <option value="inactive">Inactive</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3><i class="fas fa-cog"></i> Additional Options</h3>
+                        <div class="form-group checkbox-group">
+                            <label>
+                                <input type="checkbox" name="featured">
+                                <span>Featured Service</span>
+                            </label>
+                        </div>
+
+                        <div class="form-group checkbox-group">
+                            <label>
+                                <input type="checkbox" name="show_homepage" checked>
+                                <span>Show on Homepage</span>
+                            </label>
+                        </div>
+
+                        <div class="form-group checkbox-group">
+                            <label>
+                                <input type="checkbox" name="accepting_clients" checked>
+                                <span>Currently Accepting New Clients</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn-primary">
+                            <i class="fas fa-save"></i> Save Service
+                        </button>
+                        <button type="button" class="btn-secondary" onclick="window.history.back()">
+                            <i class="fas fa-times"></i> Cancel
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </main>
+    </div>
+
+    <script src="/admin/js/admin-script.js"></script>
+    <script>
+        document.getElementById('serviceForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Service created successfully!');
+            window.location.href = '/admin/services.html';
+        });
+
+        function addFeature() {
+            const container = document.getElementById('featuresContainer');
+            const newFeature = document.createElement('div');
+            newFeature.className = 'feature-item';
+            newFeature.innerHTML = `
+                <input type="text" placeholder="Feature description" name="features[]">
+                <button type="button" class="btn-remove-feature" onclick="removeFeature(this)">
+                    <i class="fas fa-times"></i>
+                </button>
+            `;
+            container.appendChild(newFeature);
+        }
+
+        function removeFeature(btn) {
+            const container = document.getElementById('featuresContainer');
+            if (container.children.length > 1) {
+                btn.parentElement.remove();
+            } else {
+                alert('At least one feature is required');
+            }
+        }
+    </script>
+
+    <!-- Notification Modal -->
+    <div class="notification-modal" id="notificationModal">
+        <div class="notification-header">
+            <h3>Notifications</h3>
+            <button class="notification-close">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="notification-list">
+            <div class="notification-item unread">
+                <div class="notification-icon success">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <div class="notification-content">
+                    <div class="notification-title">Project Completed</div>
+                    <div class="notification-message">E-Commerce Platform project has been successfully completed</div>
+                    <div class="notification-time">2 minutes ago</div>
+                </div>
+            </div>
+        </div>
+        <div class="notification-footer">
+            <a href="#">Mark as read</a>
+            <a href="#">Clear all</a>
+        </div>
+    </div>
+
+    <style>
+        .feature-item {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .feature-item input {
+            flex: 1;
+        }
+
+        .btn-remove-feature {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 46, 99, 0.1);
+            border: 1px solid var(--danger);
+            color: var(--danger);
+            border-radius: 6px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .btn-remove-feature:hover {
+            background: var(--danger);
+            color: white;
+        }
+
+        .btn-add-feature {
+            padding: 10px 20px;
+            background: rgba(0, 217, 255, 0.1);
+            border: 1px solid var(--primary);
+            color: var(--primary);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+        }
+
+        .btn-add-feature:hover {
+            background: var(--primary);
+            color: var(--dark);
+        }
+    </style>
+</body>
+</html>

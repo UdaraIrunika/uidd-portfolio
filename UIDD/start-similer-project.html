@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Start a Similar Project | UIDD</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .form-section {
+            background: rgba(10, 14, 23, 0.8);
+            border: 1px solid rgba(0, 217, 255, 0.15);
+            border-radius: var(--border-radius);
+            padding: 40px;
+            margin-bottom: 30px;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: var(--light);
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            padding: 14px 16px;
+            background: rgba(19, 24, 44, 0.8);
+            border: 1px solid rgba(0, 217, 255, 0.2);
+            border-radius: 8px;
+            color: var(--light);
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--primary);
+            background: rgba(19, 24, 44, 0.95);
+            box-shadow: 0 0 0 3px rgba(0, 217, 255, 0.1);
+        }
+
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+            grid-column: 1 / -1;
+        }
+
+        .form-group.full {
+            grid-column: 1 / -1;
+        }
+
+        .checkbox-group,
+        .radio-group {
+            display: grid;
+            gap: 12px;
+            grid-column: 1 / -1;
+        }
+
+        .checkbox-item,
+        .radio-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .checkbox-item input,
+        .radio-item input {
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+        }
+
+        .checkbox-item label,
+        .radio-item label {
+            margin: 0;
+            cursor: pointer;
+            font-weight: 500;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 16px 32px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            border: none;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: var(--transition);
+            grid-column: 1 / -1;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .form-section h3 {
+            margin-bottom: 24px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid rgba(0, 217, 255, 0.2);
+        }
+
+        .budget-range {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            grid-column: 1 / -1;
+        }
+
+        .budget-range input[type="range"] {
+            flex: 1;
+            padding: 0;
+            height: 6px;
+            cursor: pointer;
+            accent-color: var(--primary);
+        }
+
+        .budget-value {
+            min-width: 120px;
+            padding: 8px 12px;
+            background: rgba(0, 217, 255, 0.1);
+            border: 1px solid rgba(0, 217, 255, 0.2);
+            border-radius: 6px;
+            color: var(--primary);
+            font-weight: 600;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <!-- Background Animation -->
+    <div class="bg-animation">
+        <div class="grid-lines"></div>
+        <div class="floating-shapes">
+            <div class="floating-shape"></div>
+            <div class="floating-shape"></div>
+            <div class="floating-shape"></div>
+        </div>
+        <canvas id="particles-canvas"></canvas>
+    </div>
+
+    <!-- Header -->
+    <header id="header">
+        <div class="container">
+            <nav>
+                <a href="index.html" class="logo">
+                    <span class="logo-text">UIDD<span class="logo-dot"></span></span>
+                </a>
+                
+                <ul class="nav-links">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="services.html" class="nav-link">Services</a></li>
+                    <li><a href="pricing.html" class="nav-link">Pricing</a></li>
+                    <li><a href="projects.html" class="nav-link active">Projects</a></li>
+                    <li><a href="blog.html" class="nav-link">Blog</a></li>
+                    <li><a href="team.html" class="nav-link">Team</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+                
+                <div class="nav-cta">
+                    <a href="contact.html" class="btn btn-secondary">Get Quote</a>
+                </div>
+                
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div class="mobile-menu" id="mobileMenu">
+            <button class="mobile-menu-close" id="mobileMenuClose">
+                <i class="fas fa-times"></i>
+            </button>
+            <ul class="mobile-nav-links">
+                <li><a href="index.html" class="mobile-nav-link">Home</a></li>
+                <li><a href="services.html" class="mobile-nav-link">Services</a></li>
+                <li><a href="pricing.html" class="mobile-nav-link">Pricing</a></li>
+                <li><a href="projects.html" class="mobile-nav-link">Projects</a></li>
+                <li><a href="blog.html" class="mobile-nav-link">Blog</a></li>
+                <li><a href="team.html" class="mobile-nav-link">Team</a></li>
+                <li><a href="about.html" class="mobile-nav-link">About</a></li>
+                <li><a href="contact.html" class="mobile-nav-link">Contact</a></li>
+            </ul>
+            <a href="contact.html" class="btn">Get Quote</a>
+        </div>
+    </header>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <div class="container">
+            <div class="page-hero-content fade-in">
+                <h1>Start a Similar Project</h1>
+                <p class="page-subtitle">Tell us about your vision, and we'll build it together</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Form Section -->
+    <section class="projects">
+        <div class="container">
+            <div style="max-width:800px;margin:0 auto;">
+                <!-- Basic Information -->
+                <div class="form-section fade-in">
+                    <h3>Basic Information</h3>
+                    <form id="projectForm">
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="firstName">First Name *</label>
+                                <input type="text" id="firstName" name="firstName" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="lastName">Last Name *</label>
+                                <input type="text" id="lastName" name="lastName" required>
+                            </div>
+                            <div class="form-group full">
+                                <label for="email">Email Address *</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone Number</label>
+                                <input type="tel" id="phone" name="phone">
+                            </div>
+                            <div class="form-group">
+                                <label for="company">Company Name</label>
+                                <input type="text" id="company" name="company">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Project Details -->
+                <div class="form-section fade-in">
+                    <h3>Project Details</h3>
+                    <form>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="projectType">Project Type *</label>
+                                <select id="projectType" name="projectType" required>
+                                    <option value="">Select a project type</option>
+                                    <option value="ecommerce">E-Commerce Platform</option>
+                                    <option value="webapp">Web Application</option>
+                                    <option value="mobile">Mobile App</option>
+                                    <option value="design">UI/UX Design</option>
+                                    <option value="branding">Branding & Identity</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="industry">Industry/Niche *</label>
+                                <select id="industry" name="industry" required>
+                                    <option value="">Select an industry</option>
+                                    <option value="retail">Retail & E-Commerce</option>
+                                    <option value="saas">SaaS/Software</option>
+                                    <option value="healthcare">Healthcare</option>
+                                    <option value="finance">Finance & FinTech</option>
+                                    <option value="education">Education</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            <div class="form-group full">
+                                <label for="projectDescription">Project Description *</label>
+                                <textarea id="projectDescription" name="projectDescription" placeholder="Tell us about your project vision, goals, and any specific requirements..." required></textarea>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Features & Services -->
+                <div class="form-section fade-in">
+                    <h3>Services & Features</h3>
+                    <form>
+                        <div class="form-grid">
+                            <div class="form-group full">
+                                <label>Which services do you need? *</label>
+                                <div class="checkbox-group">
+                                    <div class="checkbox-item">
+                                        <input type="checkbox" id="uxui" name="services" value="uxui">
+                                        <label for="uxui">UI/UX Design</label>
+                                    </div>
+                                    <div class="checkbox-item">
+                                        <input type="checkbox" id="frontend" name="services" value="frontend">
+                                        <label for="frontend">Frontend Development</label>
+                                    </div>
+                                    <div class="checkbox-item">
+                                        <input type="checkbox" id="backend" name="services" value="backend">
+                                        <label for="backend">Backend Development</label>
+                                    </div>
+                                    <div class="checkbox-item">
+                                        <input type="checkbox" id="mobile" name="services" value="mobile">
+                                        <label for="mobile">Mobile Development</label>
+                                    </div>
+                                    <div class="checkbox-item">
+                                        <input type="checkbox" id="devops" name="services" value="devops">
+                                        <label for="devops">DevOps & Infrastructure</label>
+                                    </div>
+                                    <div class="checkbox-item">
+                                        <input type="checkbox" id="consulting" name="services" value="consulting">
+                                        <label for="consulting">Technical Consulting</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group full">
+                                <label>What is your timeline? *</label>
+                                <div class="radio-group">
+                                    <div class="radio-item">
+                                        <input type="radio" id="timeline1" name="timeline" value="asap" required>
+                                        <label for="timeline1">ASAP (Within 1-2 weeks)</label>
+                                    </div>
+                                    <div class="radio-item">
+                                        <input type="radio" id="timeline2" name="timeline" value="month">
+                                        <label for="timeline2">Within 1 month</label>
+                                    </div>
+                                    <div class="radio-item">
+                                        <input type="radio" id="timeline3" name="timeline" value="quarter">
+                                        <label for="timeline3">Within 3 months</label>
+                                    </div>
+                                    <div class="radio-item">
+                                        <input type="radio" id="timeline4" name="timeline" value="flexible">
+                                        <label for="timeline4">Flexible/Open</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Budget & Additional Info -->
+                <div class="form-section fade-in">
+                    <h3>Budget & Additional Information</h3>
+                    <form>
+                        <div class="form-grid">
+                            <div class="form-group full">
+                                <label>Estimated Budget Range *</label>
+                                <div class="budget-range">
+                                    <input type="range" id="budget" name="budget" min="5000" max="500000" step="5000" value="50000">
+                                    <div class="budget-value">$<span id="budgetDisplay">50,000</span></div>
+                                </div>
+                            </div>
+
+                            <div class="form-group full">
+                                <label for="additionalInfo">Additional Information</label>
+                                <textarea id="additionalInfo" name="additionalInfo" placeholder="Any other details you'd like to share? References, competitor links, design inspiration, etc."></textarea>
+                            </div>
+
+                            <div class="form-group full">
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="terms" name="terms" required>
+                                    <label for="terms">I agree to be contacted by UIDD about this project *</label>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="submit-btn" onclick="submitForm(event)">
+                                <i class="fas fa-paper-plane"></i>
+                                Submit Project Inquiry
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Subscribe -->
+    <section style="background: linear-gradient(135deg, rgba(0, 217, 255, 0.1), rgba(8, 255, 200, 0.1)); padding: 60px 0; border-top: 1px solid rgba(0, 217, 255, 0.2);">
+        <div class="container">
+            <div style="max-width: 600px; margin: 0 auto; text-align: center;">
+                <h2 style="margin-bottom: 10px;">Stay Updated</h2>
+                <p style="margin-bottom: 30px; color: var(--gray);">Subscribe to our newsletter for the latest design trends, development tips, and project insights.</p>
+                <form style="display: flex; gap: 12px; flex-wrap: wrap;" onsubmit="handleSubscribe(event)">
+                    <input type="email" placeholder="Enter your email" required style="flex: 1; min-width: 250px; padding: 12px 16px; background: rgba(19, 24, 44, 0.8); border: 1px solid rgba(0, 217, 255, 0.2); border-radius: 8px; color: var(--light); font-family: 'Inter', sans-serif;">
+                    <button type="submit" class="btn" style="padding: 12px 32px;"><i class="fas fa-paper-plane"></i> Subscribe</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <div class="footer-logo">UIDD<span style="color: var(--primary)">.</span></div>
+                    <p>We bridge the gap between design and development to create exceptional digital experiences that users love.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-dribbble"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="services.html"><i class="fas fa-chevron-right"></i> UI/UX Design</a></li>
+                        <li><a href="services.html"><i class="fas fa-chevron-right"></i> Frontend Development</a></li>
+                        <li><a href="services.html"><i class="fas fa-chevron-right"></i> Mobile Development</a></li>
+                        <li><a href="services.html"><i class="fas fa-chevron-right"></i> Design Systems</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Contact</h3>
+                    <ul>
+                        <li><a href="#"><i class="fas fa-map-marker-alt"></i> 123 Tech Street, Silicon Valley</a></li>
+                        <li><a href="tel:+15551234567"><i class="fas fa-phone"></i> +1 (555) 123-4567</a></li>
+                        <li><a href="mailto:hello@uidd.com"><i class="fas fa-envelope"></i> hello@uidd.com</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2024 UIDD - UI Designers & Developers. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Newsletter subscription handler
+        function handleSubscribe(event) {
+            event.preventDefault();
+            const email = event.target.querySelector('input[type="email"]').value;
+            if (email) {
+                alert('Thank you for subscribing! Check your email for confirmation.');
+                event.target.reset();
+            }
+        }
+
+        // Budget slider display
+        const budgetSlider = document.getElementById('budget');
+        const budgetDisplay = document.getElementById('budgetDisplay');
+        
+        budgetSlider.addEventListener('input', (e) => {
+            const value = parseInt(e.target.value);
+            budgetDisplay.textContent = value.toLocaleString();
+        });
+
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileMenuClose = document.getElementById('mobileMenuClose');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+        
+        mobileMenuClose.addEventListener('click', () => {
+            mobileMenu.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        });
+        
+        document.querySelectorAll('.mobile-nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            });
+        });
+        
+        // Header scroll effect
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+        
+        // Fade-in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('.fade-in').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+        
+        // Form submission
+        function submitForm(event) {
+            event.preventDefault();
+            
+            const firstName = document.getElementById('firstName').value;
+            const lastName = document.getElementById('lastName').value;
+            const email = document.getElementById('email').value;
+            
+            if (firstName && lastName && email) {
+                alert('Thank you for your inquiry! We will contact you shortly at ' + email);
+                document.getElementById('projectForm').reset();
+            } else {
+                alert('Please fill in all required fields.');
+            }
+        }
+        
+        // Particle animation
+        const canvas = document.getElementById('particles-canvas');
+        const ctx = canvas.getContext('2d');
+        
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        
+        const particles = [];
+        const particleCount = 50;
+        
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 2 + 1;
+                this.speedX = Math.random() * 0.5 - 0.25;
+                this.speedY = Math.random() * 0.5 - 0.25;
+            }
+            
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+                
+                if (this.x > canvas.width) this.x = 0;
+                if (this.x < 0) this.x = canvas.width;
+                if (this.y > canvas.height) this.y = 0;
+                if (this.y < 0) this.y = canvas.height;
+            }
+            
+            draw() {
+                ctx.fillStyle = 'rgba(0, 217, 255, 0.5)';
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+        
+        function initParticles() {
+            particles.length = 0;
+            for (let i = 0; i < particleCount; i++) {
+                particles.push(new Particle());
+            }
+        }
+        
+        function animateParticles() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            particles.forEach(particle => {
+                particle.update();
+                particle.draw();
+            });
+            
+            requestAnimationFrame(animateParticles);
+        }
+        
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            initParticles();
+        });
+        
+        initParticles();
+        animateParticles();
+    </script>
+</body>
+</html>

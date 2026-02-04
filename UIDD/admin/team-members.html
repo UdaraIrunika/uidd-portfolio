@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team Members | UIDD Admin</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/admin-style.css">
+</head>
+<body class="admin-page">
+    <div class="admin-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>UIDD<span class="dot">.</span></h2>
+                <button class="sidebar-toggle" id="sidebarToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <a href="/admin/dashboard.html" class="nav-item">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="/admin/projects.html" class="nav-item">
+                    <i class="fas fa-folder"></i>
+                    <span>Projects</span>
+                </a>
+                <a href="/admin/services.html" class="nav-item">
+                    <i class="fas fa-cogs"></i>
+                    <span>Services</span>
+                </a>                <a href="blog.html" class="nav-item">
+                    <i class="fas fa-blog"></i>
+                    <span>Blog</span>
+                </a>                <a href="/admin/pricing.html" class="nav-item">
+                    <i class="fas fa-tag"></i>
+                    <span>Pricing</span>
+                </a>
+                <a href="/admin/team-members.html" class="nav-item active">
+                    <i class="fas fa-users"></i>
+                    <span>Team</span>
+                </a>
+                <a href="/admin/consultations.html" class="nav-item">
+                    <i class="fas fa-phone-alt"></i>
+                    <span>Consultations</span>
+                </a>
+                <a href="/admin/invoices.html" class="nav-item">
+                    <i class="fas fa-file-invoice-dollar"></i>
+                    <span>Invoices</span>
+                </a>
+                <a href="/admin/testimonials.html" class="nav-item">
+                    <i class="fas fa-star"></i>
+                    <span>Testimonials</span>
+                </a>
+                <a href="/admin/users.html" class="nav-item">
+                    <i class="fas fa-users"></i>
+                    <span>Users</span>
+                </a>
+                <a href="/admin/inquiries.html" class="nav-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>Inquiries</span>
+                </a>
+                <a href="/admin/profile.html" class="nav-item">
+                    <i class="fas fa-user-circle"></i>
+                    <span>Profile</span>
+                </a>
+                <a href="/admin/settings.html" class="nav-item">
+                    <i class="fas fa-sliders-h"></i>
+                    <span>Settings</span>
+                </a>
+            </nav>
+            
+            <div class="sidebar-footer">
+                <button class="btn-logout" id="logoutBtn">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Top Bar -->
+            <div class="topbar">
+                <div class="topbar-left">
+                    <button class="btn-menu" id="menuToggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <h1>Team Members</h1>
+                </div>
+                
+                <div class="topbar-right">
+                    <div class="notifications">
+                        <button class="notification-btn">
+                            <i class="fas fa-bell"></i>
+                            <span class="notification-badge">3</span>
+                        </button>
+                    </div>
+                    
+                    <div class="user-profile">
+                        <img src="https://via.placeholder.com/40" alt="Admin">
+                        <span id="adminUsername">Admin</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Page Content -->
+            <div class="content">
+                <!-- Header -->
+                <div class="page-header">
+                    <div class="header-info">
+                        <h2>Team Members</h2>
+                        <p>Manage your team and organization</p>
+                    </div>
+                    <div class="header-actions">
+                        <input type="text" class="search-input" id="searchInput" placeholder="Search members...">
+                        <a href="add-team-member.html" class="btn-primary">
+                            <i class="fas fa-plus"></i>
+                            Add Member
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Grid -->
+                <div class="members-grid">
+                    <!-- Member 1 -->
+                    <div class="member-card">
+                        <div class="member-image">
+                            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop" alt="Sarah Johnson">
+                        </div>
+                        <div class="member-info">
+                            <h3>Sarah Johnson</h3>
+                            <p class="member-role">Lead Designer</p>
+                            <p class="member-bio">Creative director with 10+ years of design experience</p>
+                            <div class="member-social">
+                                <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+                                <a href="#" title="Dribbble"><i class="fab fa-dribbble"></i></a>
+                                <a href="#" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                            </div>
+                        </div>
+                        <div class="member-actions">
+                            <a href="edit-team-member.html?id=T001" class="btn-icon" title="Edit">
+                                <i class="fas fa-edit"></i>
+                            </a>
+                            <button class="btn-icon delete" onclick="deleteMember('T001')" title="Delete">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Member 2 -->
+                    <div class="member-card">
+                    <div class="member-image">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop" alt="Michael Chen">
+                    </div>
+                    <div class="member-info">
+                        <h3>Michael Chen</h3>
+                        <p class="member-role">Senior Developer</p>
+                        <p class="member-bio">Full-stack developer specializing in modern web technologies</p>
+                        <div class="member-social">
+                            <a href="#" title="GitHub"><i class="fab fa-github"></i></a>
+                            <a href="#" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                    <div class="member-actions">
+                        <a href="edit-team-member.html?id=T002" class="btn-icon" title="Edit">
+                            <i class="fas fa-edit"></i>
+                        </a>
+                        <button class="btn-icon delete" onclick="deleteMember('T002')" title="Delete">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="member-card">
+                    <div class="member-image">
+                        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop" alt="Emily Rodriguez">
+                    </div>
+                    <div class="member-info">
+                        <h3>Emily Rodriguez</h3>
+                        <p class="member-role">Product Manager</p>
+                        <p class="member-bio">Strategic thinker driving product vision and user experience</p>
+                        <div class="member-social">
+                            <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+                            <a href="#" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                    <div class="member-actions">
+                        <a href="edit-team-member.html?id=T003" class="btn-icon" title="Edit">
+                            <i class="fas fa-edit"></i>
+                        </a>
+                        <button class="btn-icon delete" onclick="deleteMember('T003')" title="Delete">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="member-card">
+                    <div class="member-image">
+                        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop" alt="David Kim">
+                    </div>
+                    <div class="member-info">
+                        <h3>David Kim</h3>
+                        <p class="member-role">Frontend Developer</p>
+                        <p class="member-bio">Expert in responsive design and modern JavaScript frameworks</p>
+                        <div class="member-social">
+                            <a href="#" title="GitHub"><i class="fab fa-github"></i></a>
+                            <a href="#" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                    <div class="member-actions">
+                        <a href="edit-team-member.html?id=T004" class="btn-icon" title="Edit">
+                            <i class="fas fa-edit"></i>
+                        </a>
+                        <button class="btn-icon delete" onclick="deleteMember('T004')" title="Delete">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="member-card">
+                    <div class="member-image">
+                        <img src="https://images.unsplash.com/photo-1516746915991-5aacd94de628?w=400&h=400&fit=crop" alt="Jessica Taylor">
+                    </div>
+                    <div class="member-info">
+                        <h3>Jessica Taylor</h3>
+                        <p class="member-role">UX Researcher</p>
+                        <p class="member-bio">Data-driven researcher passionate about user-centered design</p>
+                        <div class="member-social">
+                            <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+                            <a href="#" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                    <div class="member-actions">
+                        <a href="edit-team-member.html?id=T005" class="btn-icon" title="Edit">
+                            <i class="fas fa-edit"></i>
+                        </a>
+                        <button class="btn-icon delete" onclick="deleteMember('T005')" title="Delete">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="member-card">
+                    <div class="member-image">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop" alt="Alex Martinez">
+                    </div>
+                    <div class="member-info">
+                        <h3>Alex Martinez</h3>
+                        <p class="member-role">DevOps Engineer</p>
+                        <p class="member-bio">Infrastructure specialist ensuring scalable and secure deployments</p>
+                        <div class="member-social">
+                            <a href="#" title="GitHub"><i class="fab fa-github"></i></a>
+                            <a href="#" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                    <div class="member-actions">
+                        <a href="edit-team-member.html?id=T006" class="btn-icon" title="Edit">
+                            <i class="fas fa-edit"></i>
+                        </a>
+                        <button class="btn-icon delete" onclick="deleteMember('T006')" title="Delete">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    </div>
+
+    <script>
+        // Search functionality
+        document.getElementById('searchInput').addEventListener('keyup', function() {
+            const filter = this.value.toLowerCase();
+            const cards = document.querySelectorAll('.member-card');
+            
+            cards.forEach(card => {
+                const text = card.textContent.toLowerCase();
+                card.style.display = text.includes(filter) ? '' : 'none';
+            });
+        });
+
+        function deleteMember(id) {
+            if (confirm(`Are you sure you want to delete member ${id}?`)) {
+                alert(`Member ${id} deleted successfully`);
+            }
+        }
+
+        // Sidebar toggle
+        document.getElementById('sidebarToggle').addEventListener('click', function() {
+            document.querySelector('.sidebar').classList.toggle('collapsed');
+        });
+
+        document.getElementById('menuToggle').addEventListener('click', function() {
+            document.querySelector('.sidebar').classList.toggle('mobile-open');
+        });
+
+        // Logout
+        document.getElementById('logoutBtn').addEventListener('click', function() {
+            if (confirm('Are you sure you want to logout?')) {
+                window.location.href = 'login.html';
+            }
+        });
+    </script>
+</body>
+</html>

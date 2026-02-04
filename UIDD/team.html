@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Team | UIDD</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .team-card {
+            background: rgba(10, 14, 23, 0.8);
+            border: 1px solid rgba(0, 217, 255, 0.15);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .team-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(0, 217, 255, 0.3);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .team-image {
+            width: 100%;
+            height: 350px;
+            overflow: hidden;
+            position: relative;
+            background: linear-gradient(135deg, rgba(0, 217, 255, 0.1), rgba(8, 255, 200, 0.1));
+        }
+
+        .team-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .team-card:hover .team-image img {
+            transform: scale(1.08);
+        }
+
+        .team-info {
+            padding: 32px 24px;
+        }
+
+        .team-name {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 6px;
+            color: var(--light);
+        }
+
+        .team-role {
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 12px;
+            font-size: 0.95rem;
+        }
+
+        .team-bio {
+            color: var(--gray);
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .team-social {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+        }
+
+        .team-social-link {
+            width: 36px;
+            height: 36px;
+            background: rgba(0, 217, 255, 0.1);
+            border: 1px solid rgba(0, 217, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .team-social-link:hover {
+            background: rgba(0, 217, 255, 0.2);
+            transform: scale(1.1);
+        }
+
+        .team-values {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin: 60px 0;
+        }
+
+        .value-card {
+            background: rgba(10, 14, 23, 0.6);
+            border: 1px solid rgba(0, 217, 255, 0.15);
+            border-radius: var(--border-radius);
+            padding: 30px;
+            text-align: center;
+        }
+
+        .value-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 16px;
+        }
+
+        .value-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: var(--light);
+        }
+
+        .value-text {
+            color: var(--gray);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+    <!-- Background Animation -->
+    <div class="bg-animation">
+        <div class="grid-lines"></div>
+        <div class="floating-shapes">
+            <div class="floating-shape"></div>
+            <div class="floating-shape"></div>
+            <div class="floating-shape"></div>
+        </div>
+        <canvas id="particles-canvas"></canvas>
+    </div>
+
+    <!-- Header -->
+    <header id="header">
+        <div class="container">
+            <nav>
+                <a href="index.html" class="logo">
+                    <span class="logo-text">UIDD<span class="logo-dot"></span></span>
+                </a>
+                
+                <ul class="nav-links">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="services.html" class="nav-link">Services</a></li>
+                    <li><a href="pricing.html" class="nav-link">Pricing</a></li>
+                    <li><a href="projects.html" class="nav-link">Projects</a></li>
+                    <li><a href="blog.html" class="nav-link">Blog</a></li>
+                    <li><a href="team.html" class="nav-link active">Team</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+                
+                <div class="nav-cta">
+                    <a href="contact.html" class="btn btn-secondary">Get Quote</a>
+                </div>
+                
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div class="mobile-menu" id="mobileMenu">
+            <button class="mobile-menu-close" id="mobileMenuClose">
+                <i class="fas fa-times"></i>
+            </button>
+            <ul class="mobile-nav-links">
+                <li><a href="index.html" class="mobile-nav-link">Home</a></li>
+                <li><a href="services.html" class="mobile-nav-link">Services</a></li>
+                <li><a href="pricing.html" class="mobile-nav-link">Pricing</a></li>
+                <li><a href="projects.html" class="mobile-nav-link">Projects</a></li>
+                <li><a href="blog.html" class="mobile-nav-link">Blog</a></li>
+                <li><a href="team.html" class="mobile-nav-link">Team</a></li>
+                <li><a href="about.html" class="mobile-nav-link">About</a></li>
+                <li><a href="contact.html" class="mobile-nav-link">Contact</a></li>
+            </ul>
+            <a href="contact.html" class="btn">Get Quote</a>
+        </div>
+    </header>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <div class="container">
+            <div class="page-hero-content fade-in">
+                <h1>Meet Our Team</h1>
+                <p class="page-subtitle">Talented designers and developers passionate about creating amazing digital experiences</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Values -->
+    <section class="projects">
+        <div class="container">
+            <div class="section-header fade-in" style="margin-bottom: 50px;">
+                <h2>Our <span class="highlight">Values</span></h2>
+                <p>The principles that guide everything we do</p>
+            </div>
+
+            <div class="team-values">
+                <div class="value-card fade-in">
+                    <div class="value-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <div class="value-title">Innovation</div>
+                    <div class="value-text">We stay ahead of trends and constantly explore new technologies and methodologies to deliver cutting-edge solutions.</div>
+                </div>
+                <div class="value-card fade-in">
+                    <div class="value-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <div class="value-title">Collaboration</div>
+                    <div class="value-text">We believe in the power of teamwork and open communication to create the best possible outcomes for our clients.</div>
+                </div>
+                <div class="value-card fade-in">
+                    <div class="value-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="value-title">Excellence</div>
+                    <div class="value-text">Every project is an opportunity to exceed expectations and deliver work that exceeds the highest standards.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Members -->
+    <section class="projects">
+        <div class="container">
+            <div class="section-header fade-in" style="margin-bottom: 50px;">
+                <h2>Team <span class="highlight">Members</span></h2>
+                <p>The creative minds behind UIDD</p>
+            </div>
+
+            <div class="team-grid">
+                <!-- Team Member 1 -->
+                <div class="team-card fade-in">
+                    <div class="team-image">
+                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=500&q=80" alt="Sarah Johnson">
+                    </div>
+                    <div class="team-info">
+                        <div class="team-name">Sarah Johnson</div>
+                        <div class="team-role">Lead UI/UX Designer</div>
+                        <div class="team-bio">10+ years of experience in creating intuitive and beautiful user interfaces. Design enthusiast and mentor.</div>
+                        <div class="team-social">
+                            <a href="#" class="team-social-link"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="team-social-link"><i class="fab fa-dribbble"></i></a>
+                            <a href="#" class="team-social-link"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Team Member 2 -->
+                <div class="team-card fade-in">
+                    <div class="team-image">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&q=80" alt="Michael Chen">
+                    </div>
+                    <div class="team-info">
+                        <div class="team-name">Michael Chen</div>
+                        <div class="team-role">Senior Full Stack Developer</div>
+                        <div class="team-bio">Expert in React, Node.js, and cloud architecture. Passionate about scalable and performant applications.</div>
+                        <div class="team-social">
+                            <a href="#" class="team-social-link"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="team-social-link"><i class="fab fa-github"></i></a>
+                            <a href="#" class="team-social-link"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Team Member 3 -->
+                <div class="team-card fade-in">
+                    <div class="team-image">
+                        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=500&q=80" alt="Emily Rodriguez">
+                    </div>
+                    <div class="team-info">
+                        <div class="team-name">Emily Rodriguez</div>
+                        <div class="team-role">Product Manager & Designer</div>
+                        <div class="team-bio">Strategic thinker focused on understanding user needs and translating them into exceptional products.</div>
+                        <div class="team-social">
+                            <a href="#" class="team-social-link"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="team-social-link"><i class="fab fa-dribbble"></i></a>
+                            <a href="#" class="team-social-link"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Team Member 4 -->
+                <div class="team-card fade-in">
+                    <div class="team-image">
+                        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=500&q=80" alt="David Kim">
+                    </div>
+                    <div class="team-info">
+                        <div class="team-name">David Kim</div>
+                        <div class="team-role">Frontend Developer</div>
+                        <div class="team-bio">Specializes in Vue.js and responsive design. Creates pixel-perfect implementations of complex interfaces.</div>
+                        <div class="team-social">
+                            <a href="#" class="team-social-link"><i class="fab fa-github"></i></a>
+                            <a href="#" class="team-social-link"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="team-social-link"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Team Member 5 -->
+                <div class="team-card fade-in">
+                    <div class="team-image">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&q=80" alt="Jessica Taylor">
+                    </div>
+                    <div class="team-info">
+                        <div class="team-name">Jessica Taylor</div>
+                        <div class="team-role">UX Researcher & Strategist</div>
+                        <div class="team-bio">Data-driven approach to user research and interaction design. Advocates for user-centered solutions.</div>
+                        <div class="team-social">
+                            <a href="#" class="team-social-link"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="team-social-link"><i class="fab fa-dribbble"></i></a>
+                            <a href="#" class="team-social-link"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Team Member 6 -->
+                <div class="team-card fade-in">
+                    <div class="team-image">
+                        <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=500&q=80" alt="Alex Martinez">
+                    </div>
+                    <div class="team-info">
+                        <div class="team-name">Alex Martinez</div>
+                        <div class="team-role">DevOps & Backend Engineer</div>
+                        <div class="team-bio">Infrastructure expert with focus on security and scalability. Ensures smooth deployment and operations.</div>
+                        <div class="team-social">
+                            <a href="#" class="team-social-link"><i class="fab fa-github"></i></a>
+                            <a href="#" class="team-social-link"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="team-social-link"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Subscribe -->
+    <section style="background: linear-gradient(135deg, rgba(0, 217, 255, 0.1), rgba(8, 255, 200, 0.1)); padding: 60px 0; border-top: 1px solid rgba(0, 217, 255, 0.2);">
+        <div class="container">
+            <div style="max-width: 600px; margin: 0 auto; text-align: center;">
+                <h2 style="margin-bottom: 10px;">Stay Updated</h2>
+                <p style="margin-bottom: 30px; color: var(--gray);">Subscribe to our newsletter for the latest design trends, development tips, and project insights.</p>
+                <form style="display: flex; gap: 12px; flex-wrap: wrap;" onsubmit="handleSubscribe(event)">
+                    <input type="email" placeholder="Enter your email" required style="flex: 1; min-width: 250px; padding: 12px 16px; background: rgba(19, 24, 44, 0.8); border: 1px solid rgba(0, 217, 255, 0.2); border-radius: 8px; color: var(--light); font-family: 'Inter', sans-serif;">
+                    <button type="submit" class="btn" style="padding: 12px 32px;"><i class="fas fa-paper-plane"></i> Subscribe</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <div class="footer-logo">UIDD<span style="color: var(--primary)">.</span></div>
+                    <p>We bridge the gap between design and development to create exceptional digital experiences that users love.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-dribbble"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="services.html"><i class="fas fa-chevron-right"></i> UI/UX Design</a></li>
+                        <li><a href="services.html"><i class="fas fa-chevron-right"></i> Frontend Development</a></li>
+                        <li><a href="services.html"><i class="fas fa-chevron-right"></i> Mobile Development</a></li>
+                        <li><a href="services.html"><i class="fas fa-chevron-right"></i> Design Systems</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Contact</h3>
+                    <ul>
+                        <li><a href="#"><i class="fas fa-map-marker-alt"></i> 123 Tech Street, Silicon Valley</a></li>
+                        <li><a href="tel:+15551234567"><i class="fas fa-phone"></i> +1 (555) 123-4567</a></li>
+                        <li><a href="mailto:hello@uidd.com"><i class="fas fa-envelope"></i> hello@uidd.com</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2024 UIDD - UI Designers & Developers. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Newsletter subscription handler
+        function handleSubscribe(event) {
+            event.preventDefault();
+            const email = event.target.querySelector('input[type="email"]').value;
+            if (email) {
+                alert('Thank you for subscribing! Check your email for confirmation.');
+                event.target.reset();
+            }
+        }
+
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileMenuClose = document.getElementById('mobileMenuClose');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+        
+        mobileMenuClose.addEventListener('click', () => {
+            mobileMenu.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        });
+        
+        document.querySelectorAll('.mobile-nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            });
+        });
+        
+        // Header scroll effect
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+        
+        // Fade-in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('.fade-in').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+        
+        // Particle animation
+        const canvas = document.getElementById('particles-canvas');
+        const ctx = canvas.getContext('2d');
+        
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        
+        const particles = [];
+        const particleCount = 50;
+        
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 2 + 1;
+                this.speedX = Math.random() * 0.5 - 0.25;
+                this.speedY = Math.random() * 0.5 - 0.25;
+            }
+            
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+                
+                if (this.x > canvas.width) this.x = 0;
+                if (this.x < 0) this.x = canvas.width;
+                if (this.y > canvas.height) this.y = 0;
+                if (this.y < 0) this.y = canvas.height;
+            }
+            
+            draw() {
+                ctx.fillStyle = 'rgba(0, 217, 255, 0.5)';
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+        
+        function initParticles() {
+            particles.length = 0;
+            for (let i = 0; i < particleCount; i++) {
+                particles.push(new Particle());
+            }
+        }
+        
+        function animateParticles() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            particles.forEach(particle => {
+                particle.update();
+                particle.draw();
+            });
+            
+            requestAnimationFrame(animateParticles);
+        }
+        
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            initParticles();
+        });
+        
+        initParticles();
+        animateParticles();
+    </script>
+</body>
+</html>

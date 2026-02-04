@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services | UIDD</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Background Animation -->
+    <div class="bg-animation">
+        <div class="grid-lines"></div>
+        <div class="floating-shapes">
+            <div class="floating-shape"></div>
+            <div class="floating-shape"></div>
+            <div class="floating-shape"></div>
+        </div>
+        <canvas id="particles-canvas"></canvas>
+    </div>
+
+    <!-- Header -->
+    <header id="header">
+        <div class="container">
+            <nav>
+                <a href="index.html" class="logo">
+                    <span class="logo-text">UIDD<span class="logo-dot"></span></span>
+                </a>
+                
+                <ul class="nav-links">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="services.html" class="nav-link active">Services</a></li>
+                    <li><a href="pricing.html" class="nav-link">Pricing</a></li>
+                    <li><a href="projects.html" class="nav-link">Projects</a></li>
+                    <li><a href="blog.html" class="nav-link">Blog</a></li>
+                    <li><a href="team.html" class="nav-link">Team</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+                
+                <div class="nav-cta">
+                    <a href="contact.html" class="btn btn-secondary">Get Quote</a>
+                </div>
+                
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div class="mobile-menu" id="mobileMenu">
+            <button class="mobile-menu-close" id="mobileMenuClose">
+                <i class="fas fa-times"></i>
+            </button>
+            <ul class="mobile-nav-links">
+                <li><a href="index.html" class="mobile-nav-link">Home</a></li>
+                <li><a href="services.html" class="mobile-nav-link">Services</a></li>
+                <li><a href="pricing.html" class="mobile-nav-link">Pricing</a></li>
+                <li><a href="projects.html" class="mobile-nav-link">Projects</a></li>
+                <li><a href="blog.html" class="mobile-nav-link">Blog</a></li>
+                <li><a href="team.html" class="mobile-nav-link">Team</a></li>
+                <li><a href="about.html" class="mobile-nav-link">About</a></li>
+                <li><a href="contact.html" class="mobile-nav-link">Contact</a></li>
+            </ul>
+            <a href="contact.html" class="btn">Get Quote</a>
+        </div>
+    </header>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <div class="container">
+            <div class="page-hero-content fade-in">
+                <h1>Our Services</h1>
+                <p class="page-subtitle">Comprehensive digital solutions tailored to your needs</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>What We Offer</h2>
+                <p>From concept to launch, we provide end-to-end digital solutions</p>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-pencil-ruler"></i>
+                    </div>
+                    <h3>UI/UX Design</h3>
+                    <p>Creating intuitive and aesthetically pleasing interfaces that enhance user experience and drive engagement through thoughtful design principles.</p>
+                    <div class="service-tech-tags">
+                        <div class="tech-tag">Figma</div>
+                        <div class="tech-tag">Adobe XD</div>
+                        <div class="tech-tag">Sketch</div>
+                    </div>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> User Research & Analysis</li>
+                        <li><i class="fas fa-check"></i> Wireframing & Prototyping</li>
+                        <li><i class="fas fa-check"></i> Visual Design & Branding</li>
+                        <li><i class="fas fa-check"></i> Usability Testing</li>
+                    </ul>
+                </div>
+                
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>Frontend Development</h3>
+                    <p>Transforming designs into pixel-perfect, responsive, and performant web applications using modern technologies like React, Vue, and Angular.</p>
+                    <div class="service-tech-tags">
+                        <div class="tech-tag">React</div>
+                        <div class="tech-tag">Vue.js</div>
+                        <div class="tech-tag">TypeScript</div>
+                    </div>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Responsive Web Design</li>
+                        <li><i class="fas fa-check"></i> Single Page Applications</li>
+                        <li><i class="fas fa-check"></i> Progressive Web Apps</li>
+                        <li><i class="fas fa-check"></i> Performance Optimization</li>
+                    </ul>
+                </div>
+                
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Mobile Development</h3>
+                    <p>Building responsive mobile applications that provide seamless experiences across iOS and Android platforms using React Native and Flutter.</p>
+                    <div class="service-tech-tags">
+                        <div class="tech-tag">React Native</div>
+                        <div class="tech-tag">Flutter</div>
+                        <div class="tech-tag">Swift</div>
+                    </div>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Cross-Platform Development</li>
+                        <li><i class="fas fa-check"></i> Native iOS & Android Apps</li>
+                        <li><i class="fas fa-check"></i> App Store Deployment</li>
+                        <li><i class="fas fa-check"></i> Mobile-First Design</li>
+                    </ul>
+                </div>
+                
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-server"></i>
+                    </div>
+                    <h3>Backend Development</h3>
+                    <p>Building robust, scalable server-side applications with modern frameworks and cloud infrastructure for reliable performance.</p>
+                    <div class="service-tech-tags">
+                        <div class="tech-tag">Node.js</div>
+                        <div class="tech-tag">Python</div>
+                        <div class="tech-tag">PostgreSQL</div>
+                    </div>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> RESTful API Development</li>
+                        <li><i class="fas fa-check"></i> Database Design & Management</li>
+                        <li><i class="fas fa-check"></i> Cloud Infrastructure Setup</li>
+                        <li><i class="fas fa-check"></i> Security & Authentication</li>
+                    </ul>
+                </div>
+                
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <h3>E-Commerce Solutions</h3>
+                    <p>Complete e-commerce platforms with secure payment processing, inventory management, and optimized conversion funnels.</p>
+                    <div class="service-tech-tags">
+                        <div class="tech-tag">Shopify</div>
+                        <div class="tech-tag">WooCommerce</div>
+                        <div class="tech-tag">Stripe</div>
+                    </div>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Custom Store Development</li>
+                        <li><i class="fas fa-check"></i> Payment Gateway Integration</li>
+                        <li><i class="fas fa-check"></i> Product Management Systems</li>
+                        <li><i class="fas fa-check"></i> Analytics & Reporting</li>
+                    </ul>
+                </div>
+                
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Digital Strategy</h3>
+                    <p>Strategic consulting to align your digital presence with business goals, including SEO, analytics, and growth optimization.</p>
+                    <div class="service-tech-tags">
+                        <div class="tech-tag">SEO</div>
+                        <div class="tech-tag">Analytics</div>
+                        <div class="tech-tag">Growth</div>
+                    </div>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Digital Transformation</li>
+                        <li><i class="fas fa-check"></i> SEO & Content Strategy</li>
+                        <li><i class="fas fa-check"></i> Analytics Implementation</li>
+                        <li><i class="fas fa-check"></i> Conversion Optimization</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>Our Process</h2>
+                <p>A proven methodology to deliver exceptional results</p>
+            </div>
+            
+            <div class="process-steps">
+                <div class="process-step fade-in">
+                    <div class="step-number">01</div>
+                    <div class="step-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3>Discovery</h3>
+                    <p>We start by understanding your business, goals, and target audience through comprehensive research and analysis.</p>
+                </div>
+                
+                <div class="process-step fade-in">
+                    <div class="step-number">02</div>
+                    <div class="step-icon">
+                        <i class="fas fa-pencil-alt"></i>
+                    </div>
+                    <h3>Design</h3>
+                    <p>Creating wireframes, prototypes, and visual designs that align with your brand and user needs.</p>
+                </div>
+                
+                <div class="process-step fade-in">
+                    <div class="step-number">03</div>
+                    <div class="step-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h3>Development</h3>
+                    <p>Building your solution with clean, scalable code following industry best practices and standards.</p>
+                </div>
+                
+                <div class="process-step fade-in">
+                    <div class="step-number">04</div>
+                    <div class="step-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3>Launch</h3>
+                    <p>Deploying your project to production with thorough testing and ongoing support for a successful launch.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <div class="cta-content fade-in">
+                <h2>Ready to Start Your Project?</h2>
+                <p>Let's discuss how we can help bring your vision to life</p>
+                <a href="contact.html" class="btn">
+                    <i class="fas fa-paper-plane"></i>
+                    Get in Touch
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <div class="footer-logo">UIDD<span style="color: var(--primary)">.</span></div>
+                    <p>We bridge the gap between design and development to create exceptional digital experiences that users love.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-dribbble"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="services.html"><i class="fas fa-chevron-right"></i> UI/UX Design</a></li>
+                        <li><a href="services.html"><i class="fas fa-chevron-right"></i> Frontend Development</a></li>
+                        <li><a href="services.html"><i class="fas fa-chevron-right"></i> Mobile Development</a></li>
+                        <li><a href="services.html"><i class="fas fa-chevron-right"></i> Design Systems</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Contact</h3>
+                    <ul>
+                        <li><a href="#"><i class="fas fa-map-marker-alt"></i> 123 Tech Street, Silicon Valley</a></li>
+                        <li><a href="tel:+15551234567"><i class="fas fa-phone"></i> +1 (555) 123-4567</a></li>
+                        <li><a href="mailto:hello@uidd.com"><i class="fas fa-envelope"></i> hello@uidd.com</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2024 UIDD - UI Designers & Developers. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileMenuClose = document.getElementById('mobileMenuClose');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.add('active');
+        });
+        
+        mobileMenuClose.addEventListener('click', () => {
+            mobileMenu.classList.remove('active');
+        });
+        
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.mobile-nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+            });
+        });
+        
+        // Header scroll effect
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+        
+        // Fade-in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('.fade-in').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+        
+        // Particle animation
+        const canvas = document.getElementById('particles-canvas');
+        const ctx = canvas.getContext('2d');
+        
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        
+        const particles = [];
+        const particleCount = 50;
+        
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 2 + 1;
+                this.speedX = Math.random() * 0.5 - 0.25;
+                this.speedY = Math.random() * 0.5 - 0.25;
+            }
+            
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+                
+                if (this.x > canvas.width) this.x = 0;
+                if (this.x < 0) this.x = canvas.width;
+                if (this.y > canvas.height) this.y = 0;
+                if (this.y < 0) this.y = canvas.height;
+            }
+            
+            draw() {
+                ctx.fillStyle = 'rgba(0, 217, 255, 0.5)';
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+        
+        function initParticles() {
+            particles.length = 0;
+            for (let i = 0; i < particleCount; i++) {
+                particles.push(new Particle());
+            }
+        }
+        
+        function animateParticles() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            particles.forEach(particle => {
+                particle.update();
+                particle.draw();
+            });
+            
+            requestAnimationFrame(animateParticles);
+        }
+        
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            initParticles();
+        });
+        
+        initParticles();
+        animateParticles();
+    </script>
+</body>
+</html>

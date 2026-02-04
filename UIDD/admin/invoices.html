@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invoices - Admin Panel</title>
+    <link rel="stylesheet" href="css/admin-style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="admin-page">
+    <div class="admin-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>UIDD<span class="dot">.</span></h2>
+                <button class="sidebar-toggle" id="sidebarToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <a href="dashboard.html" class="nav-item">
+                    <i class="fas fa-home"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="/admin/projects.html" class="nav-item">
+                    <i class="fas fa-briefcase"></i>
+                    <span>Projects</span>
+                </a>
+                <a href="/admin/services.html" class="nav-item">
+                    <i class="fas fa-cog"></i>
+                    <span>Services</span>
+                </a>                <a href="blog.html" class="nav-item">
+                    <i class="fas fa-blog"></i>
+                    <span>Blog</span>
+                </a>                <a href="/admin/pricing.html" class="nav-item">
+                    <i class="fas fa-dollar-sign"></i>
+                    <span>Pricing</span>
+                </a>
+                <a href="/admin/team-members.html" class="nav-item">
+                    <i class="fas fa-users"></i>
+                    <span>Team</span>
+                </a>
+                <a href="/admin/consultations.html" class="nav-item">
+                    <i class="fas fa-phone-alt"></i>
+                    <span>Consultations</span>
+                </a>
+                <a href="/admin/invoices.html" class="nav-item active">
+                    <i class="fas fa-file-invoice-dollar"></i>
+                    <span>Invoices</span>
+                </a>
+                <a href="/admin/testimonials.html" class="nav-item">
+                    <i class="fas fa-comment"></i>
+                    <span>Testimonials</span>
+                </a>
+                <a href="/admin/users.html" class="nav-item">
+                    <i class="fas fa-users"></i>
+                    <span>Users</span>
+                </a>
+                <a href="/admin/inquiries.html" class="nav-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>Inquiries</span>
+                </a>
+                <a href="/admin/profile.html" class="nav-item">
+                    <i class="fas fa-user-circle"></i>
+                    <span>Profile</span>
+                </a>
+                <a href="/admin/settings.html" class="nav-item">
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Topbar -->
+            <header class="topbar">
+                <button class="menu-toggle" id="menuToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="topbar-right">
+                    <div class="notification">
+                        <button class="notification-btn" id="notificationBtn">
+                            <i class="fas fa-bell"></i>
+                            <span class="notification-badge">5</span>
+                        </button>
+                    </div>
+                    <div class="user-profile">
+                        <span id="usernameDisplay">Admin</span>
+                        <button class="logout-btn" id="logoutBtn">Logout</button>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Notification Modal -->
+            <div class="notification-modal" id="notificationModal">
+                <div class="notification-header">
+                    <h3>Notifications</h3>
+                    <button class="close-notification" id="closeNotification">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="notification-list">
+                    <div class="notification-item unread">
+                        <div class="notification-icon success">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <div class="notification-content">
+                            <p class="notification-title">Invoice Created</p>
+                            <p class="notification-text">Invoice INV-2026-001 has been created successfully.</p>
+                            <span class="notification-time">5 minutes ago</span>
+                        </div>
+                    </div>
+                    <div class="notification-item unread">
+                        <div class="notification-icon success">
+                            <i class="fas fa-money-bill-wave"></i>
+                        </div>
+                        <div class="notification-content">
+                            <p class="notification-title">Payment Received</p>
+                            <p class="notification-text">Payment of $16,500.00 received for INV-2026-001.</p>
+                            <span class="notification-time">1 hour ago</span>
+                        </div>
+                    </div>
+                    <div class="notification-item">
+                        <div class="notification-icon warning">
+                            <i class="fas fa-exclamation-circle"></i>
+                        </div>
+                        <div class="notification-content">
+                            <p class="notification-title">Invoice Overdue</p>
+                            <p class="notification-text">Invoice INV-2026-003 is 5 days overdue.</p>
+                            <span class="notification-time">Yesterday</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Page Content -->
+            <div class="page-content">
+                <div class="page-header">
+                    <div>
+                        <h1>Invoices</h1>
+                        <p class="subtitle">Manage and track all client invoices</p>
+                    </div>
+                    <a href="/admin/add-invoice.html" class="btn-primary">
+                        <i class="fas fa-plus"></i> Create Invoice
+                    </a>
+                </div>
+
+                <!-- Invoice Statistics -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon success">
+                            <i class="fas fa-file-invoice"></i>
+                        </div>
+                        <div class="stat-content">
+                            <div class="stat-value">12</div>
+                            <div class="stat-label">Total Invoices</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon primary">
+                            <i class="fas fa-money-bill-wave"></i>
+                        </div>
+                        <div class="stat-content">
+                            <div class="stat-value">$94,500</div>
+                            <div class="stat-label">Total Revenue</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon success">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <div class="stat-content">
+                            <div class="stat-value">7</div>
+                            <div class="stat-label">Paid Invoices</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon warning">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="stat-content">
+                            <div class="stat-value">3</div>
+                            <div class="stat-label">Pending Invoices</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon danger">
+                            <i class="fas fa-exclamation-circle"></i>
+                        </div>
+                        <div class="stat-content">
+                            <div class="stat-value">2</div>
+                            <div class="stat-label">Overdue Invoices</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Filters & Search -->
+                <div class="filter-bar">
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="invoiceSearch" placeholder="Search invoices by number or client...">
+                    </div>
+                    <div class="filter-group">
+                        <select id="statusFilter" class="filter-select">
+                            <option value="">All Statuses</option>
+                            <option value="draft">Draft</option>
+                            <option value="sent">Sent</option>
+                            <option value="viewed">Viewed</option>
+                            <option value="pending">Pending</option>
+                            <option value="partially-paid">Partially Paid</option>
+                            <option value="paid">Paid</option>
+                            <option value="overdue">Overdue</option>
+                            <option value="cancelled">Cancelled</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <select id="paymentStatusFilter" class="filter-select">
+                            <option value="">All Payment Status</option>
+                            <option value="unpaid">Unpaid</option>
+                            <option value="partially-paid">Partially Paid</option>
+                            <option value="paid">Paid</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Invoices Table -->
+                <div class="table-section">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Invoice #</th>
+                                <th>Client</th>
+                                <th>Amount</th>
+                                <th>Status</th>
+                                <th>Payment Status</th>
+                                <th>Due Date</th>
+                                <th>Created</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>INV-2026-001</strong></td>
+                                <td>TechCorp Inc</td>
+                                <td>$16,500.00</td>
+                                <td><span class="badge completed">Paid</span></td>
+                                <td><span class="badge completed">Paid</span></td>
+                                <td>2026-02-14</td>
+                                <td>2026-01-15</td>
+                                <td>
+                                    <a href="/admin/invoice-preview.html?id=1" class="btn-action" title="View"><i class="fas fa-eye"></i></a>
+                                    <a href="/admin/edit-invoice.html?id=1" class="btn-action" title="Edit"><i class="fas fa-edit"></i></a>
+                                    <button class="btn-action" title="Download"><i class="fas fa-download"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>INV-2026-002</strong></td>
+                                <td>Fashion Brand</td>
+                                <td>$13,200.00</td>
+                                <td><span class="badge pending">Sent</span></td>
+                                <td><span class="badge pending">Pending</span></td>
+                                <td>2026-02-24</td>
+                                <td>2026-01-25</td>
+                                <td>
+                                    <a href="/admin/invoice-preview.html?id=2" class="btn-action" title="View"><i class="fas fa-eye"></i></a>
+                                    <a href="/admin/edit-invoice.html?id=2" class="btn-action" title="Edit"><i class="fas fa-edit"></i></a>
+                                    <button class="btn-action" title="Download"><i class="fas fa-download"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>INV-2026-003</strong></td>
+                                <td>StartUp Co</td>
+                                <td>$8,800.00</td>
+                                <td><span class="badge danger">Overdue</span></td>
+                                <td><span class="badge pending">Pending</span></td>
+                                <td>2026-03-02</td>
+                                <td>2026-02-01</td>
+                                <td>
+                                    <a href="/admin/invoice-preview.html?id=3" class="btn-action" title="View"><i class="fas fa-eye"></i></a>
+                                    <a href="/admin/edit-invoice.html?id=3" class="btn-action" title="Edit"><i class="fas fa-edit"></i></a>
+                                    <button class="btn-action" title="Download"><i class="fas fa-download"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>INV-2026-004</strong></td>
+                                <td>Data Solutions Ltd</td>
+                                <td>$22,000.00</td>
+                                <td><span class="badge draft">Draft</span></td>
+                                <td><span class="badge pending">Unpaid</span></td>
+                                <td>2026-03-03</td>
+                                <td>2026-02-02</td>
+                                <td>
+                                    <a href="/admin/invoice-preview.html?id=4" class="btn-action" title="View"><i class="fas fa-eye"></i></a>
+                                    <a href="/admin/edit-invoice.html?id=4" class="btn-action" title="Edit"><i class="fas fa-edit"></i></a>
+                                    <button class="btn-action" title="Download"><i class="fas fa-download"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>INV-2026-005</strong></td>
+                                <td>Global Brands</td>
+                                <td>$11,000.00</td>
+                                <td><span class="badge pending">Sent</span></td>
+                                <td><span class="badge warning">Partially Paid</span></td>
+                                <td>2026-02-19</td>
+                                <td>2026-01-20</td>
+                                <td>
+                                    <a href="/admin/invoice-preview.html?id=5" class="btn-action" title="View"><i class="fas fa-eye"></i></a>
+                                    <a href="/admin/edit-invoice.html?id=5" class="btn-action" title="Edit"><i class="fas fa-edit"></i></a>
+                                    <button class="btn-action" title="Download"><i class="fas fa-download"></i></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Pagination -->
+                <div class="pagination">
+                    <button class="btn-pagination" disabled>
+                        <i class="fas fa-chevron-left"></i> Previous
+                    </button>
+                    <span class="pagination-info">Page 1 of 1</span>
+                    <button class="btn-pagination" disabled>
+                        Next <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="/admin/js/admin-script.js"></script>
+    <style>
+        .badge.draft {
+            background: rgba(108, 92, 231, 0.2);
+            color: #6c5ce7;
+        }
+        .badge.pending {
+            background: rgba(255, 159, 64, 0.2);
+            color: #ff9f40;
+        }
+        .filter-bar {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+        }
+        .filter-group {
+            flex: 1;
+            min-width: 200px;
+        }
+        .filter-select {
+            width: 100%;
+            padding: 10px 15px;
+            background: rgba(19, 24, 44, 0.7);
+            border: 1px solid rgba(0, 217, 255, 0.2);
+            border-radius: var(--border-radius);
+            color: var(--light);
+            font-size: 0.95rem;
+        }
+    </style>
+</body>
+</html>

@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Title - Admin Panel</title>
+    <link rel="stylesheet" href="css/admin-style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="admin-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>Admin Panel</h2>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="/admin/dashboard.html" class="nav-item">
+                    <i class="fas fa-home"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="/admin/projects.html" class="nav-item">
+                    <i class="fas fa-briefcase"></i>
+                    <span>Projects</span>
+                </a>
+                <a href="/admin/services.html" class="nav-item">
+                    <i class="fas fa-cog"></i>
+                    <span>Services</span>
+                </a>
+                <a href="/admin/pricing.html" class="nav-item">
+                    <i class="fas fa-dollar-sign"></i>
+                    <span>Pricing</span>
+                </a>
+                <a href="/admin/invoices.html" class="nav-item">
+                    <i class="fas fa-file-invoice-dollar"></i>
+                    <span>Invoices</span>
+                </a>
+                <a href="/admin/testimonials.html" class="nav-item">
+                    <i class="fas fa-comment"></i>
+                    <span>Testimonials</span>
+                </a>
+                <a href="/admin/users.html" class="nav-item">
+                    <i class="fas fa-users"></i>
+                    <span>Users</span>
+                </a>
+                <a href="/admin/inquiries.html" class="nav-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>Inquiries</span>
+                </a>
+                <a href="/admin/profile.html" class="nav-item">
+                    <i class="fas fa-user-circle"></i>
+                    <span>Profile</span>
+                </a>
+                <a href="/admin/settings.html" class="nav-item">
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Topbar -->
+            <header class="topbar">
+                <button class="menu-toggle" id="menuToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="topbar-right">
+                    <div class="notification">
+                        <button class="notification-btn" id="notificationBtn">
+                            <i class="fas fa-bell"></i>
+                            <span class="notification-badge">5</span>
+                        </button>
+                    </div>
+                    <div class="user-profile">
+                        <span id="usernameDisplay">Admin</span>
+                        <button class="logout-btn" id="logoutBtn">Logout</button>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Notification Modal -->
+            <div class="notification-modal" id="notificationModal">
+                <div class="notification-header">
+                    <h3>Notifications</h3>
+                    <button class="close-notification" id="closeNotification">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="notification-list">
+                    <div class="notification-item unread">
+                        <div class="notification-icon success">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <div class="notification-content">
+                            <p class="notification-title">Action Completed</p>
+                            <p class="notification-text">Your action has been completed successfully.</p>
+                            <span class="notification-time">5 minutes ago</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Page Content -->
+            <div class="page-content">
+                <div class="form-header">
+                    <div>
+                        <h1>Page Title</h1>
+                        <p class="subtitle">Page description or breadcrumb here</p>
+                    </div>
+                </div>
+
+                <!-- TEMPLATE FORM SECTION -->
+                <form class="edit-form" id="pageForm" onsubmit="handleSubmit(event)">
+                    <!-- Example Form Section -->
+                    <div class="form-section">
+                        <div class="section-icon">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="section-content">
+                            <h3>Section Title</h3>
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label for="fieldName">Field Label <span class="required">*</span></label>
+                                    <input type="text" id="fieldName" name="fieldName" placeholder="Placeholder text" required>
+                                    <small>Helper text or instructions</small>
+                                </div>
+                                <div class="form-group">
+                                    <label for="selectField">Select Field <span class="required">*</span></label>
+                                    <select id="selectField" name="selectField" required>
+                                        <option value="">Choose an option</option>
+                                        <option value="option1">Option 1</option>
+                                        <option value="option2">Option 2</option>
+                                        <option value="option3">Option 3</option>
+                                    </select>
+                                </div>
+                                <div class="form-group full-width">
+                                    <label for="textarea">Message <span class="required">*</span></label>
+                                    <textarea id="textarea" name="textarea" rows="4" placeholder="Enter your message here" required></textarea>
+                                </div>
+                                <div class="form-group full-width checkbox-group">
+                                    <label>
+                                        <input type="checkbox" name="option1" value="yes">
+                                        <span>Option 1</span>
+                                    </label>
+                                    <label>
+                                        <input type="checkbox" name="option2" value="yes">
+                                        <span>Option 2</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Form Actions -->
+                    <div class="form-actions">
+                        <button type="submit" class="btn-primary">
+                            <i class="fas fa-save"></i> Save
+                        </button>
+                        <button type="reset" class="btn-secondary">
+                            <i class="fas fa-redo"></i> Reset
+                        </button>
+                    </div>
+                </form>
+
+                <!-- TEMPLATE TABLE SECTION -->
+                <div style="margin-top: 40px;">
+                    <h2 style="margin-bottom: 20px;">Data List</h2>
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Name</th>
+                                <th>Status</th>
+                                <th>Date</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Sample Item</td>
+                                <td><span class="badge completed">Active</span></td>
+                                <td>2026-02-04</td>
+                                <td>
+                                    <a href="#" class="action-link">Edit</a>
+                                    <button class="btn-danger" style="padding: 5px 10px; font-size: 0.85rem;">Delete</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="/admin/js/admin-script.js"></script>
+    <script>
+        // Page-specific functionality
+        function handleSubmit(e) {
+            e.preventDefault();
+            
+            // Get form values
+            const fieldName = document.getElementById('fieldName').value.trim();
+            
+            // Validation
+            if (!fieldName) {
+                alert('Field Name is required!');
+                return;
+            }
+            
+            // Success message
+            alert('Form submitted successfully!');
+            
+            // Option to redirect or update
+            // window.location.href = '/admin/page-name.html';
+        }
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add your initialization code here
+            console.log('Page loaded');
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Blog Post | UIDD Admin</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/admin-style.css">
+</head>
+<body>
+    <div class="admin-wrapper">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <i class="fas fa-cube"></i>
+                    <span>UIDD</span>
+                </div>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="dashboard.html" class="nav-item">
+                    <i class="fas fa-th-large"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="projects.html" class="nav-item">
+                    <i class="fas fa-folder"></i>
+                    <span>Projects</span>
+                </a>
+                <a href="services.html" class="nav-item">
+                    <i class="fas fa-cogs"></i>
+                    <span>Services</span>
+                </a>
+                <a href="blog.html" class="nav-item active">
+                    <i class="fas fa-blog"></i>
+                    <span>Blog</span>
+                </a>
+                <a href="pricing.html" class="nav-item">
+                    <i class="fas fa-tag"></i>
+                    <span>Pricing</span>
+                </a>
+                <a href="team-members.html" class="nav-item">
+                    <i class="fas fa-users"></i>
+                    <span>Team</span>
+                </a>
+                <a href="consultations.html" class="nav-item">
+                    <i class="fas fa-calendar-check"></i>
+                    <span>Consultations</span>
+                </a>
+                <a href="invoices.html" class="nav-item">
+                    <i class="fas fa-file-invoice-dollar"></i>
+                    <span>Invoices</span>
+                </a>
+                <a href="testimonials.html" class="nav-item">
+                    <i class="fas fa-star"></i>
+                    <span>Testimonials</span>
+                </a>
+                <a href="users.html" class="nav-item">
+                    <i class="fas fa-user-shield"></i>
+                    <span>Users</span>
+                </a>
+                <a href="inquiries.html" class="nav-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>Inquiries</span>
+                </a>
+                <a href="profile.html" class="nav-item">
+                    <i class="fas fa-user"></i>
+                    <span>Profile</span>
+                </a>
+                <a href="settings.html" class="nav-item">
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
+                </a>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <div class="topbar">
+                <button class="sidebar-toggle" id="sidebarToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="page-title">View Blog Post</div>
+                <div class="topbar-actions">
+                    <div class="notification">
+                        <i class="fas fa-bell"></i>
+                        <span class="badge">3</span>
+                    </div>
+                    <div class="user-menu">
+                        <div class="user-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <span>Admin</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-wrapper">
+                <div class="page-header">
+                    <div class="header-title">
+                        <a href="blog.html" class="btn-back">
+                            <i class="fas fa-arrow-left"></i>
+                            Back to Blog
+                        </a>
+                        <h1>10 Best Practices for Modern Web Design</h1>
+                        <p class="header-subtitle">Post ID: #B001 • Published on Feb 01, 2026</p>
+                    </div>
+                    <div class="header-actions">
+                        <button class="btn-secondary" onclick="window.open('blog-post-preview.html', '_blank')">
+                            <i class="fas fa-external-link-alt"></i>
+                            Preview
+                        </button>
+                        <a href="edit-blog.html" class="btn-primary">
+                            <i class="fas fa-edit"></i>
+                            Edit Post
+                        </a>
+                        <button class="btn-danger" onclick="deletePost()">
+                            <i class="fas fa-trash"></i>
+                            Delete
+                        </button>
+                    </div>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-eye"></i>
+                        </div>
+                        <div class="stat-content">
+                            <div class="stat-value">2,456</div>
+                            <div class="stat-label">Total Views</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-comments"></i>
+                        </div>
+                        <div class="stat-content">
+                            <div class="stat-value">23</div>
+                            <div class="stat-label">Comments</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-share-alt"></i>
+                        </div>
+                        <div class="stat-content">
+                            <div class="stat-value">187</div>
+                            <div class="stat-label">Shares</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <div class="stat-content">
+                            <div class="stat-value">342</div>
+                            <div class="stat-label">Likes</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-container">
+                    <div class="form-section">
+                        <h3 class="section-title">Post Details</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Category</label>
+                                <span class="category-badge web-design">Web Design</span>
+                            </div>
+                            <div class="form-group">
+                                <label>Status</label>
+                                <span class="status-badge published">Published</span>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Author</label>
+                                <input type="text" value="John Smith" readonly>
+                            </div>
+                            <div class="form-group">
+                                <label>Published Date</label>
+                                <input type="text" value="February 01, 2026 at 10:00 AM" readonly>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Last Modified</label>
+                                <input type="text" value="February 01, 2026 at 2:30 PM" readonly>
+                            </div>
+                            <div class="form-group">
+                                <label>Featured Post</label>
+                                <input type="text" value="Yes" readonly>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3 class="section-title">Featured Image</h3>
+                        <div class="blog-image">
+                            <img src="https://via.placeholder.com/1200x630" alt="Featured image">
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3 class="section-title">Excerpt</h3>
+                        <div class="blog-excerpt">
+                            <p>Discover the essential web design practices that will elevate your projects and create stunning user experiences in 2026.</p>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3 class="section-title">Content</h3>
+                        <div class="blog-content">
+                            <p>In the ever-evolving world of web design, staying current with best practices is essential for creating engaging and effective websites. Here are 10 key practices that every modern web designer should follow:</p>
+                            
+                            <h4>1. Mobile-First Design</h4>
+                            <p>With mobile devices accounting for over 50% of web traffic, designing for mobile first ensures optimal user experience across all devices.</p>
+                            
+                            <h4>2. Fast Loading Times</h4>
+                            <p>Users expect pages to load in under 3 seconds. Optimize images, minimize code, and leverage caching to improve performance.</p>
+                            
+                            <h4>3. Intuitive Navigation</h4>
+                            <p>Clear, consistent navigation helps users find what they need quickly. Keep menus simple and logical.</p>
+                            
+                            <h4>4. Accessibility</h4>
+                            <p>Design for all users, including those with disabilities. Follow WCAG guidelines for color contrast, keyboard navigation, and screen reader compatibility.</p>
+                            
+                            <h4>5. Consistent Branding</h4>
+                            <p>Maintain consistent colors, typography, and imagery throughout your site to reinforce brand identity.</p>
+                            
+                            <h4>6. White Space</h4>
+                            <p>Don't be afraid of empty space. It improves readability and draws attention to important elements.</p>
+                            
+                            <h4>7. Clear Call-to-Actions</h4>
+                            <p>Make it obvious what you want users to do next with prominent, well-designed CTAs.</p>
+                            
+                            <h4>8. Readable Typography</h4>
+                            <p>Choose fonts that are easy to read on screens. Maintain appropriate font sizes and line spacing.</p>
+                            
+                            <h4>9. Visual Hierarchy</h4>
+                            <p>Use size, color, and positioning to guide users through content in order of importance.</p>
+                            
+                            <h4>10. Regular Testing</h4>
+                            <p>Test your designs with real users and iterate based on feedback. Continuous improvement is key.</p>
+                            
+                            <p>By following these best practices, you'll create websites that not only look great but also provide excellent user experiences and achieve business goals.</p>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3 class="section-title">SEO Information</h3>
+                        <div class="form-group">
+                            <label>Meta Title</label>
+                            <input type="text" value="10 Best Practices for Modern Web Design | UIDD Blog" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label>Meta Description</label>
+                            <textarea rows="2" readonly>Learn the essential web design practices for 2026. From mobile-first design to accessibility, discover what makes great websites.</textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>URL Slug</label>
+                            <input type="text" value="10-best-practices-modern-web-design" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label>Tags</label>
+                            <div class="tag-list">
+                                <span class="tag">web design</span>
+                                <span class="tag">best practices</span>
+                                <span class="tag">UX</span>
+                                <span class="tag">UI</span>
+                                <span class="tag">mobile design</span>
+                                <span class="tag">accessibility</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3 class="section-title">Comments (23)</h3>
+                        <div class="comment-list">
+                            <div class="comment-item">
+                                <div class="comment-avatar">
+                                    <i class="fas fa-user-circle"></i>
+                                </div>
+                                <div class="comment-content">
+                                    <div class="comment-header">
+                                        <strong>Alex Thompson</strong>
+                                        <span class="comment-date">Feb 01, 2026 at 11:45 AM</span>
+                                    </div>
+                                    <p>Great article! The mobile-first approach has really transformed how we build websites. Thanks for sharing these insights.</p>
+                                    <div class="comment-actions">
+                                        <button class="btn-link"><i class="fas fa-reply"></i> Reply</button>
+                                        <button class="btn-link"><i class="fas fa-flag"></i> Report</button>
+                                        <button class="btn-link btn-danger"><i class="fas fa-trash"></i> Delete</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="comment-item">
+                                <div class="comment-avatar">
+                                    <i class="fas fa-user-circle"></i>
+                                </div>
+                                <div class="comment-content">
+                                    <div class="comment-header">
+                                        <strong>Maria Garcia</strong>
+                                        <span class="comment-date">Feb 01, 2026 at 3:20 PM</span>
+                                    </div>
+                                    <p>The accessibility section is so important! More designers need to consider users with disabilities from the start.</p>
+                                    <div class="comment-actions">
+                                        <button class="btn-link"><i class="fas fa-reply"></i> Reply</button>
+                                        <button class="btn-link"><i class="fas fa-flag"></i> Report</button>
+                                        <button class="btn-link btn-danger"><i class="fas fa-trash"></i> Delete</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="comment-item">
+                                <div class="comment-avatar">
+                                    <i class="fas fa-user-circle"></i>
+                                </div>
+                                <div class="comment-content">
+                                    <div class="comment-header">
+                                        <strong>Ryan Kumar</strong>
+                                        <span class="comment-date">Feb 02, 2026 at 9:15 AM</span>
+                                    </div>
+                                    <p>Would love to see more examples of visual hierarchy in action. Maybe a follow-up post?</p>
+                                    <div class="comment-actions">
+                                        <button class="btn-link"><i class="fas fa-reply"></i> Reply</button>
+                                        <button class="btn-link"><i class="fas fa-flag"></i> Report</button>
+                                        <button class="btn-link btn-danger"><i class="fas fa-trash"></i> Delete</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        const sidebarToggle = document.getElementById('sidebarToggle');
+        const sidebar = document.querySelector('.sidebar');
+        
+        if (sidebarToggle) {
+            sidebarToggle.addEventListener('click', () => {
+                sidebar.classList.toggle('collapsed');
+            });
+        }
+
+        function logout() {
+            if (confirm('Are you sure you want to logout?')) {
+                window.location.href = 'login.html';
+            }
+        }
+
+        function deletePost() {
+            if (confirm('Are you sure you want to delete this blog post? This action cannot be undone.')) {
+                alert('Blog post deleted successfully!');
+                window.location.href = 'blog.html';
+            }
+        }
+    </script>
+</body>
+</html>

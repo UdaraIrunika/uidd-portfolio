@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Pricing Plan - Admin Panel</title>
+    <link rel="stylesheet" href="css/admin-style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="admin-page">
+    <div class="admin-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>UIDD<span class="dot">.</span></h2>
+                <button class="sidebar-toggle" id="sidebarToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <a href="dashboard.html" class="nav-item">
+                    <i class="fas fa-home"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="/admin/projects.html" class="nav-item">
+                    <i class="fas fa-briefcase"></i>
+                    <span>Projects</span>
+                </a>
+                <a href="/admin/services.html" class="nav-item">
+                    <i class="fas fa-cog"></i>
+                    <span>Services</span>
+                </a>                <a href="blog.html" class="nav-item">
+                    <i class="fas fa-blog"></i>
+                    <span>Blog</span>
+                </a>                <a href="/admin/pricing.html" class="nav-item active">
+                    <i class="fas fa-dollar-sign"></i>
+                    <span>Pricing</span>
+                </a>
+                <a href="/admin/team-members.html" class="nav-item">
+                    <i class="fas fa-users"></i>
+                    <span>Team</span>
+                </a>
+                <a href="/admin/consultations.html" class="nav-item">
+                    <i class="fas fa-phone-alt"></i>
+                    <span>Consultations</span>
+                </a>
+                <a href="/admin/invoices.html" class="nav-item">
+                    <i class="fas fa-file-invoice-dollar"></i>
+                    <span>Invoices</span>
+                </a>
+                <a href="/admin/testimonials.html" class="nav-item">>
+                    <i class="fas fa-comment"></i>
+                    <span>Testimonials</span>
+                </a>
+                <a href="/admin/users.html" class="nav-item">
+                    <i class="fas fa-users"></i>
+                    <span>Users</span>
+                </a>
+                <a href="/admin/inquiries.html" class="nav-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>Inquiries</span>
+                </a>
+                <a href="/admin/profile.html" class="nav-item">
+                    <i class="fas fa-user-circle"></i>
+                    <span>Profile</span>
+                </a>
+                <a href="/admin/settings.html" class="nav-item">
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Topbar -->
+            <header class="topbar">
+                <button class="menu-toggle" id="menuToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="topbar-right">
+                    <div class="notification">
+                        <button class="notification-btn" id="notificationBtn">
+                            <i class="fas fa-bell"></i>
+                            <span class="notification-badge">5</span>
+                        </button>
+                    </div>
+                    <div class="user-profile">
+                        <span id="usernameDisplay">Admin</span>
+                        <button class="logout-btn" id="logoutBtn">Logout</button>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Notification Modal -->
+            <div class="notification-modal" id="notificationModal">
+                <div class="notification-header">
+                    <h3>Notifications</h3>
+                    <button class="close-notification" id="closeNotification">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="notification-list">
+                    <div class="notification-item unread">
+                        <div class="notification-icon success">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <div class="notification-content">
+                            <p class="notification-title">New Project Added</p>
+                            <p class="notification-text">E-Commerce Platform has been added successfully.</p>
+                            <span class="notification-time">5 minutes ago</span>
+                        </div>
+                    </div>
+                    <div class="notification-item unread">
+                        <div class="notification-icon info">
+                            <i class="fas fa-info-circle"></i>
+                        </div>
+                        <div class="notification-content">
+                            <p class="notification-title">New Inquiry Received</p>
+                            <p class="notification-text">John Smith sent a new inquiry about web development.</p>
+                            <span class="notification-time">1 hour ago</span>
+                        </div>
+                    </div>
+                    <div class="notification-item">
+                        <div class="notification-icon warning">
+                            <i class="fas fa-exclamation-triangle"></i>
+                        </div>
+                        <div class="notification-content">
+                            <p class="notification-title">Project Deadline</p>
+                            <p class="notification-text">Mobile App Redesign deadline is in 2 days.</p>
+                            <span class="notification-time">3 hours ago</span>
+                        </div>
+                    </div>
+                    <div class="notification-item">
+                        <div class="notification-icon success">
+                            <i class="fas fa-user-plus"></i>
+                        </div>
+                        <div class="notification-content">
+                            <p class="notification-title">New User Registered</p>
+                            <p class="notification-text">Sarah Johnson joined as Editor.</p>
+                            <span class="notification-time">Yesterday</span>
+                        </div>
+                    </div>
+                    <div class="notification-item">
+                        <div class="notification-icon error">
+                            <i class="fas fa-times-circle"></i>
+                        </div>
+                        <div class="notification-content">
+                            <p class="notification-title">Payment Failed</p>
+                            <p class="notification-text">Payment for Project #PRJ-045 failed.</p>
+                            <span class="notification-time">2 days ago</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Page Content -->
+            <div class="page-content">
+                <div class="form-header">
+                    <div>
+                        <a href="/admin/pricing.html" class="btn-back">
+                            <i class="fas fa-arrow-left"></i> Back to Pricing
+                        </a>
+                        <h1>Edit Pricing Plan</h1>
+                        <p class="service-id">Plan ID: #PLAN-001</p>
+                    </div>
+                    <div class="header-actions">
+                        <button type="button" class="btn-danger" onclick="deletePlan()">
+                            <i class="fas fa-trash"></i> Delete Plan
+                        </button>
+                    </div>
+                </div>
+
+                <form class="edit-form" id="editPricingForm" onsubmit="handleSubmit(event)">
+                    <!-- Plan Details -->
+                    <div class="form-section">
+                        <div class="section-icon">
+                            <i class="fas fa-info-circle"></i>
+                        </div>
+                        <div class="section-content">
+                            <h3>Plan Details</h3>
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label for="planName">Plan Name <span class="required">*</span></label>
+                                    <input type="text" id="planName" name="planName" value="Professional" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="price">Price <span class="required">*</span></label>
+                                    <input type="number" id="price" name="price" value="199" step="0.01" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="billingCycle">Billing Cycle <span class="required">*</span></label>
+                                    <select id="billingCycle" name="billingCycle" required>
+                                        <option value="monthly" selected>Monthly</option>
+                                        <option value="yearly">Yearly</option>
+                                        <option value="one-time">One-Time</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="planType">Plan Type <span class="required">*</span></label>
+                                    <select id="planType" name="planType" required>
+                                        <option value="standard">Standard</option>
+                                        <option value="popular" selected>Popular</option>
+                                        <option value="enterprise">Enterprise</option>
+                                    </select>
+                                </div>
+                                <div class="form-group full-width">
+                                    <label for="description">Description <span class="required">*</span></label>
+                                    <textarea id="description" name="description" rows="3" required>Perfect for growing businesses and teams</textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Features -->
+                    <div class="form-section">
+                        <div class="section-icon">
+                            <i class="fas fa-list"></i>
+                        </div>
+                        <div class="section-content">
+                            <h3>Plan Features</h3>
+                            <div id="featuresList">
+                                <div class="feature-item">
+                                    <input type="text" name="features[]" value="Up to 20 Projects" required>
+                                    <button type="button" class="btn-remove-feature" onclick="removeFeature(this)">
+                                        <i class="fas fa-times"></i>
+                                    </button>
+                                </div>
+                                <div class="feature-item">
+                                    <input type="text" name="features[]" value="50GB Storage" required>
+                                    <button type="button" class="btn-remove-feature" onclick="removeFeature(this)">
+                                        <i class="fas fa-times"></i>
+                                    </button>
+                                </div>
+                                <div class="feature-item">
+                                    <input type="text" name="features[]" value="Priority Support" required>
+                                    <button type="button" class="btn-remove-feature" onclick="removeFeature(this)">
+                                        <i class="fas fa-times"></i>
+                                    </button>
+                                </div>
+                                <div class="feature-item">
+                                    <input type="text" name="features[]" value="Advanced Analytics" required>
+                                    <button type="button" class="btn-remove-feature" onclick="removeFeature(this)">
+                                        <i class="fas fa-times"></i>
+                                    </button>
+                                </div>
+                                <div class="feature-item">
+                                    <input type="text" name="features[]" value="Custom Domain" required>
+                                    <button type="button" class="btn-remove-feature" onclick="removeFeature(this)">
+                                        <i class="fas fa-times"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <button type="button" class="btn-add-feature" onclick="addFeature()">
+                                <i class="fas fa-plus"></i> Add Feature
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Limits & Restrictions -->
+                    <div class="form-section">
+                        <div class="section-icon">
+                            <i class="fas fa-sliders-h"></i>
+                        </div>
+                        <div class="section-content">
+                            <h3>Limits & Restrictions</h3>
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label for="projectLimit">Project Limit</label>
+                                    <input type="number" id="projectLimit" name="projectLimit" value="20" min="1">
+                                    <small>Leave empty for unlimited</small>
+                                </div>
+                                <div class="form-group">
+                                    <label for="storageLimit">Storage Limit (GB)</label>
+                                    <input type="number" id="storageLimit" name="storageLimit" value="50" min="1">
+                                </div>
+                                <div class="form-group">
+                                    <label for="userLimit">User Limit</label>
+                                    <input type="number" id="userLimit" name="userLimit" value="10" min="1">
+                                </div>
+                                <div class="form-group">
+                                    <label for="supportLevel">Support Level <span class="required">*</span></label>
+                                    <select id="supportLevel" name="supportLevel" required>
+                                        <option value="email">Email Support</option>
+                                        <option value="priority" selected>Priority Support</option>
+                                        <option value="24-7">24/7 Support</option>
+                                        <option value="dedicated">Dedicated Support</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Additional Options -->
+                    <div class="form-section">
+                        <div class="section-icon">
+                            <i class="fas fa-cog"></i>
+                        </div>
+                        <div class="section-content">
+                            <h3>Additional Options</h3>
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label for="displayOrder">Display Order</label>
+                                    <input type="number" id="displayOrder" name="displayOrder" value="2" min="1">
+                                    <small>Lower numbers appear first</small>
+                                </div>
+                                <div class="form-group">
+                                    <label for="status">Status <span class="required">*</span></label>
+                                    <select id="status" name="status" required>
+                                        <option value="active" selected>Active</option>
+                                        <option value="inactive">Inactive</option>
+                                        <option value="coming-soon">Coming Soon</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="buttonText">Button Text</label>
+                                    <input type="text" id="buttonText" name="buttonText" value="Get Started" placeholder="e.g., Get Started, Contact Us">
+                                </div>
+                                <div class="form-group">
+                                    <label for="buttonLink">Button Link</label>
+                                    <input type="url" id="buttonLink" name="buttonLink" value="https://example.com/signup" placeholder="https://example.com/signup">
+                                </div>
+                                <div class="form-group full-width checkbox-group">
+                                    <label>
+                                        <input type="checkbox" name="featured" value="yes" checked>
+                                        <span>Featured Plan (Highlighted)</span>
+                                    </label>
+                                    <label>
+                                        <input type="checkbox" name="showHomepage" value="yes" checked>
+                                        <span>Show on Homepage</span>
+                                    </label>
+                                    <label>
+                                        <input type="checkbox" name="freeTrial" value="yes" checked>
+                                        <span>Free Trial Available</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Form Actions -->
+                    <div class="form-actions">
+                        <button type="submit" class="btn-primary">
+                            <i class="fas fa-save"></i> Update Plan
+                        </button>
+                        <a href="/admin/pricing.html" class="btn-secondary">
+                            <i class="fas fa-times"></i> Cancel
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </main>
+    </div>
+
+    <script src="/admin/js/admin-script.js"></script>
+    <script>
+        function addFeature() {
+            const featuresList = document.getElementById('featuresList');
+            const featureItem = document.createElement('div');
+            featureItem.className = 'feature-item';
+            featureItem.innerHTML = `
+                <input type="text" name="features[]" placeholder="Feature name" required>
+                <button type="button" class="btn-remove-feature" onclick="removeFeature(this)">
+                    <i class="fas fa-times"></i>
+                </button>
+            `;
+            featuresList.appendChild(featureItem);
+        }
+
+        function removeFeature(button) {
+            const featuresList = document.getElementById('featuresList');
+            const featureItems = featuresList.querySelectorAll('.feature-item');
+            
+            if (featureItems.length > 1) {
+                button.closest('.feature-item').remove();
+            } else {
+                alert('You must have at least one feature');
+            }
+        }
+
+        function handleSubmit(e) {
+            e.preventDefault();
+            alert('Pricing plan updated successfully!');
+            window.location.href = '/admin/pricing.html';
+        }
+
+        function deletePlan() {
+            if (confirm('Are you sure you want to delete this pricing plan? This action cannot be undone.')) {
+                alert('Pricing plan deleted successfully!');
+                window.location.href = '/admin/pricing.html';
+            }
+        }
+    </script>
+</body>
+</html>

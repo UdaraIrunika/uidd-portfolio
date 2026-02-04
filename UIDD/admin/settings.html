@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings | UIDD Admin</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/admin-style.css">
+</head>
+<body class="admin-page">
+    <div class="admin-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>UIDD<span class="dot">.</span></h2>
+                <button class="sidebar-toggle" id="sidebarToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <a href="/admin/dashboard.html" class="nav-item">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="/admin/projects.html" class="nav-item">
+                    <i class="fas fa-folder"></i>
+                    <span>Projects</span>
+                </a>
+                <a href="/admin/services.html" class="nav-item">
+                    <i class="fas fa-cogs"></i>
+                    <span>Services</span>
+                </a>                <a href="blog.html" class="nav-item">
+                    <i class="fas fa-blog"></i>
+                    <span>Blog</span>
+                </a>                <a href="/admin/pricing.html" class="nav-item">
+                    <i class="fas fa-tag"></i>
+                    <span>Pricing</span>
+                </a>
+                <a href="/admin/team-members.html" class="nav-item">
+                    <i class="fas fa-users"></i>
+                    <span>Team</span>
+                </a>
+                <a href="/admin/consultations.html" class="nav-item">
+                    <i class="fas fa-phone-alt"></i>
+                    <span>Consultations</span>
+                </a>
+                <a href="/admin/invoices.html" class="nav-item">
+                    <i class="fas fa-file-invoice-dollar"></i>
+                    <span>Invoices</span>
+                </a>
+                <a href="/admin/testimonials.html" class="nav-item">
+                    <i class="fas fa-star"></i>
+                    <span>Testimonials</span>
+                </a>
+                <a href="/admin/users.html" class="nav-item">
+                    <i class="fas fa-users"></i>
+                    <span>Users</span>
+                </a>
+                <a href="/admin/inquiries.html" class="nav-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>Inquiries</span>
+                </a>
+                <a href="/admin/profile.html" class="nav-item">
+                    <i class="fas fa-user-circle"></i>
+                    <span>Profile</span>
+                </a>
+                <a href="/admin/settings.html" class="nav-item active">
+                    <i class="fas fa-sliders-h"></i>
+                    <span>Settings</span>
+                </a>
+            </nav>
+            
+            <div class="sidebar-footer">
+                <button class="btn-logout" id="logoutBtn">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Top Bar -->
+            <div class="topbar">
+                <div class="topbar-left">
+                    <button class="btn-menu" id="menuToggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <h1>Settings</h1>
+                </div>
+                
+                <div class="topbar-right">
+                    <div class="notifications">
+                        <button class="notification-btn">
+                            <i class="fas fa-bell"></i>
+                            <span class="notification-badge">3</span>
+                        </button>
+                    </div>
+                    
+                    <div class="user-profile">
+                        <img src="https://via.placeholder.com/40" alt="Admin">
+                        <span id="adminUsername">Admin</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Settings Content -->
+            <div class="content">
+                <div class="settings-grid">
+                    <!-- General Settings -->
+                    <div class="settings-section">
+                        <h2><i class="fas fa-cog"></i> General Settings</h2>
+                        <form>
+                            <div class="form-group">
+                                <label>Site Title</label>
+                                <input type="text" value="UIDD - UI/UX Design & Development">
+                            </div>
+                            <div class="form-group">
+                                <label>Tagline</label>
+                                <input type="text" value="Creating stunning digital experiences">
+                            </div>
+                            <div class="form-group">
+                                <label>Site URL</label>
+                                <input type="text" value="https://uidd.com">
+                            </div>
+                            <button type="submit" class="btn-primary">Save Changes</button>
+                        </form>
+                    </div>
+
+                    <!-- Email Settings -->
+                    <div class="settings-section">
+                        <h2><i class="fas fa-envelope"></i> Email Settings</h2>
+                        <form>
+                            <div class="form-group">
+                                <label>Admin Email</label>
+                                <input type="email" value="admin@uidd.com">
+                            </div>
+                            <div class="form-group">
+                                <label>Support Email</label>
+                                <input type="email" value="support@uidd.com">
+                            </div>
+                            <div class="form-group">
+                                <label>SMTP Host</label>
+                                <input type="text" placeholder="smtp.gmail.com">
+                            </div>
+                            <div class="form-group">
+                                <label>SMTP Port</label>
+                                <input type="number" placeholder="587">
+                            </div>
+                            <button type="submit" class="btn-primary">Save Changes</button>
+                        </form>
+                    </div>
+
+                    <!-- Social Media -->
+                    <div class="settings-section">
+                        <h2><i class="fas fa-share-alt"></i> Social Media</h2>
+                        <form>
+                            <div class="form-group">
+                                <label>Facebook URL</label>
+                                <input type="url" placeholder="https://facebook.com/uidd">
+                            </div>
+                            <div class="form-group">
+                                <label>Twitter URL</label>
+                                <input type="url" placeholder="https://twitter.com/uidd">
+                            </div>
+                            <div class="form-group">
+                                <label>LinkedIn URL</label>
+                                <input type="url" placeholder="https://linkedin.com/company/uidd">
+                            </div>
+                            <div class="form-group">
+                                <label>Instagram URL</label>
+                                <input type="url" placeholder="https://instagram.com/uidd">
+                            </div>
+                            <button type="submit" class="btn-primary">Save Changes</button>
+                        </form>
+                    </div>
+
+                    <!-- Security Settings -->
+                    <div class="settings-section">
+                        <h2><i class="fas fa-lock"></i> Security Settings</h2>
+                        <form>
+                            <div class="form-group">
+                                <label>Current Password</label>
+                                <input type="password" placeholder="Enter current password">
+                            </div>
+                            <div class="form-group">
+                                <label>New Password</label>
+                                <input type="password" placeholder="Enter new password">
+                            </div>
+                            <div class="form-group">
+                                <label>Confirm Password</label>
+                                <input type="password" placeholder="Confirm new password">
+                            </div>
+                            <button type="submit" class="btn-primary">Update Password</button>
+                        </form>
+                    </div>
+
+                    <!-- Backup & Export -->
+                    <div class="settings-section">
+                        <h2><i class="fas fa-database"></i> Backup & Export</h2>
+                        <div class="backup-options">
+                            <button class="btn-secondary" style="width: 100%; margin-bottom: 10px;">
+                                <i class="fas fa-download"></i> Download Backup
+                            </button>
+                            <button class="btn-secondary" style="width: 100%; margin-bottom: 10px;">
+                                <i class="fas fa-file-export"></i> Export Database
+                            </button>
+                            <p style="margin-top: 15px; font-size: 0.9rem; color: var(--gray);">
+                                Last backup: 2026-02-01 14:30:00
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- System Info -->
+                    <div class="settings-section">
+                        <h2><i class="fas fa-info-circle"></i> System Information</h2>
+                        <div class="info-list">
+                            <div class="info-item">
+                                <strong>Admin Panel Version:</strong>
+                                <span>1.0.0</span>
+                            </div>
+                            <div class="info-item">
+                                <strong>PHP Version:</strong>
+                                <span>8.1.0</span>
+                            </div>
+                            <div class="info-item">
+                                <strong>MySQL Version:</strong>
+                                <span>5.7.0</span>
+                            </div>
+                            <div class="info-item">
+                                <strong>Total Users:</strong>
+                                <span>48</span>
+                            </div>
+                            <div class="info-item">
+                                <strong>Total Projects:</strong>
+                                <span>150</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="/admin/js/admin-script.js"></script>
+
+    <!-- Notification Modal -->
+    <div class="notification-modal" id="notificationModal">
+        <div class="notification-header">
+            <h3>Notifications</h3>
+            <button class="notification-close">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="notification-list">
+            <div class="notification-item unread">
+                <div class="notification-icon success">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <div class="notification-content">
+                    <div class="notification-title">Project Completed</div>
+                    <div class="notification-message">E-Commerce Platform project has been successfully completed</div>
+                    <div class="notification-time">2 minutes ago</div>
+                </div>
+            </div>
+
+            <div class="notification-item unread">
+                <div class="notification-icon info">
+                    <i class="fas fa-info-circle"></i>
+                </div>
+                <div class="notification-content">
+                    <div class="notification-title">New Inquiry Received</div>
+                    <div class="notification-message">John Smith submitted a new project inquiry for Web Development</div>
+                    <div class="notification-time">15 minutes ago</div>
+                </div>
+            </div>
+
+            <div class="notification-item unread">
+                <div class="notification-icon warning">
+                    <i class="fas fa-exclamation-circle"></i>
+                </div>
+                <div class="notification-content">
+                    <div class="notification-title">Project Deadline</div>
+                    <div class="notification-message">Mobile App Design project deadline is in 2 days</div>
+                    <div class="notification-time">1 hour ago</div>
+                </div>
+            </div>
+
+            <div class="notification-item">
+                <div class="notification-icon success">
+                    <i class="fas fa-star"></i>
+                </div>
+                <div class="notification-content">
+                    <div class="notification-title">New Testimonial</div>
+                    <div class="notification-message">Sarah Johnson left a 5-star testimonial on your services</div>
+                    <div class="notification-time">3 hours ago</div>
+                </div>
+            </div>
+
+            <div class="notification-item">
+                <div class="notification-icon info">
+                    <i class="fas fa-user-plus"></i>
+                </div>
+                <div class="notification-content">
+                    <div class="notification-title">New Client Joined</div>
+                    <div class="notification-message">TechCorp Inc has registered as a new client</div>
+                    <div class="notification-time">5 hours ago</div>
+                </div>
+            </div>
+        </div>
+        <div class="notification-footer">
+            <a href="#">Mark as read</a>
+            <a href="#">Clear all</a>
+        </div>
+    </div>
+
+    <style>
+        .settings-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 30px;
+        }
+
+        .settings-section {
+            background: rgba(19, 24, 44, 0.7);
+            border: 1px solid rgba(0, 217, 255, 0.1);
+            border-radius: var(--border-radius);
+            padding: 25px;
+        }
+
+        .settings-section h2 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .settings-section h2 i {
+            color: var(--primary);
+        }
+
+        .info-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .info-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(0, 217, 255, 0.1);
+        }
+
+        .info-item span {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            .settings-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</body>
+</html>

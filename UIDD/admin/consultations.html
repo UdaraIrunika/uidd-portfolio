@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consultations | UIDD Admin</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/admin-style.css">
+</head>
+<body>
+    <div class="admin-wrapper">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <i class="fas fa-cube"></i>
+                    <span>UIDD</span>
+                </div>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <a href="dashboard.html" class="nav-item">
+                    <i class="fas fa-th-large"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="projects.html" class="nav-item">
+                    <i class="fas fa-folder"></i>
+                    <span>Projects</span>
+                </a>
+                <a href="services.html" class="nav-item">
+                    <i class="fas fa-cogs"></i>
+                    <span>Services</span>
+                </a>
+                <a href="blog.html" class="nav-item">
+                    <i class="fas fa-blog"></i>
+                    <span>Blog</span>
+                </a>
+                <a href="pricing.html" class="nav-item">
+                    <i class="fas fa-tag"></i>
+                    <span>Pricing</span>
+                </a>
+                <a href="team-members.html" class="nav-item">
+                    <i class="fas fa-users"></i>
+                    <span>Team</span>
+                </a>
+                <a href="consultations.html" class="nav-item active">
+                    <i class="fas fa-calendar-check"></i>
+                    <span>Consultations</span>
+                </a>
+                <a href="invoices.html" class="nav-item">
+                    <i class="fas fa-file-invoice-dollar"></i>
+                    <span>Invoices</span>
+                </a>
+                <a href="testimonials.html" class="nav-item">
+                    <i class="fas fa-star"></i>
+                    <span>Testimonials</span>
+                </a>
+                <a href="users.html" class="nav-item">
+                    <i class="fas fa-user-shield"></i>
+                    <span>Users</span>
+                </a>
+                <a href="inquiries.html" class="nav-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>Inquiries</span>
+                </a>
+                <a href="profile.html" class="nav-item">
+                    <i class="fas fa-user"></i>
+                    <span>Profile</span>
+                </a>
+                <a href="settings.html" class="nav-item">
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Topbar -->
+            <div class="topbar">
+                <button class="sidebar-toggle" id="sidebarToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="page-title">Consultations</div>
+                <div class="topbar-actions">
+                    <div class="notification">
+                        <i class="fas fa-bell"></i>
+                        <span class="badge">3</span>
+                    </div>
+                    <div class="user-menu">
+                        <div class="user-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <span>Admin</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-wrapper">
+                <!-- Page Header -->
+                <div class="page-header">
+                    <div class="header-title">
+                        <h1>Consultation Requests</h1>
+                        <p class="header-subtitle">Manage and track all consultation requests</p>
+                    </div>
+                    <div class="header-actions">
+                        <input type="text" class="search-input" id="searchInput" placeholder="Search consultations...">
+                        <select class="filter-select" id="statusFilter">
+                            <option value="">All Status</option>
+                            <option value="pending">Pending</option>
+                            <option value="scheduled">Scheduled</option>
+                            <option value="completed">Completed</option>
+                            <option value="cancelled">Cancelled</option>
+                        </select>
+                        <a href="add-consultation.html" class="btn-primary">
+                            <i class="fas fa-plus"></i>
+                            Add Consultation
+                        </a>
+                    </div>
+                </div>
+
+            <!-- Table -->
+            <div class="table-container">
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Project Type</th>
+                            <th>Budget</th>
+                            <th>Status</th>
+                            <th>Date</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="consultationsList">
+                        <tr>
+                            <td>#C001</td>
+                            <td>John Smith</td>
+                            <td>john@example.com</td>
+                            <td>Website Design</td>
+                            <td>$25K - $50K</td>
+                            <td><span class="status-badge pending">Pending</span></td>
+                            <td>Feb 04, 2026</td>
+                            <td>
+                                <div class="table-actions">
+                                    <a href="view-consultation.html?id=C001" class="btn-icon" title="View">
+                                        <i class="fas fa-eye"></i>
+                                    </a>
+                                    <button class="btn-icon" onclick="updateStatus('C001', 'scheduled')" title="Schedule">
+                                        <i class="fas fa-calendar-check"></i>
+                                    </button>
+                                    <button class="btn-icon delete" onclick="deleteConsultation('C001')" title="Delete">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>#C002</td>
+                            <td>Sarah Johnson</td>
+                            <td>sarah@company.com</td>
+                            <td>Mobile App Dev</td>
+                            <td>$50K - $100K</td>
+                            <td><span class="status-badge scheduled">Scheduled</span></td>
+                            <td>Feb 03, 2026</td>
+                            <td>
+                                <div class="table-actions">
+                                    <a href="view-consultation.html?id=C002" class="btn-icon" title="View">
+                                        <i class="fas fa-eye"></i>
+                                    </a>
+                                    <button class="btn-icon" onclick="updateStatus('C002', 'completed')" title="Mark Complete">
+                                        <i class="fas fa-check"></i>
+                                    </button>
+                                    <button class="btn-icon delete" onclick="deleteConsultation('C002')" title="Delete">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>#C003</td>
+                            <td>Michael Chen</td>
+                            <td>michael@startup.io</td>
+                            <td>UI/UX Design</td>
+                            <td>$10K - $25K</td>
+                            <td><span class="status-badge scheduled">Scheduled</span></td>
+                            <td>Feb 02, 2026</td>
+                            <td>
+                                <div class="table-actions">
+                                    <a href="view-consultation.html?id=C003" class="btn-icon" title="View">
+                                        <i class="fas fa-eye"></i>
+                                    </a>
+                                    <button class="btn-icon" onclick="updateStatus('C003', 'completed')" title="Mark Complete">
+                                        <i class="fas fa-check"></i>
+                                    </button>
+                                    <button class="btn-icon delete" onclick="deleteConsultation('C003')" title="Delete">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>#C004</td>
+                            <td>Emily Rodriguez</td>
+                            <td>emily@business.com</td>
+                            <td>Design System</td>
+                            <td>$25K - $50K</td>
+                            <td><span class="status-badge completed">Completed</span></td>
+                            <td>Feb 01, 2026</td>
+                            <td>
+                                <div class="table-actions">
+                                    <a href="view-consultation.html?id=C004" class="btn-icon" title="View">
+                                        <i class="fas fa-eye"></i>
+                                    </a>
+                                    <button class="btn-icon" onclick="updateStatus('C004', 'cancelled')" title="Cancel">
+                                        <i class="fas fa-times"></i>
+                                    </button>
+                                    <button class="btn-icon delete" onclick="deleteConsultation('C004')" title="Delete">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>#C005</td>
+                            <td>David Kim</td>
+                            <td>david@tech.com</td>
+                            <td>E-Commerce</td>
+                            <td>Over $100K</td>
+                            <td><span class="status-badge pending">Pending</span></td>
+                            <td>Jan 31, 2026</td>
+                            <td>
+                                <a href="view-consultation.html?id=C005" class="btn-icon" title="View">
+                                    <i class="fas fa-eye"></i>
+                                </a>
+                                <button class="btn-icon" onclick="updateStatus('C005', 'scheduled')" title="Schedule">
+                                    <i class="fas fa-calendar-check"></i>
+                                </button>
+                                <button class="btn-icon delete" onclick="deleteConsultation('C005')" title="Delete">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Stats -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-phone-alt"></i>
+                    </div>
+                    <div class="stat-content">
+                        <div class="stat-value">5</div>
+                        <div class="stat-label">Total Requests</div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="stat-content">
+                        <div class="stat-value">2</div>
+                        <div class="stat-label">Pending</div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-calendar-check"></i>
+                    </div>
+                    <div class="stat-content">
+                        <div class="stat-value">2</div>
+                        <div class="stat-label">Scheduled</div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <div class="stat-content">
+                        <div class="stat-value">1</div>
+                        <div class="stat-label">Completed</div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Search functionality
+        document.getElementById('searchInput').addEventListener('keyup', function() {
+            const filter = this.value.toLowerCase();
+            const rows = document.querySelectorAll('#consultationsList tr');
+            
+            rows.forEach(row => {
+                const text = row.textContent.toLowerCase();
+                row.style.display = text.includes(filter) ? '' : 'none';
+            });
+        });
+
+        // Filter by status
+        document.getElementById('statusFilter').addEventListener('change', function() {
+            const filter = this.value.toLowerCase();
+            const rows = document.querySelectorAll('#consultationsList tr');
+            
+            rows.forEach(row => {
+                if (!filter) {
+                    row.style.display = '';
+                } else {
+                    const statusCell = row.querySelector('.status-badge');
+                    const status = statusCell.textContent.toLowerCase();
+                    row.style.display = status.includes(filter) ? '' : 'none';
+                }
+            });
+        });
+
+        function updateStatus(id, status) {
+            alert(`Consultation ${id} status updated to ${status}`);
+        }
+
+        function deleteConsultation(id) {
+            if (confirm(`Are you sure you want to delete consultation ${id}?`)) {
+                alert(`Consultation ${id} deleted successfully`);
+            }
+        }
+
+        // Sidebar toggle
+        const sidebarToggle = document.getElementById('sidebarToggle');
+        const sidebar = document.querySelector('.sidebar');
+        
+        if (sidebarToggle) {
+            sidebarToggle.addEventListener('click', () => {
+                sidebar.classList.toggle('collapsed');
+            });
+        }
+
+        // Menu toggle
+        const menuToggle = document.querySelector('.menu-toggle');
+        if (menuToggle) {
+            menuToggle.addEventListener('click', () => {
+                document.querySelector('.user-menu').classList.toggle('active');
+            });
+        }
+
+        // Logout confirmation
+        function logout() {
+            if (confirm('Are you sure you want to logout?')) {
+                window.location.href = 'login.html';
+            }
+        }
+    </script>
+</body>
+</html>

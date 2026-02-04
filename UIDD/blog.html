@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog | UIDD</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .blog-header-section {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .blog-filters {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 40px;
+        }
+
+        .filter-btn {
+            padding: 8px 16px;
+            background: rgba(0, 217, 255, 0.1);
+            border: 1px solid rgba(0, 217, 255, 0.3);
+            border-radius: 20px;
+            color: var(--gray);
+            cursor: pointer;
+            font-size: 0.95rem;
+            transition: var(--transition);
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: rgba(0, 217, 255, 0.2);
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .blog-card {
+            background: rgba(10, 14, 23, 0.8);
+            border: 1px solid rgba(0, 217, 255, 0.15);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(0, 217, 255, 0.3);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .blog-card-image {
+            width: 100%;
+            height: 220px;
+            overflow: hidden;
+            background: linear-gradient(135deg, rgba(0, 217, 255, 0.1), rgba(8, 255, 200, 0.1));
+        }
+
+        .blog-card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .blog-card:hover .blog-card-image img {
+            transform: scale(1.05);
+        }
+
+        .blog-card-content {
+            padding: 24px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .blog-card-meta {
+            display: flex;
+            gap: 16px;
+            font-size: 0.85rem;
+            color: var(--gray);
+            margin-bottom: 12px;
+        }
+
+        .blog-card-meta span {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .blog-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--light);
+            line-height: 1.4;
+        }
+
+        .blog-card p {
+            font-size: 0.95rem;
+            color: var(--gray);
+            margin-bottom: 16px;
+            flex: 1;
+        }
+
+        .blog-card-tags {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-bottom: 16px;
+        }
+
+        .blog-tag {
+            padding: 4px 10px;
+            background: rgba(0, 217, 255, 0.1);
+            border-radius: 12px;
+            font-size: 0.75rem;
+            color: var(--primary);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .blog-tag:hover {
+            background: rgba(0, 217, 255, 0.2);
+        }
+
+        .blog-card-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: 16px;
+            border-top: 1px solid rgba(0, 217, 255, 0.1);
+        }
+
+        .blog-author {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .blog-author-avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.85rem;
+            color: var(--dark);
+            font-weight: 600;
+        }
+
+        .blog-author-info {
+            font-size: 0.85rem;
+        }
+
+        .blog-author-name {
+            color: var(--light);
+            font-weight: 600;
+        }
+
+        .blog-read-more {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .blog-read-more:hover {
+            gap: 10px;
+        }
+
+        .pagination {
+            display: flex;
+            gap: 8px;
+            justify-content: center;
+            margin-bottom: 40px;
+        }
+
+        .pagination-btn {
+            padding: 10px 14px;
+            background: rgba(0, 217, 255, 0.1);
+            border: 1px solid rgba(0, 217, 255, 0.2);
+            border-radius: 6px;
+            color: var(--gray);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .pagination-btn:hover,
+        .pagination-btn.active {
+            background: rgba(0, 217, 255, 0.2);
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        .search-box {
+            max-width: 500px;
+            margin: 0 auto 40px;
+            position: relative;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 14px 16px 14px 40px;
+            background: rgba(19, 24, 44, 0.8);
+            border: 1px solid rgba(0, 217, 255, 0.2);
+            border-radius: 8px;
+            color: var(--light);
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            transition: var(--transition);
+        }
+
+        .search-box input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(0, 217, 255, 0.1);
+        }
+
+        .search-box i {
+            position: absolute;
+            left: 14px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--gray);
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Background Animation -->
+    <div class="bg-animation">
+        <div class="grid-lines"></div>
+        <div class="floating-shapes">
+            <div class="floating-shape"></div>
+            <div class="floating-shape"></div>
+            <div class="floating-shape"></div>
+        </div>
+        <canvas id="particles-canvas"></canvas>
+    </div>
+
+    <!-- Header -->
+    <header id="header">
+        <div class="container">
+            <nav>
+                <a href="index.html" class="logo">
+                    <span class="logo-text">UIDD<span class="logo-dot"></span></span>
+                </a>
+                
+                <ul class="nav-links">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="services.html" class="nav-link">Services</a></li>
+                    <li><a href="pricing.html" class="nav-link">Pricing</a></li>
+                    <li><a href="projects.html" class="nav-link">Projects</a></li>
+                    <li><a href="blog.html" class="nav-link active">Blog</a></li>
+                    <li><a href="team.html" class="nav-link">Team</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+                
+                <div class="nav-cta">
+                    <a href="contact.html" class="btn btn-secondary">Get Quote</a>
+                </div>
+                
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div class="mobile-menu" id="mobileMenu">
+            <button class="mobile-menu-close" id="mobileMenuClose">
+                <i class="fas fa-times"></i>
+            </button>
+            <ul class="mobile-nav-links">
+                <li><a href="index.html" class="mobile-nav-link">Home</a></li>
+                <li><a href="services.html" class="mobile-nav-link">Services</a></li>
+                <li><a href="pricing.html" class="mobile-nav-link">Pricing</a></li>
+                <li><a href="projects.html" class="mobile-nav-link">Projects</a></li>
+                <li><a href="blog.html" class="mobile-nav-link">Blog</a></li>
+                <li><a href="team.html" class="mobile-nav-link">Team</a></li>
+                <li><a href="about.html" class="mobile-nav-link">About</a></li>
+                <li><a href="contact.html" class="mobile-nav-link">Contact</a></li>
+            </ul>
+            <a href="contact.html" class="btn">Get Quote</a>
+        </div>
+    </header>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <div class="container">
+            <div class="page-hero-content fade-in">
+                <h1>Our Blog</h1>
+                <p class="page-subtitle">Insights, tips, and stories about design and development</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section class="projects">
+        <div class="container">
+            <!-- Search Box -->
+            <div class="search-box fade-in">
+                <i class="fas fa-search"></i>
+                <input type="text" id="searchInput" placeholder="Search articles...">
+            </div>
+
+            <!-- Filter Buttons -->
+            <div class="blog-filters fade-in">
+                <button class="filter-btn active" onclick="filterBlog('all')">All Articles</button>
+                <button class="filter-btn" onclick="filterBlog('design')">Design</button>
+                <button class="filter-btn" onclick="filterBlog('development')">Development</button>
+                <button class="filter-btn" onclick="filterBlog('trends')">Trends</button>
+                <button class="filter-btn" onclick="filterBlog('case-study')">Case Studies</button>
+            </div>
+
+            <!-- Blog Grid -->
+            <div class="blog-grid" id="blogGrid">
+                <!-- Blog Card 1 -->
+                <div class="blog-card fade-in" data-category="design">
+                    <div class="blog-card-image">
+                        <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=500&q=80" alt="Modern UI Design Principles">
+                    </div>
+                    <div class="blog-card-content">
+                        <div class="blog-card-meta">
+                            <span><i class="fas fa-calendar-alt"></i> Feb 3, 2026</span>
+                            <span><i class="fas fa-clock"></i> 8 min read</span>
+                        </div>
+                        <h3>Modern UI Design Principles for 2026</h3>
+                        <p>Explore the latest design trends and principles that are shaping the digital landscape. From minimalism to bold typography, discover what works.</p>
+                        <div class="blog-card-tags">
+                            <span class="blog-tag">Design</span>
+                            <span class="blog-tag">UI/UX</span>
+                            <span class="blog-tag">Trends</span>
+                        </div>
+                        <div class="blog-card-footer">
+                            <div class="blog-author">
+                                <div class="blog-author-avatar">JD</div>
+                                <div class="blog-author-info">
+                                    <div class="blog-author-name">Jane Design</div>
+                                </div>
+                            </div>
+                            <a href="#" class="blog-read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Blog Card 2 -->
+                <div class="blog-card fade-in" data-category="development">
+                    <div class="blog-card-image">
+                        <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=500&q=80" alt="React Best Practices">
+                    </div>
+                    <div class="blog-card-content">
+                        <div class="blog-card-meta">
+                            <span><i class="fas fa-calendar-alt"></i> Feb 1, 2026</span>
+                            <span><i class="fas fa-clock"></i> 12 min read</span>
+                        </div>
+                        <h3>React Best Practices & Performance Optimization</h3>
+                        <p>Deep dive into optimizing React applications for performance. Learn about lazy loading, code splitting, and memoization techniques.</p>
+                        <div class="blog-card-tags">
+                            <span class="blog-tag">Development</span>
+                            <span class="blog-tag">React</span>
+                            <span class="blog-tag">Performance</span>
+                        </div>
+                        <div class="blog-card-footer">
+                            <div class="blog-author">
+                                <div class="blog-author-avatar">MC</div>
+                                <div class="blog-author-info">
+                                    <div class="blog-author-name">Mike Code</div>
+                                </div>
+                            </div>
+                            <a href="#" class="blog-read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Blog Card 3 -->
+                <div class="blog-card fade-in" data-category="trends">
+                    <div class="blog-card-image">
+                        <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=500&q=80" alt="Web Design Trends 2026">
+                    </div>
+                    <div class="blog-card-content">
+                        <div class="blog-card-meta">
+                            <span><i class="fas fa-calendar-alt"></i> Jan 30, 2026</span>
+                            <span><i class="fas fa-clock"></i> 10 min read</span>
+                        </div>
+                        <h3>Web Design Trends Shaping 2026</h3>
+                        <p>From glassmorphism to dark mode evolution, discover the design trends that are taking over. What's in and what's out this year.</p>
+                        <div class="blog-card-tags">
+                            <span class="blog-tag">Trends</span>
+                            <span class="blog-tag">Design</span>
+                        </div>
+                        <div class="blog-card-footer">
+                            <div class="blog-author">
+                                <div class="blog-author-avatar">SD</div>
+                                <div class="blog-author-info">
+                                    <div class="blog-author-name">Sarah Design</div>
+                                </div>
+                            </div>
+                            <a href="#" class="blog-read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Blog Card 4 -->
+                <div class="blog-card fade-in" data-category="case-study">
+                    <div class="blog-card-image">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=500&q=80" alt="E-Commerce Redesign Case Study">
+                    </div>
+                    <div class="blog-card-content">
+                        <div class="blog-card-meta">
+                            <span><i class="fas fa-calendar-alt"></i> Jan 28, 2026</span>
+                            <span><i class="fas fa-clock"></i> 15 min read</span>
+                        </div>
+                        <h3>Case Study: E-Commerce Platform Redesign</h3>
+                        <p>How we increased conversion rates by 35% through strategic UI/UX redesign. Learn our process, challenges, and solutions.</p>
+                        <div class="blog-card-tags">
+                            <span class="blog-tag">Case Study</span>
+                            <span class="blog-tag">E-Commerce</span>
+                        </div>
+                        <div class="blog-card-footer">
+                            <div class="blog-author">
+                                <div class="blog-author-avatar">JD</div>
+                                <div class="blog-author-info">
+                                    <div class="blog-author-name">Jane Design</div>
+                                </div>
+                            </div>
+                            <a href="#" class="blog-read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Blog Card 5 -->
+                <div class="blog-card fade-in" data-category="development">
+                    <div class="blog-card-image">
+                        <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=500&q=80" alt="Vue 3 Composition API">
+                    </div>
+                    <div class="blog-card-content">
+                        <div class="blog-card-meta">
+                            <span><i class="fas fa-calendar-alt"></i> Jan 25, 2026</span>
+                            <span><i class="fas fa-clock"></i> 11 min read</span>
+                        </div>
+                        <h3>Mastering Vue 3 Composition API</h3>
+                        <p>A comprehensive guide to Vue 3's Composition API. Learn reactive state, lifecycle hooks, and how to structure your components.</p>
+                        <div class="blog-card-tags">
+                            <span class="blog-tag">Development</span>
+                            <span class="blog-tag">Vue</span>
+                        </div>
+                        <div class="blog-card-footer">
+                            <div class="blog-author">
+                                <div class="blog-author-avatar">MC</div>
+                                <div class="blog-author-info">
+                                    <div class="blog-author-name">Mike Code</div>
+                                </div>
+                            </div>
+                            <a href="#" class="blog-read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Blog Card 6 -->
+                <div class="blog-card fade-in" data-category="design">
+                    <div class="blog-card-image">
+                        <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=500&q=80" alt="Typography in Web Design">
+                    </div>
+                    <div class="blog-card-content">
+                        <div class="blog-card-meta">
+                            <span><i class="fas fa-calendar-alt"></i> Jan 22, 2026</span>
+                            <span><i class="fas fa-clock"></i> 9 min read</span>
+                        </div>
+                        <h3>Typography: The Art of Web Design</h3>
+                        <p>Discover how to choose and implement typography that enhances your design. Learn about font pairing, hierarchy, and readability.</p>
+                        <div class="blog-card-tags">
+                            <span class="blog-tag">Design</span>
+                            <span class="blog-tag">Typography</span>
+                        </div>
+                        <div class="blog-card-footer">
+                            <div class="blog-author">
+                                <div class="blog-author-avatar">SD</div>
+                                <div class="blog-author-info">
+                                    <div class="blog-author-name">Sarah Design</div>
+                                </div>
+                            </div>
+                            <a href="#" class="blog-read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pagination -->
+            <div class="pagination">
+                <button class="pagination-btn active">1</button>
+                <button class="pagination-btn">2</button>
+                <button class="pagination-btn">3</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <div class="cta-content fade-in">
+                <h2>Ready to Transform Your Digital Presence?</h2>
+                <p>Let's work together to bring your ideas to life</p>
+                <a href="contact.html" class="btn">
+                    <i class="fas fa-paper-plane"></i>
+                    Get In Touch
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Subscribe -->
+    <section style="background: linear-gradient(135deg, rgba(0, 217, 255, 0.1), rgba(8, 255, 200, 0.1)); padding: 60px 0; border-top: 1px solid rgba(0, 217, 255, 0.2);">
+        <div class="container">
+            <div style="max-width: 600px; margin: 0 auto; text-align: center;">
+                <h2 style="margin-bottom: 10px;">Stay Updated</h2>
+                <p style="margin-bottom: 30px; color: var(--gray);">Subscribe to our newsletter for the latest design trends, development tips, and project insights.</p>
+                <form style="display: flex; gap: 12px; flex-wrap: wrap;" onsubmit="handleSubscribe(event)">
+                    <input type="email" placeholder="Enter your email" required style="flex: 1; min-width: 250px; padding: 12px 16px; background: rgba(19, 24, 44, 0.8); border: 1px solid rgba(0, 217, 255, 0.2); border-radius: 8px; color: var(--light); font-family: 'Inter', sans-serif;">
+                    <button type="submit" class="btn" style="padding: 12px 32px;"><i class="fas fa-paper-plane"></i> Subscribe</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <div class="footer-logo">UIDD<span style="color: var(--primary)">.</span></div>
+                    <p>We bridge the gap between design and development to create exceptional digital experiences that users love.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-dribbble"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="services.html"><i class="fas fa-chevron-right"></i> UI/UX Design</a></li>
+                        <li><a href="services.html"><i class="fas fa-chevron-right"></i> Frontend Development</a></li>
+                        <li><a href="services.html"><i class="fas fa-chevron-right"></i> Mobile Development</a></li>
+                        <li><a href="services.html"><i class="fas fa-chevron-right"></i> Design Systems</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Contact</h3>
+                    <ul>
+                        <li><a href="#"><i class="fas fa-map-marker-alt"></i> 123 Tech Street, Silicon Valley</a></li>
+                        <li><a href="tel:+15551234567"><i class="fas fa-phone"></i> +1 (555) 123-4567</a></li>
+                        <li><a href="mailto:hello@uidd.com"><i class="fas fa-envelope"></i> hello@uidd.com</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2024 UIDD - UI Designers & Developers. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Newsletter subscription handler
+        function handleSubscribe(event) {
+            event.preventDefault();
+            const email = event.target.querySelector('input[type="email"]').value;
+            if (email) {
+                alert('Thank you for subscribing! Check your email for confirmation.');
+                event.target.reset();
+            }
+        }
+
+        // Filter functionality
+        function filterBlog(category) {
+            const cards = document.querySelectorAll('.blog-card');
+            const buttons = document.querySelectorAll('.filter-btn');
+            
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            cards.forEach(card => {
+                if (category === 'all' || card.dataset.category === category) {
+                    card.style.display = 'block';
+                    setTimeout(() => {
+                        card.style.opacity = '1';
+                        card.style.transform = 'translateY(0)';
+                    }, 10);
+                } else {
+                    card.style.opacity = '0';
+                    card.style.transform = 'translateY(20px)';
+                    setTimeout(() => {
+                        card.style.display = 'none';
+                    }, 300);
+                }
+            });
+        }
+
+        // Search functionality
+        document.getElementById('searchInput').addEventListener('keyup', (e) => {
+            const searchTerm = e.target.value.toLowerCase();
+            const cards = document.querySelectorAll('.blog-card');
+            
+            cards.forEach(card => {
+                const title = card.querySelector('h3').textContent.toLowerCase();
+                const content = card.querySelector('p').textContent.toLowerCase();
+                
+                if (title.includes(searchTerm) || content.includes(searchTerm)) {
+                    card.style.display = 'block';
+                    card.style.opacity = '1';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileMenuClose = document.getElementById('mobileMenuClose');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+        
+        mobileMenuClose.addEventListener('click', () => {
+            mobileMenu.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        });
+        
+        document.querySelectorAll('.mobile-nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            });
+        });
+        
+        // Header scroll effect
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+        
+        // Fade-in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('.fade-in').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+        
+        // Particle animation
+        const canvas = document.getElementById('particles-canvas');
+        const ctx = canvas.getContext('2d');
+        
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        
+        const particles = [];
+        const particleCount = 50;
+        
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 2 + 1;
+                this.speedX = Math.random() * 0.5 - 0.25;
+                this.speedY = Math.random() * 0.5 - 0.25;
+            }
+            
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+                
+                if (this.x > canvas.width) this.x = 0;
+                if (this.x < 0) this.x = canvas.width;
+                if (this.y > canvas.height) this.y = 0;
+                if (this.y < 0) this.y = canvas.height;
+            }
+            
+            draw() {
+                ctx.fillStyle = 'rgba(0, 217, 255, 0.5)';
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+        
+        function initParticles() {
+            particles.length = 0;
+            for (let i = 0; i < particleCount; i++) {
+                particles.push(new Particle());
+            }
+        }
+        
+        function animateParticles() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            particles.forEach(particle => {
+                particle.update();
+                particle.draw();
+            });
+            
+            requestAnimationFrame(animateParticles);
+        }
+        
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            initParticles();
+        });
+        
+        initParticles();
+        animateParticles();
+    </script>
+</body>
+</html>

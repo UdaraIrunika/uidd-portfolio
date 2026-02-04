@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Invoice - Admin Panel</title>
+    <link rel="stylesheet" href="css/admin-style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="admin-page">
+    <div class="admin-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>UIDD<span class="dot">.</span></h2>
+                <button class="sidebar-toggle" id="sidebarToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <a href="dashboard.html" class="nav-item">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="projects.html" class="nav-item">
+                    <i class="fas fa-folder"></i>
+                    <span>Projects</span>
+                </a>
+                <a href="services.html" class="nav-item">
+                    <i class="fas fa-th-large"></i>
+                    <span>Services</span>
+                </a>
+                <a href="blog.html" class="nav-item">
+                    <i class="fas fa-blog"></i>
+                    <span>Blog</span>
+                </a>
+                <a href="pricing.html" class="nav-item">
+                    <i class="fas fa-tags"></i>
+                    <span>Pricing</span>
+                </a>
+                <a href="testimonials.html" class="nav-item">
+                    <i class="fas fa-star"></i>
+                    <span>Testimonials</span>
+                </a>
+                <a href="users.html" class="nav-item">
+                    <i class="fas fa-users"></i>
+                    <span>Users</span>
+                </a>
+                <a href="inquiries.html" class="nav-item">
+                    <i class="fas fa-inbox"></i>
+                    <span>Inquiries</span>
+                </a>
+                <a href="invoices.html" class="nav-item active">
+                    <i class="fas fa-file-invoice-dollar"></i>
+                    <span>Invoices</span>
+                </a>
+                <a href="profile.html" class="nav-item">
+                    <i class="fas fa-user-circle"></i>
+                    <span>Profile</span>
+                </a>
+                <a href="settings.html" class="nav-item">
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Topbar -->
+            <header class="topbar">
+                <button class="menu-toggle" id="menuToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="topbar-right">
+                    <div class="notification">
+                        <button class="notification-btn" id="notificationBtn">
+                            <i class="fas fa-bell"></i>
+                            <span class="notification-badge">5</span>
+                        </button>
+                    </div>
+                    <div class="user-profile">
+                        <span id="usernameDisplay">Admin</span>
+                        <button class="logout-btn" id="logoutBtn">Logout</button>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Notification Modal -->
+            <div class="notification-modal" id="notificationModal">
+                <div class="notification-header">
+                    <h3>Notifications</h3>
+                    <button class="close-notification" id="closeNotification">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="notification-list">
+                    <div class="notification-item unread">
+                        <div class="notification-icon success">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <div class="notification-content">
+                            <p class="notification-title">Invoice Updated</p>
+                            <p class="notification-text">Invoice has been updated successfully.</p>
+                            <span class="notification-time">5 minutes ago</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Page Content -->
+            <div class="page-content">
+                <div class="form-header">
+                    <div>
+                        <a href="/admin/invoices.html" class="btn-back">
+                            <i class="fas fa-arrow-left"></i> Back to Invoices
+                        </a>
+                        <h1>Edit Invoice</h1>
+                        <p class="subtitle">INV-2026-001</p>
+                    </div>
+                    <div style="display: flex; gap: 10px;">
+                        <button class="btn-secondary">
+                            <i class="fas fa-envelope"></i> Send Invoice
+                        </button>
+                        <button class="btn-secondary">
+                            <i class="fas fa-download"></i> Download PDF
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Invoice Status Bar -->
+                <div class="invoice-status-bar">
+                    <div class="status-item">
+                        <span class="label">Status:</span>
+                        <span class="badge completed">Paid</span>
+                    </div>
+                    <div class="status-item">
+                        <span class="label">Payment Status:</span>
+                        <span class="badge completed">Paid</span>
+                    </div>
+                    <div class="status-item">
+                        <span class="label">Amount:</span>
+                        <span class="amount">$16,500.00</span>
+                    </div>
+                    <div class="status-item">
+                        <span class="label">Paid Amount:</span>
+                        <span class="amount">$16,500.00</span>
+                    </div>
+                </div>
+
+                <form class="edit-form" id="editInvoiceForm" onsubmit="handleSubmit(event)">
+                    <!-- Invoice Information -->
+                    <div class="form-section">
+                        <div class="section-icon">
+                            <i class="fas fa-file-invoice-dollar"></i>
+                        </div>
+                        <div class="section-content">
+                            <h3>Invoice Information</h3>
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label for="invoiceNumber">Invoice Number <span class="required">*</span></label>
+                                    <div style=\"display: flex; gap: 10px;\">
+                                        <input type=\"text\" id=\"invoiceNumber\" name=\"invoiceNumber\" value=\"INV-2026-001\" style=\"flex: 1;\">
+                                        <button type=\"button\" class=\"btn-secondary\" onclick=\"regenerateInvoiceNumber()\" title=\"Generate new invoice number\" style=\"padding: 10px 15px; white-space: nowrap;\">
+                                            <i class=\"fas fa-sync-alt\"></i> Regenerate
+                                        </button>
+                                    </div>
+                                    <small>Click regenerate to create a new unique number</small>
+                                </div>
+                                <div class="form-group">
+                                    <label for="projectId">Project <span class="required">*</span></label>
+                                    <select id="projectId" name="projectId" required>
+                                        <option value="1" selected>E-Commerce Platform - TechCorp Inc</option>
+                                        <option value="2">Mobile App Design - Fashion Brand</option>
+                                        <option value="3">Website Redesign - StartUp Co</option>
+                                        <option value="4">Analytics Dashboard - Data Solutions Ltd</option>
+                                        <option value="5">Marketing Campaign - Global Brands</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="invoiceDate">Invoice Date <span class="required">*</span></label>
+                                    <input type="date" id="invoiceDate" name="invoiceDate" value="2026-01-15" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="dueDate">Due Date <span class="required">*</span></label>
+                                    <input type="date" id="dueDate" name="dueDate" value="2026-02-14" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="currency">Currency <span class="required">*</span></label>
+                                    <select id="currency" name="currency" required>
+                                        <option value="USD" selected>USD ($)</option>
+                                        <option value="EUR">EUR (€)</option>
+                                        <option value="GBP">GBP (£)</option>
+                                        <option value="CAD">CAD (C$)</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="paymentTerms">Payment Terms <span class="required">*</span></label>
+                                    <select id="paymentTerms" name="paymentTerms" required>
+                                        <option value="due-on-receipt" selected>Due on Receipt</option>
+                                        <option value="net-15">Net 15</option>
+                                        <option value="net-30">Net 30</option>
+                                        <option value="net-60">Net 60</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Client Information -->
+                    <div class="form-section">
+                        <div class="section-icon">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="section-content">
+                            <h3>Client Information</h3>
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label for="clientName">Client Name <span class="required">*</span></label>
+                                    <input type="text" id="clientName" name="clientName" value="TechCorp Inc" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="clientCompany">Company Name <span class="required">*</span></label>
+                                    <input type="text" id="clientCompany" name="clientCompany" value="TechCorp Inc" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="clientEmail">Email <span class="required">*</span></label>
+                                    <input type="email" id="clientEmail" name="clientEmail" value="billing@techcorp.com" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="clientPhone">Phone</label>
+                                    <input type="tel" id="clientPhone" name="clientPhone" value="+1 (555) 111-2222">
+                                </div>
+                                <div class="form-group full-width">
+                                    <label for="clientAddress">Address <span class="required">*</span></label>
+                                    <input type="text" id="clientAddress" name="clientAddress" value="456 Tech Boulevard" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="clientCity">City <span class="required">*</span></label>
+                                    <input type="text" id="clientCity" name="clientCity" value="San Jose" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="clientState">State/Province <span class="required">*</span></label>
+                                    <input type="text" id="clientState" name="clientState" value="CA" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="clientZip">Postal Code <span class="required">*</span></label>
+                                    <input type="text" id="clientZip" name="clientZip" value="95110" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="clientCountry">Country <span class="required">*</span></label>
+                                    <input type="text" id="clientCountry" name="clientCountry" value="USA" required>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Invoice Items -->
+                    <div class="form-section">
+                        <div class="section-icon">
+                            <i class="fas fa-list"></i>
+                        </div>
+                        <div class="section-content">
+                            <h3>Invoice Items</h3>
+                            <table class="invoice-items-table">
+                                <thead>
+                                    <tr>
+                                        <th>Description</th>
+                                        <th>Quantity</th>
+                                        <th>Unit Price</th>
+                                        <th>Tax %</th>
+                                        <th>Line Total</th>
+                                        <th width="50"></th>
+                                    </tr>
+                                </thead>
+                                <tbody id="invoiceItemsList">
+                                    <tr class="invoice-item-row">
+                                        <td><input type="text" name="items[description][]" value="Full-stack E-Commerce Development" required></td>
+                                        <td><input type="number" name="items[quantity][]" value="1" min="0.01" step="0.01" required></td>
+                                        <td><input type="number" name="items[unitPrice][]" value="12000.00" min="0" step="0.01" required></td>
+                                        <td><input type="number" name="items[taxPercent][]" value="10" min="0" max="100" step="0.01"></td>
+                                        <td class="line-total">$13,200.00</td>
+                                        <td><button type="button" class="btn-remove-item" onclick="removeInvoiceItem(this)"><i class="fas fa-trash"></i></button></td>
+                                    </tr>
+                                    <tr class="invoice-item-row">
+                                        <td><input type="text" name="items[description][]" value="Payment Gateway Integration" required></td>
+                                        <td><input type="number" name="items[quantity][]" value="1" min="0.01" step="0.01" required></td>
+                                        <td><input type="number" name="items[unitPrice][]" value="2000.00" min="0" step="0.01" required></td>
+                                        <td><input type="number" name="items[taxPercent][]" value="10" min="0" max="100" step="0.01"></td>
+                                        <td class="line-total">$2,200.00</td>
+                                        <td><button type="button" class="btn-remove-item" onclick="removeInvoiceItem(this)"><i class="fas fa-trash"></i></button></td>
+                                    </tr>
+                                    <tr class="invoice-item-row">
+                                        <td><input type="text" name="items[description][]" value="Admin Dashboard Development" required></td>
+                                        <td><input type="number" name="items[quantity][]" value="1" min="0.01" step="0.01" required></td>
+                                        <td><input type="number" name="items[unitPrice][]" value="1000.00" min="0" step="0.01" required></td>
+                                        <td><input type="number" name="items[taxPercent][]" value="10" min="0" max="100" step="0.01"></td>
+                                        <td class="line-total">$1,100.00</td>
+                                        <td><button type="button" class="btn-remove-item" onclick="removeInvoiceItem(this)"><i class="fas fa-trash"></i></button></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <button type="button" class="btn-add-item" onclick="addInvoiceItem()">
+                                <i class="fas fa-plus"></i> Add Item
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Billing Details -->
+                    <div class="form-section">
+                        <div class="section-icon">
+                            <i class="fas fa-calculator"></i>
+                        </div>
+                        <div class="section-content">
+                            <h3>Billing Details</h3>
+                            <div class="billing-summary">
+                                <div class="billing-row">
+                                    <span>Subtotal:</span>
+                                    <span id="subtotal">$15,000.00</span>
+                                </div>
+                                <div class="billing-row">
+                                    <span>Tax:</span>
+                                    <span id="taxAmount">$1,500.00</span>
+                                </div>
+                                <div class="billing-row">
+                                    <span>Discount:</span>
+                                    <div style="display: flex; gap: 10px;">
+                                        <input type="number" id="discountPercent" name="discountPercent" value="0" min="0" max="100" step="0.01" placeholder="%" style="width: 60px;">
+                                        <span id="discountAmount">$0.00</span>
+                                    </div>
+                                </div>
+                                <div class="billing-row total">
+                                    <span>Total Amount:</span>
+                                    <span id="totalAmount">$16,500.00</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Payment Information -->
+                    <div class="form-section">
+                        <div class="section-icon">
+                            <i class="fas fa-credit-card"></i>
+                        </div>
+                        <div class="section-content">
+                            <h3>Payment Information</h3>
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label for="paidAmount">Amount Paid</label>
+                                    <input type="number" id="paidAmount" name="paidAmount" value="16500.00" min="0" step="0.01">
+                                </div>
+                                <div class="form-group">
+                                    <label for="invoiceStatus">Invoice Status</label>
+                                    <select id="invoiceStatus" name="invoiceStatus">
+                                        <option value="draft">Draft</option>
+                                        <option value="sent" selected>Sent</option>
+                                        <option value="viewed">Viewed</option>
+                                        <option value="pending">Pending</option>
+                                        <option value="partially-paid">Partially Paid</option>
+                                        <option value="paid" selected>Paid</option>
+                                        <option value="overdue">Overdue</option>
+                                        <option value="cancelled">Cancelled</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Additional Information -->
+                    <div class="form-section">
+                        <div class="section-icon">
+                            <i class="fas fa-pen-fancy"></i>
+                        </div>
+                        <div class="section-content">
+                            <h3>Additional Information</h3>
+                            <div class="form-grid">
+                                <div class="form-group full-width">
+                                    <label for="notes">Invoice Notes</label>
+                                    <textarea id="notes" name="notes" rows="3">Thank you for your business!</textarea>
+                                </div>
+                                <div class="form-group full-width">
+                                    <label for="terms">Terms & Conditions</label>
+                                    <textarea id="terms" name="terms" rows="3"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Form Actions -->
+                    <div class="form-actions">
+                        <button type="submit" class="btn-primary">
+                            <i class="fas fa-save"></i> Save Changes
+                        </button>
+                        <button type="button" class="btn-danger" onclick="if(confirm('Delete this invoice?')) window.location='/admin/invoices.html';">
+                            <i class="fas fa-trash"></i> Delete Invoice
+                        </button>
+                        <a href="/admin/invoices.html" class="btn-secondary">
+                            <i class="fas fa-times"></i> Cancel
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </main>
+    </div>
+
+    <script src="/admin/js/admin-script.js"></script>
+    <script>
+        // Initialize calculation listeners when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeCalculations();
+            // For edit page, only generate if not already set
+            if (!document.getElementById('invoiceNumber').value) {
+                generateInvoiceNumber();
+            }
+            // Initial calculation on page load
+            calculateTotals();
+        });
+
+        function generateInvoiceNumber() {
+            const invoiceNumberInput = document.getElementById('invoiceNumber');
+            if (invoiceNumberInput.value === '') {
+                // Get current year
+                const currentYear = new Date().getFullYear();
+                // Generate random sequence number (001-999)
+                const sequenceNum = String(Math.floor(Math.random() * 999) + 1).padStart(3, '0');
+                const autoNumber = `INV-${currentYear}-${sequenceNum}`;
+                invoiceNumberInput.value = autoNumber;
+            }
+        }
+
+        function regenerateInvoiceNumber() {
+            document.getElementById('invoiceNumber').value = '';
+            generateInvoiceNumber();
+        }
+
+        function initializeCalculations() {
+            // Add event listeners to all input fields
+            const form = document.getElementById('editInvoiceForm');
+            if (form) {
+                form.addEventListener('input', calculateTotals);
+            }
+        }
+
+        function addInvoiceItem() {
+            const tbody = document.getElementById('invoiceItemsList');
+            const row = document.createElement('tr');
+            row.className = 'invoice-item-row';
+            row.innerHTML = `
+                <td><input type="text" name="items[description][]" placeholder="Service or product description" required></td>
+                <td><input type="number" name="items[quantity][]" value="1" min="0.01" step="0.01" required></td>
+                <td><input type="number" name="items[unitPrice][]" placeholder="0.00" min="0" step="0.01" required></td>
+                <td><input type="number" name="items[taxPercent][]" value="10" min="0" max="100" step="0.01"></td>
+                <td class="line-total">$0.00</td>
+                <td><button type="button" class="btn-remove-item" onclick="removeInvoiceItem(this)"><i class="fas fa-trash"></i></button></td>
+            `;
+            tbody.appendChild(row);
+            // Recalculate after adding new item
+            calculateTotals();
+        }
+
+        function removeInvoiceItem(button) {
+            const tbody = document.getElementById('invoiceItemsList');
+            const rows = tbody.querySelectorAll('.invoice-item-row');
+            
+            if (rows.length > 1) {
+                button.closest('tr').remove();
+                // Recalculate after removing item
+                calculateTotals();
+            } else {
+                alert('Invoice must have at least one item');
+            }
+        }
+
+        function calculateTotals() {
+            const rows = document.querySelectorAll('.invoice-item-row');
+            let subtotal = 0;
+            let totalTax = 0;
+
+            // Calculate each line and sum up
+            rows.forEach(row => {
+                const quantityInput = row.querySelector('input[name="items[quantity][]"]');
+                const priceInput = row.querySelector('input[name="items[unitPrice][]"]');
+                const taxPercentInput = row.querySelector('input[name="items[taxPercent][]"]');
+                const lineTotalElement = row.querySelector('.line-total');
+
+                const quantity = parseFloat(quantityInput.value) || 0;
+                const price = parseFloat(priceInput.value) || 0;
+                const taxPercent = parseFloat(taxPercentInput.value) || 0;
+
+                // Calculate line amount (quantity × price)
+                const lineAmount = quantity * price;
+                // Calculate tax on this line
+                const lineTax = lineAmount * (taxPercent / 100);
+                // Line total = amount + tax
+                const lineTotal = lineAmount + lineTax;
+
+                subtotal += lineAmount;
+                totalTax += lineTax;
+
+                // Display line total
+                lineTotalElement.textContent = '$' + lineTotal.toFixed(2);
+            });
+
+            // Get discount value
+            const discountPercentInput = document.getElementById('discountPercent');
+            const discountPercent = parseFloat(discountPercentInput.value) || 0;
+            const discountAmount = subtotal * (discountPercent / 100);
+
+            // Calculate final total
+            const total = subtotal + totalTax - discountAmount;
+
+            // Update display elements
+            document.getElementById('subtotal').textContent = '$' + subtotal.toFixed(2);
+            document.getElementById('taxAmount').textContent = '$' + totalTax.toFixed(2);
+            document.getElementById('discountAmount').textContent = '$' + discountAmount.toFixed(2);
+            document.getElementById('totalAmount').textContent = '$' + total.toFixed(2);
+
+            // Store values for form submission
+            document.getElementById('editInvoiceForm').setAttribute('data-subtotal', subtotal.toFixed(2));
+            document.getElementById('editInvoiceForm').setAttribute('data-tax', totalTax.toFixed(2));
+            document.getElementById('editInvoiceForm').setAttribute('data-discount', discountAmount.toFixed(2));
+            document.getElementById('editInvoiceForm').setAttribute('data-total', total.toFixed(2));
+        }
+
+        function handleSubmit(e) {
+            e.preventDefault();
+            // Validate at least one item exists
+            const items = document.querySelectorAll('.invoice-item-row');
+            if (items.length === 0) {
+                alert('Invoice must have at least one item');
+                return;
+            }
+
+            // Get form data
+            const formData = new FormData(document.getElementById('editInvoiceForm'));
+            const subtotal = parseFloat(document.getElementById('editInvoiceForm').getAttribute('data-subtotal')) || 0;
+            const tax = parseFloat(document.getElementById('editInvoiceForm').getAttribute('data-tax')) || 0;
+            const discount = parseFloat(document.getElementById('editInvoiceForm').getAttribute('data-discount')) || 0;
+            const total = parseFloat(document.getElementById('editInvoiceForm').getAttribute('data-total')) || 0;
+
+            // Show confirmation
+            const invoiceNumber = document.getElementById('invoiceNumber').value || 'INV-AUTO';
+            const total_display = document.getElementById('totalAmount').textContent;
+            
+            if (confirm(`Update invoice ${invoiceNumber} for ${total_display}?`)) {
+                alert('Invoice updated successfully!');
+                // Here you would send data to backend
+                // For now, just redirect
+                setTimeout(() => {
+                    window.location.href = '/admin/invoices.html';
+                }, 1000);
+            }
+        }
+    </script>
+    <style>
+        .invoice-status-bar {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
+            padding: 15px;
+            background: rgba(0, 217, 255, 0.05);
+            border: 1px solid rgba(0, 217, 255, 0.1);
+            border-radius: var(--border-radius);
+        }
+        .status-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .status-item .label {
+            font-weight: 600;
+            color: var(--light);
+        }
+        .status-item .amount {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        .invoice-items-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 15px;
+        }
+        .invoice-items-table th {
+            background: rgba(0, 217, 255, 0.1);
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid rgba(0, 217, 255, 0.2);
+            font-weight: 600;
+            color: var(--primary);
+        }
+        .invoice-items-table td {
+            padding: 12px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .invoice-items-table input {
+            width: 100%;
+            padding: 8px;
+            background: rgba(19, 24, 44, 0.7);
+            border: 1px solid rgba(0, 217, 255, 0.1);
+            border-radius: 4px;
+            color: var(--light);
+        }
+        .btn-remove-item {
+            background: rgba(255, 46, 99, 0.1);
+            color: var(--danger);
+            border: 1px solid rgba(255, 46, 99, 0.2);
+            padding: 8px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .btn-remove-item:hover {
+            background: var(--danger);
+            color: white;
+        }
+        .btn-add-item {
+            background: rgba(0, 217, 255, 0.1);
+            color: var(--primary);
+            border: 1px solid rgba(0, 217, 255, 0.2);
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .btn-add-item:hover {
+            background: rgba(0, 217, 255, 0.2);
+        }
+        .billing-summary {
+            background: rgba(0, 217, 255, 0.05);
+            border: 1px solid rgba(0, 217, 255, 0.1);
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 15px;
+        }
+        .billing-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(0, 217, 255, 0.1);
+        }
+        .billing-row:last-child {
+            border-bottom: none;
+        }
+        .billing-row.total {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--primary);
+            padding-top: 15px;
+            border-top: 2px solid rgba(0, 217, 255, 0.2);
+        }
+    </style>
+</body>
+</html>

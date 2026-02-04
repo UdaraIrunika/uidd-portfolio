@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Consultation | UIDD Admin</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/admin-style.css">
+</head>
+<body>
+    <div class="admin-wrapper">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <i class="fas fa-cube"></i>
+                    <span>UIDD</span>
+                </div>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="dashboard.html" class="nav-item">
+                    <i class="fas fa-th-large"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="projects.html" class="nav-item">
+                    <i class="fas fa-folder"></i>
+                    <span>Projects</span>
+                </a>
+                <a href="services.html" class="nav-item">
+                    <i class="fas fa-cogs"></i>
+                    <span>Services</span>
+                </a>
+                <a href="blog.html" class="nav-item">
+                    <i class="fas fa-blog"></i>
+                    <span>Blog</span>
+                </a>
+                <a href="pricing.html" class="nav-item">
+                    <i class="fas fa-tag"></i>
+                    <span>Pricing</span>
+                </a>
+                <a href="team-members.html" class="nav-item">
+                    <i class="fas fa-users"></i>
+                    <span>Team</span>
+                </a>
+                <a href="consultations.html" class="nav-item active">
+                    <i class="fas fa-calendar-check"></i>
+                    <span>Consultations</span>
+                </a>
+                <a href="invoices.html" class="nav-item">
+                    <i class="fas fa-file-invoice-dollar"></i>
+                    <span>Invoices</span>
+                </a>
+                <a href="testimonials.html" class="nav-item">
+                    <i class="fas fa-star"></i>
+                    <span>Testimonials</span>
+                </a>
+                <a href="users.html" class="nav-item">
+                    <i class="fas fa-user-shield"></i>
+                    <span>Users</span>
+                </a>
+                <a href="inquiries.html" class="nav-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>Inquiries</span>
+                </a>
+                <a href="profile.html" class="nav-item">
+                    <i class="fas fa-user"></i>
+                    <span>Profile</span>
+                </a>
+                <a href="settings.html" class="nav-item">
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
+                </a>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <div class="topbar">
+                <button class="sidebar-toggle" id="sidebarToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="page-title">Add Consultation</div>
+                <div class="topbar-actions">
+                    <div class="notification">
+                        <i class="fas fa-bell"></i>
+                        <span class="badge">3</span>
+                    </div>
+                    <div class="user-menu">
+                        <div class="user-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <span>Admin</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-wrapper">
+                <div class="page-header">
+                    <div class="header-title">
+                        <a href="consultations.html" class="btn-back">
+                            <i class="fas fa-arrow-left"></i>
+                            Back to Consultations
+                        </a>
+                        <h1>Add New Consultation Request</h1>
+                        <p class="header-subtitle">Create a new consultation request manually</p>
+                    </div>
+                    <div class="header-actions">
+                        <button type="button" class="btn-secondary" onclick="resetForm()">
+                            <i class="fas fa-redo"></i>
+                            Reset Form
+                        </button>
+                        <button type="submit" form="addConsultationForm" class="btn-primary">
+                            <i class="fas fa-save"></i>
+                            Save Consultation
+                        </button>
+                    </div>
+                </div>
+
+                <form id="addConsultationForm" class="form-container" onsubmit="handleSubmit(event)">
+                    <div class="form-section">
+                        <h3 class="section-title">Personal Information</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="firstName">First Name <span class="required">*</span></label>
+                                <input type="text" id="firstName" name="firstName" required placeholder="Enter first name">
+                            </div>
+                            <div class="form-group">
+                                <label for="lastName">Last Name <span class="required">*</span></label>
+                                <input type="text" id="lastName" name="lastName" required placeholder="Enter last name">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="email">Email <span class="required">*</span></label>
+                                <input type="email" id="email" name="email" required placeholder="example@email.com">
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone <span class="required">*</span></label>
+                                <input type="tel" id="phone" name="phone" required placeholder="+1 (555) 123-4567">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="company">Company</label>
+                            <input type="text" id="company" name="company" placeholder="Company name (optional)">
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3 class="section-title">Project Details</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="projectType">Project Type <span class="required">*</span></label>
+                                <select id="projectType" name="projectType" required>
+                                    <option value="">Select project type</option>
+                                    <option value="Website Design & Development">Website Design & Development</option>
+                                    <option value="Mobile App Development">Mobile App Development</option>
+                                    <option value="E-Commerce Solution">E-Commerce Solution</option>
+                                    <option value="UI/UX Design">UI/UX Design</option>
+                                    <option value="Brand Identity">Brand Identity</option>
+                                    <option value="Digital Marketing">Digital Marketing</option>
+                                    <option value="Custom Software">Custom Software</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="industry">Industry <span class="required">*</span></label>
+                                <select id="industry" name="industry" required>
+                                    <option value="">Select industry</option>
+                                    <option value="Technology">Technology</option>
+                                    <option value="Healthcare">Healthcare</option>
+                                    <option value="Finance">Finance</option>
+                                    <option value="Education">Education</option>
+                                    <option value="E-Commerce">E-Commerce</option>
+                                    <option value="Real Estate">Real Estate</option>
+                                    <option value="Entertainment">Entertainment</option>
+                                    <option value="Manufacturing">Manufacturing</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="budget">Budget Range <span class="required">*</span></label>
+                                <select id="budget" name="budget" required>
+                                    <option value="">Select budget range</option>
+                                    <option value="Less than $10,000">Less than $10,000</option>
+                                    <option value="$10,000 - $25,000">$10,000 - $25,000</option>
+                                    <option value="$25,000 - $50,000">$25,000 - $50,000</option>
+                                    <option value="$50,000 - $100,000">$50,000 - $100,000</option>
+                                    <option value="$100,000+">$100,000+</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="timeline">Timeline <span class="required">*</span></label>
+                                <select id="timeline" name="timeline" required>
+                                    <option value="">Select timeline</option>
+                                    <option value="Less than 1 Month">Less than 1 Month</option>
+                                    <option value="1-3 Months">1-3 Months</option>
+                                    <option value="3-6 Months">3-6 Months</option>
+                                    <option value="6-12 Months">6-12 Months</option>
+                                    <option value="12+ Months">12+ Months</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3 class="section-title">Consultation Details</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="meetingFormat">Meeting Format <span class="required">*</span></label>
+                                <select id="meetingFormat" name="meetingFormat" required>
+                                    <option value="">Select meeting format</option>
+                                    <option value="Video Call (Google Meet/Zoom)">Video Call (Google Meet/Zoom)</option>
+                                    <option value="Phone Call">Phone Call</option>
+                                    <option value="In-Person Meeting">In-Person Meeting</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="preferredDate">Preferred Date <span class="required">*</span></label>
+                                <input type="date" id="preferredDate" name="preferredDate" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="preferredTime">Preferred Time <span class="required">*</span></label>
+                                <input type="time" id="preferredTime" name="preferredTime" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="status">Status <span class="required">*</span></label>
+                                <select id="status" name="status" required>
+                                    <option value="pending">Pending</option>
+                                    <option value="scheduled">Scheduled</option>
+                                    <option value="completed">Completed</option>
+                                    <option value="cancelled">Cancelled</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3 class="section-title">Project Description</h3>
+                        <div class="form-group">
+                            <label for="description">Description <span class="required">*</span></label>
+                            <textarea id="description" name="description" rows="6" required placeholder="Provide detailed information about the project..."></textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3 class="section-title">Additional Information</h3>
+                        <div class="form-group">
+                            <label for="additionalNotes">Additional Notes</label>
+                            <textarea id="additionalNotes" name="additionalNotes" rows="4" placeholder="Any additional information or requirements..."></textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3 class="section-title">Consultation Agenda</h3>
+                        <div class="form-group">
+                            <label>Topics to Discuss</label>
+                            <div class="checkbox-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="topics" value="Discuss project goals & vision" checked>
+                                    <span>Discuss project goals & vision</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="topics" value="Review strategy & approach" checked>
+                                    <span>Review strategy & approach</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="topics" value="Define timeline & milestones" checked>
+                                    <span>Define timeline & milestones</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="topics" value="Clarify budget & investment">
+                                    <span>Clarify budget & investment</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="topics" value="Technical requirements & feasibility">
+                                    <span>Technical requirements & feasibility</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="topics" value="Team structure & communication">
+                                    <span>Team structure & communication</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        const sidebarToggle = document.getElementById('sidebarToggle');
+        const sidebar = document.querySelector('.sidebar');
+        
+        if (sidebarToggle) {
+            sidebarToggle.addEventListener('click', () => {
+                sidebar.classList.toggle('collapsed');
+            });
+        }
+
+        const menuToggle = document.querySelector('.menu-toggle');
+        if (menuToggle) {
+            menuToggle.addEventListener('click', () => {
+                document.querySelector('.user-menu').classList.toggle('active');
+            });
+        }
+
+        function logout() {
+            if (confirm('Are you sure you want to logout?')) {
+                window.location.href = 'login.html';
+            }
+        }
+
+        function resetForm() {
+            if (confirm('Are you sure you want to reset the form? All entered data will be lost.')) {
+                document.getElementById('addConsultationForm').reset();
+            }
+        }
+
+        function handleSubmit(event) {
+            event.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(event.target);
+            const consultationData = {};
+            
+            formData.forEach((value, key) => {
+                if (key === 'topics') {
+                    if (!consultationData.topics) {
+                        consultationData.topics = [];
+                    }
+                    consultationData.topics.push(value);
+                } else {
+                    consultationData[key] = value;
+                }
+            });
+            
+            console.log('Consultation Data:', consultationData);
+            
+            // Simulate successful save
+            alert('Consultation request added successfully!');
+            
+            // Redirect to consultations page
+            window.location.href = 'consultations.html';
+        }
+
+        // Set minimum date to today
+        const today = new Date().toISOString().split('T')[0];
+        document.getElementById('preferredDate').setAttribute('min', today);
+    </script>
+</body>
+</html>

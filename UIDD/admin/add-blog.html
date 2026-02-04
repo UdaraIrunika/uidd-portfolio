@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Blog Post | UIDD Admin</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/admin-style.css">
+</head>
+<body>
+    <div class="admin-wrapper">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <i class="fas fa-cube"></i>
+                    <span>UIDD</span>
+                </div>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="dashboard.html" class="nav-item">
+                    <i class="fas fa-th-large"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="projects.html" class="nav-item">
+                    <i class="fas fa-folder"></i>
+                    <span>Projects</span>
+                </a>
+                <a href="services.html" class="nav-item">
+                    <i class="fas fa-cogs"></i>
+                    <span>Services</span>
+                </a>
+                <a href="blog.html" class="nav-item active">
+                    <i class="fas fa-blog"></i>
+                    <span>Blog</span>
+                </a>
+                <a href="pricing.html" class="nav-item">
+                    <i class="fas fa-tag"></i>
+                    <span>Pricing</span>
+                </a>
+                <a href="team-members.html" class="nav-item">
+                    <i class="fas fa-users"></i>
+                    <span>Team</span>
+                </a>
+                <a href="consultations.html" class="nav-item">
+                    <i class="fas fa-calendar-check"></i>
+                    <span>Consultations</span>
+                </a>
+                <a href="invoices.html" class="nav-item">
+                    <i class="fas fa-file-invoice-dollar"></i>
+                    <span>Invoices</span>
+                </a>
+                <a href="testimonials.html" class="nav-item">
+                    <i class="fas fa-star"></i>
+                    <span>Testimonials</span>
+                </a>
+                <a href="users.html" class="nav-item">
+                    <i class="fas fa-user-shield"></i>
+                    <span>Users</span>
+                </a>
+                <a href="inquiries.html" class="nav-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>Inquiries</span>
+                </a>
+                <a href="profile.html" class="nav-item">
+                    <i class="fas fa-user"></i>
+                    <span>Profile</span>
+                </a>
+                <a href="settings.html" class="nav-item">
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
+                </a>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <div class="topbar">
+                <button class="sidebar-toggle" id="sidebarToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="page-title">Add Blog Post</div>
+                <div class="topbar-actions">
+                    <div class="notification">
+                        <i class="fas fa-bell"></i>
+                        <span class="badge">3</span>
+                    </div>
+                    <div class="user-menu">
+                        <div class="user-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <span>Admin</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-wrapper">
+                <div class="page-header">
+                    <div class="header-title">
+                        <a href="blog.html" class="btn-back">
+                            <i class="fas fa-arrow-left"></i>
+                            Back to Blog
+                        </a>
+                        <h1>Create New Blog Post</h1>
+                        <p class="header-subtitle">Write and publish a new blog article</p>
+                    </div>
+                    <div class="header-actions">
+                        <button type="button" class="btn-secondary" onclick="saveDraft()">
+                            <i class="fas fa-save"></i>
+                            Save Draft
+                        </button>
+                        <button type="submit" form="addBlogForm" class="btn-primary">
+                            <i class="fas fa-check"></i>
+                            Publish Post
+                        </button>
+                    </div>
+                </div>
+
+                <form id="addBlogForm" class="form-container" onsubmit="handleSubmit(event)">
+                    <div class="form-section">
+                        <h3 class="section-title">Post Information</h3>
+                        <div class="form-group">
+                            <label for="title">Post Title <span class="required">*</span></label>
+                            <input type="text" id="title" name="title" required placeholder="Enter an engaging title for your blog post">
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="category">Category <span class="required">*</span></label>
+                                <select id="category" name="category" required>
+                                    <option value="">Select category</option>
+                                    <option value="web-design">Web Design</option>
+                                    <option value="development">Development</option>
+                                    <option value="ui-ux">UI/UX</option>
+                                    <option value="marketing">Marketing</option>
+                                    <option value="tutorials">Tutorials</option>
+                                    <option value="news">News</option>
+                                    <option value="case-studies">Case Studies</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="author">Author <span class="required">*</span></label>
+                                <select id="author" name="author" required>
+                                    <option value="">Select author</option>
+                                    <option value="john-smith">John Smith</option>
+                                    <option value="sarah-johnson">Sarah Johnson</option>
+                                    <option value="mike-chen">Mike Chen</option>
+                                    <option value="emily-davis">Emily Davis</option>
+                                    <option value="david-wilson">David Wilson</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="status">Status <span class="required">*</span></label>
+                                <select id="status" name="status" required>
+                                    <option value="draft">Draft</option>
+                                    <option value="published">Published</option>
+                                    <option value="scheduled">Scheduled</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="publishDate">Publish Date</label>
+                                <input type="datetime-local" id="publishDate" name="publishDate">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3 class="section-title">Featured Image</h3>
+                        <div class="form-group">
+                            <label for="featuredImage">Upload Featured Image <span class="required">*</span></label>
+                            <input type="file" id="featuredImage" name="featuredImage" accept="image/*" required onchange="previewImage(event)">
+                            <small class="form-hint">Recommended size: 1200x630px. Max file size: 5MB</small>
+                        </div>
+                        <div class="image-preview" id="imagePreview">
+                            <img src="" alt="Preview" id="previewImg" style="display: none;">
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3 class="section-title">Content</h3>
+                        <div class="form-group">
+                            <label for="excerpt">Excerpt <span class="required">*</span></label>
+                            <textarea id="excerpt" name="excerpt" rows="3" required placeholder="Write a brief summary of your blog post (150-200 characters)"></textarea>
+                            <small class="form-hint"><span id="excerptCount">0</span>/200 characters</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="content">Post Content <span class="required">*</span></label>
+                            <textarea id="content" name="content" rows="15" required placeholder="Write your blog post content here..."></textarea>
+                            <small class="form-hint">You can use Markdown formatting</small>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3 class="section-title">SEO Settings</h3>
+                        <div class="form-group">
+                            <label for="metaTitle">Meta Title</label>
+                            <input type="text" id="metaTitle" name="metaTitle" placeholder="SEO title (optional, defaults to post title)">
+                            <small class="form-hint"><span id="metaTitleCount">0</span>/60 characters</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="metaDescription">Meta Description</label>
+                            <textarea id="metaDescription" name="metaDescription" rows="2" placeholder="SEO description for search engines"></textarea>
+                            <small class="form-hint"><span id="metaDescCount">0</span>/160 characters</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="tags">Tags</label>
+                            <input type="text" id="tags" name="tags" placeholder="Enter tags separated by commas (e.g., design, web, tutorial)">
+                        </div>
+                        <div class="form-group">
+                            <label for="slug">URL Slug <span class="required">*</span></label>
+                            <input type="text" id="slug" name="slug" required placeholder="url-friendly-slug">
+                            <small class="form-hint">Will be auto-generated from title if left empty</small>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3 class="section-title">Additional Options</h3>
+                        <div class="checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="allowComments" checked>
+                                <span>Allow Comments</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="featured">
+                                <span>Mark as Featured Post</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="sendNotification">
+                                <span>Send Email Notification to Subscribers</span>
+                            </label>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        const sidebarToggle = document.getElementById('sidebarToggle');
+        const sidebar = document.querySelector('.sidebar');
+        
+        if (sidebarToggle) {
+            sidebarToggle.addEventListener('click', () => {
+                sidebar.classList.toggle('collapsed');
+            });
+        }
+
+        function logout() {
+            if (confirm('Are you sure you want to logout?')) {
+                window.location.href = 'login.html';
+            }
+        }
+
+        function saveDraft() {
+            const formData = new FormData(document.getElementById('addBlogForm'));
+            formData.set('status', 'draft');
+            console.log('Saving draft:', Object.fromEntries(formData));
+            alert('Draft saved successfully!');
+        }
+
+        function handleSubmit(event) {
+            event.preventDefault();
+            const formData = new FormData(event.target);
+            const blogData = Object.fromEntries(formData);
+            console.log('Publishing blog post:', blogData);
+            alert('Blog post published successfully!');
+            window.location.href = 'blog.html';
+        }
+
+        function previewImage(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const preview = document.getElementById('previewImg');
+                    preview.src = e.target.result;
+                    preview.style.display = 'block';
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+
+        // Character counters
+        const excerpt = document.getElementById('excerpt');
+        const excerptCount = document.getElementById('excerptCount');
+        excerpt.addEventListener('input', function() {
+            excerptCount.textContent = this.value.length;
+        });
+
+        const metaTitle = document.getElementById('metaTitle');
+        const metaTitleCount = document.getElementById('metaTitleCount');
+        metaTitle.addEventListener('input', function() {
+            metaTitleCount.textContent = this.value.length;
+        });
+
+        const metaDescription = document.getElementById('metaDescription');
+        const metaDescCount = document.getElementById('metaDescCount');
+        metaDescription.addEventListener('input', function() {
+            metaDescCount.textContent = this.value.length;
+        });
+
+        // Auto-generate slug from title
+        const titleInput = document.getElementById('title');
+        const slugInput = document.getElementById('slug');
+        titleInput.addEventListener('blur', function() {
+            if (!slugInput.value) {
+                slugInput.value = this.value
+                    .toLowerCase()
+                    .replace(/[^a-z0-9]+/g, '-')
+                    .replace(/^-+|-+$/g, '');
+            }
+        });
+    </script>
+</body>
+</html>

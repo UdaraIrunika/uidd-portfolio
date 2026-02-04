@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Team Member | UIDD Admin</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/admin-style.css">
+</head>
+<body>
+    <div class="admin-wrapper">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <i class="fas fa-cube"></i>
+                    <span>UIDD</span>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <a href="dashboard.html" class="nav-item">
+                    <i class="fas fa-th-large"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="projects.html" class="nav-item">
+                    <i class="fas fa-folder"></i>
+                    <span>Projects</span>
+                </a>
+                <a href="services.html" class="nav-item">
+                    <i class="fas fa-cogs"></i>
+                    <span>Services</span>
+                </a>
+                <a href="pricing.html" class="nav-item">
+                    <i class="fas fa-tag"></i>
+                    <span>Pricing</span>
+                </a>
+                <a href="team-members.html" class="nav-item active">
+                    <i class="fas fa-users"></i>
+                    <span>Team</span>
+                </a>
+                <a href="consultations.html" class="nav-item">
+                    <i class="fas fa-calendar-check"></i>
+                    <span>Consultations</span>
+                </a>
+                <a href="invoices.html" class="nav-item">
+                    <i class="fas fa-file-invoice-dollar"></i>
+                    <span>Invoices</span>
+                </a>
+                <a href="testimonials.html" class="nav-item">
+                    <i class="fas fa-star"></i>
+                    <span>Testimonials</span>
+                </a>
+                <a href="users.html" class="nav-item">
+                    <i class="fas fa-user-shield"></i>
+                    <span>Users</span>
+                </a>
+                <a href="inquiries.html" class="nav-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>Inquiries</span>
+                </a>
+                <a href="profile.html" class="nav-item">
+                    <i class="fas fa-user"></i>
+                    <span>Profile</span>
+                </a>
+                <a href="settings.html" class="nav-item">
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Topbar -->
+            <div class="topbar">
+                <button class="sidebar-toggle" id="sidebarToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="page-title">Add Team Member</div>
+                <div class="topbar-actions">
+                    <div class="notification">
+                        <i class="fas fa-bell"></i>
+                        <span class="badge">3</span>
+                    </div>
+                    <div class="user-menu">
+                        <div class="user-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <span>Admin</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-wrapper">
+            <div class="content-wrapper">
+                <!-- Page Header -->
+                <div class="page-header">
+                    <div class="header-title">
+                        <a href="team-members.html" class="btn-back">
+                            <i class="fas fa-arrow-left"></i>
+                            Back to Team Members
+                        </a>
+                        <h1>Add New Team Member</h1>
+                        <p class="header-subtitle">Create a new team member profile</p>
+                    </div>
+                    <div class="header-actions">
+                        <button class="btn-primary" onclick="submitForm()">
+                            <i class="fas fa-save"></i>
+                            Add Member
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Form -->
+                <!-- Form -->
+                <form id="memberForm" class="form-container">
+                    <!-- Basic Information -->
+                    <div class="form-section">
+                        <h3 class="section-title">Basic Information</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="firstName">First Name <span class="required">*</span></label>
+                                <input type="text" id="firstName" name="firstName" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="lastName">Last Name <span class="required">*</span></label>
+                                <input type="text" id="lastName" name="lastName" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="email">Email <span class="required">*</span></label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone</label>
+                                <input type="tel" id="phone" name="phone">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Professional Details -->
+                    <div class="form-section">
+                        <h3 class="section-title">Professional Details</h3>
+                        <div class="form-group">
+                            <label for="role">Job Title <span class="required">*</span></label>
+                            <input type="text" id="role" name="role" placeholder="e.g., Lead Designer, Senior Developer" required>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="department">Department</label>
+                                <select id="department" name="department">
+                                    <option value="">Select department...</option>
+                                    <option value="design">Design</option>
+                                    <option value="development">Development</option>
+                                    <option value="product">Product</option>
+                                    <option value="management">Management</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="experience">Years of Experience</label>
+                                <input type="number" id="experience" name="experience" min="0" max="50">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Bio & Description -->
+                    <div class="form-section">
+                        <h3 class="section-title">Bio & Description</h3>
+                        <div class="form-group">
+                            <label for="bio">Bio <span class="required">*</span></label>
+                            <textarea id="bio" name="bio" rows="3" placeholder="Brief description of the team member..." required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="fullBio">Full Bio</label>
+                            <textarea id="fullBio" name="fullBio" rows="5" placeholder="Detailed biography and background..."></textarea>
+                        </div>
+                    </div>
+
+                    <!-- Skills -->
+                    <div class="form-section">
+                        <h3 class="section-title">Skills</h3>
+                        <div class="form-group">
+                            <label for="skills">Skills (comma-separated)</label>
+                            <textarea id="skills" name="skills" rows="3" placeholder="e.g., UI Design, Figma, Prototyping, User Research"></textarea>
+                        </div>
+                    </div>
+
+                    <!-- Social Media -->
+                    <div class="form-section">
+                        <h3 class="section-title">Social Media</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="twitter">Twitter URL</label>
+                                <input type="url" id="twitter" name="twitter" placeholder="https://twitter.com/...">
+                            </div>
+                            <div class="form-group">
+                                <label for="linkedin">LinkedIn URL</label>
+                                <input type="url" id="linkedin" name="linkedin" placeholder="https://linkedin.com/...">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="github">GitHub URL</label>
+                                <input type="url" id="github" name="github" placeholder="https://github.com/...">
+                            </div>
+                            <div class="form-group">
+                                <label for="dribbble">Dribbble URL</label>
+                                <input type="url" id="dribbble" name="dribbble" placeholder="https://dribbble.com/...">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Media -->
+                    <div class="form-section">
+                        <h3 class="section-title">Media</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="photoUrl">Profile Photo URL</label>
+                                <input type="url" id="photoUrl" name="photoUrl" placeholder="https://images.unsplash.com/...">
+                            </div>
+                            <div class="form-group">
+                                <label for="status">Status</label>
+                                <select id="status" name="status">
+                                    <option value="active">Active</option>
+                                    <option value="inactive">Inactive</option>
+                                    <option value="on-leave">On Leave</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Sidebar toggle
+        const sidebarToggle = document.getElementById('sidebarToggle');
+        const sidebar = document.querySelector('.sidebar');
+        
+        if (sidebarToggle) {
+            sidebarToggle.addEventListener('click', () => {
+                sidebar.classList.toggle('collapsed');
+            });
+        }
+
+        // Menu toggle
+        const menuToggle = document.querySelector('.menu-toggle');
+        if (menuToggle) {
+            menuToggle.addEventListener('click', () => {
+                document.querySelector('.user-menu').classList.toggle('active');
+            });
+        }
+
+        // Logout confirmation
+        function logout() {
+            if (confirm('Are you sure you want to logout?')) {
+                window.location.href = 'login.html';
+            }
+        }
+
+        // Form submission
+        function submitForm() {
+            const form = document.getElementById('memberForm');
+            if (form.checkValidity()) {
+                alert('Team member added successfully!');
+                window.location.href = 'team-members.html';
+            } else {
+                form.reportValidity();
+            }
+        }
+    </script>
+</body>
+</html>

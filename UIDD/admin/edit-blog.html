@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Blog Post | UIDD Admin</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/admin-style.css">
+</head>
+<body>
+    <div class="admin-wrapper">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <i class="fas fa-cube"></i>
+                    <span>UIDD</span>
+                </div>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="dashboard.html" class="nav-item">
+                    <i class="fas fa-th-large"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="projects.html" class="nav-item">
+                    <i class="fas fa-folder"></i>
+                    <span>Projects</span>
+                </a>
+                <a href="services.html" class="nav-item">
+                    <i class="fas fa-cogs"></i>
+                    <span>Services</span>
+                </a>
+                <a href="blog.html" class="nav-item active">
+                    <i class="fas fa-blog"></i>
+                    <span>Blog</span>
+                </a>
+                <a href="pricing.html" class="nav-item">
+                    <i class="fas fa-tag"></i>
+                    <span>Pricing</span>
+                </a>
+                <a href="team-members.html" class="nav-item">
+                    <i class="fas fa-users"></i>
+                    <span>Team</span>
+                </a>
+                <a href="consultations.html" class="nav-item">
+                    <i class="fas fa-calendar-check"></i>
+                    <span>Consultations</span>
+                </a>
+                <a href="invoices.html" class="nav-item">
+                    <i class="fas fa-file-invoice-dollar"></i>
+                    <span>Invoices</span>
+                </a>
+                <a href="testimonials.html" class="nav-item">
+                    <i class="fas fa-star"></i>
+                    <span>Testimonials</span>
+                </a>
+                <a href="users.html" class="nav-item">
+                    <i class="fas fa-user-shield"></i>
+                    <span>Users</span>
+                </a>
+                <a href="inquiries.html" class="nav-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>Inquiries</span>
+                </a>
+                <a href="profile.html" class="nav-item">
+                    <i class="fas fa-user"></i>
+                    <span>Profile</span>
+                </a>
+                <a href="settings.html" class="nav-item">
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
+                </a>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <div class="topbar">
+                <button class="sidebar-toggle" id="sidebarToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="page-title">Edit Blog Post</div>
+                <div class="topbar-actions">
+                    <div class="notification">
+                        <i class="fas fa-bell"></i>
+                        <span class="badge">3</span>
+                    </div>
+                    <div class="user-menu">
+                        <div class="user-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <span>Admin</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-wrapper">
+                <div class="page-header">
+                    <div class="header-title">
+                        <a href="blog.html" class="btn-back">
+                            <i class="fas fa-arrow-left"></i>
+                            Back to Blog
+                        </a>
+                        <h1>Edit Blog Post #B001</h1>
+                        <p class="header-subtitle">Update and modify blog content</p>
+                    </div>
+                    <div class="header-actions">
+                        <button type="button" class="btn-secondary" onclick="saveDraft()">
+                            <i class="fas fa-save"></i>
+                            Save Draft
+                        </button>
+                        <button type="button" class="btn-danger" onclick="deletePost()">
+                            <i class="fas fa-trash"></i>
+                            Delete
+                        </button>
+                        <button type="submit" form="editBlogForm" class="btn-primary">
+                            <i class="fas fa-check"></i>
+                            Update Post
+                        </button>
+                    </div>
+                </div>
+
+                <form id="editBlogForm" class="form-container" onsubmit="handleSubmit(event)">
+                    <div class="form-section">
+                        <h3 class="section-title">Post Information</h3>
+                        <div class="form-group">
+                            <label for="title">Post Title <span class="required">*</span></label>
+                            <input type="text" id="title" name="title" required value="10 Best Practices for Modern Web Design">
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="category">Category <span class="required">*</span></label>
+                                <select id="category" name="category" required>
+                                    <option value="">Select category</option>
+                                    <option value="web-design" selected>Web Design</option>
+                                    <option value="development">Development</option>
+                                    <option value="ui-ux">UI/UX</option>
+                                    <option value="marketing">Marketing</option>
+                                    <option value="tutorials">Tutorials</option>
+                                    <option value="news">News</option>
+                                    <option value="case-studies">Case Studies</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="author">Author <span class="required">*</span></label>
+                                <select id="author" name="author" required>
+                                    <option value="">Select author</option>
+                                    <option value="john-smith" selected>John Smith</option>
+                                    <option value="sarah-johnson">Sarah Johnson</option>
+                                    <option value="mike-chen">Mike Chen</option>
+                                    <option value="emily-davis">Emily Davis</option>
+                                    <option value="david-wilson">David Wilson</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="status">Status <span class="required">*</span></label>
+                                <select id="status" name="status" required>
+                                    <option value="draft">Draft</option>
+                                    <option value="published" selected>Published</option>
+                                    <option value="scheduled">Scheduled</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="publishDate">Publish Date</label>
+                                <input type="datetime-local" id="publishDate" name="publishDate" value="2026-02-01T10:00">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Views</label>
+                                <input type="text" value="2,456" readonly>
+                            </div>
+                            <div class="form-group">
+                                <label>Last Updated</label>
+                                <input type="text" value="Feb 01, 2026 at 2:30 PM" readonly>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3 class="section-title">Featured Image</h3>
+                        <div class="form-group">
+                            <label for="featuredImage">Update Featured Image</label>
+                            <input type="file" id="featuredImage" name="featuredImage" accept="image/*" onchange="previewImage(event)">
+                            <small class="form-hint">Recommended size: 1200x630px. Max file size: 5MB</small>
+                        </div>
+                        <div class="image-preview" id="imagePreview">
+                            <img src="https://via.placeholder.com/600x315" alt="Current featured image" id="previewImg">
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3 class="section-title">Content</h3>
+                        <div class="form-group">
+                            <label for="excerpt">Excerpt <span class="required">*</span></label>
+                            <textarea id="excerpt" name="excerpt" rows="3" required>Discover the essential web design practices that will elevate your projects and create stunning user experiences in 2026.</textarea>
+                            <small class="form-hint"><span id="excerptCount">129</span>/200 characters</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="content">Post Content <span class="required">*</span></label>
+                            <textarea id="content" name="content" rows="15" required>In the ever-evolving world of web design, staying current with best practices is essential for creating engaging and effective websites. Here are 10 key practices that every modern web designer should follow:
+
+1. Mobile-First Design
+With mobile devices accounting for over 50% of web traffic, designing for mobile first ensures optimal user experience across all devices.
+
+2. Fast Loading Times
+Users expect pages to load in under 3 seconds. Optimize images, minimize code, and leverage caching to improve performance.
+
+3. Intuitive Navigation
+Clear, consistent navigation helps users find what they need quickly. Keep menus simple and logical.
+
+4. Accessibility
+Design for all users, including those with disabilities. Follow WCAG guidelines for color contrast, keyboard navigation, and screen reader compatibility.
+
+5. Consistent Branding
+Maintain consistent colors, typography, and imagery throughout your site to reinforce brand identity.
+
+6. White Space
+Don't be afraid of empty space. It improves readability and draws attention to important elements.
+
+7. Clear Call-to-Actions
+Make it obvious what you want users to do next with prominent, well-designed CTAs.
+
+8. Readable Typography
+Choose fonts that are easy to read on screens. Maintain appropriate font sizes and line spacing.
+
+9. Visual Hierarchy
+Use size, color, and positioning to guide users through content in order of importance.
+
+10. Regular Testing
+Test your designs with real users and iterate based on feedback. Continuous improvement is key.
+
+By following these best practices, you'll create websites that not only look great but also provide excellent user experiences and achieve business goals.</textarea>
+                            <small class="form-hint">You can use Markdown formatting</small>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3 class="section-title">SEO Settings</h3>
+                        <div class="form-group">
+                            <label for="metaTitle">Meta Title</label>
+                            <input type="text" id="metaTitle" name="metaTitle" value="10 Best Practices for Modern Web Design | UIDD Blog">
+                            <small class="form-hint"><span id="metaTitleCount">52</span>/60 characters</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="metaDescription">Meta Description</label>
+                            <textarea id="metaDescription" name="metaDescription" rows="2">Learn the essential web design practices for 2026. From mobile-first design to accessibility, discover what makes great websites.</textarea>
+                            <small class="form-hint"><span id="metaDescCount">141</span>/160 characters</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="tags">Tags</label>
+                            <input type="text" id="tags" name="tags" value="web design, best practices, UX, UI, mobile design, accessibility">
+                        </div>
+                        <div class="form-group">
+                            <label for="slug">URL Slug <span class="required">*</span></label>
+                            <input type="text" id="slug" name="slug" required value="10-best-practices-modern-web-design">
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3 class="section-title">Additional Options</h3>
+                        <div class="checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="allowComments" checked>
+                                <span>Allow Comments</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="featured" checked>
+                                <span>Mark as Featured Post</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="sendNotification">
+                                <span>Send Update Notification to Subscribers</span>
+                            </label>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        const sidebarToggle = document.getElementById('sidebarToggle');
+        const sidebar = document.querySelector('.sidebar');
+        
+        if (sidebarToggle) {
+            sidebarToggle.addEventListener('click', () => {
+                sidebar.classList.toggle('collapsed');
+            });
+        }
+
+        function logout() {
+            if (confirm('Are you sure you want to logout?')) {
+                window.location.href = 'login.html';
+            }
+        }
+
+        function saveDraft() {
+            const formData = new FormData(document.getElementById('editBlogForm'));
+            formData.set('status', 'draft');
+            console.log('Saving draft:', Object.fromEntries(formData));
+            alert('Draft saved successfully!');
+        }
+
+        function deletePost() {
+            if (confirm('Are you sure you want to delete this blog post? This action cannot be undone.')) {
+                alert('Blog post deleted successfully!');
+                window.location.href = 'blog.html';
+            }
+        }
+
+        function handleSubmit(event) {
+            event.preventDefault();
+            const formData = new FormData(event.target);
+            const blogData = Object.fromEntries(formData);
+            console.log('Updating blog post:', blogData);
+            alert('Blog post updated successfully!');
+            window.location.href = 'blog.html';
+        }
+
+        function previewImage(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    document.getElementById('previewImg').src = e.target.result;
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+
+        // Character counters
+        const excerpt = document.getElementById('excerpt');
+        const excerptCount = document.getElementById('excerptCount');
+        excerpt.addEventListener('input', function() {
+            excerptCount.textContent = this.value.length;
+        });
+
+        const metaTitle = document.getElementById('metaTitle');
+        const metaTitleCount = document.getElementById('metaTitleCount');
+        metaTitle.addEventListener('input', function() {
+            metaTitleCount.textContent = this.value.length;
+        });
+
+        const metaDescription = document.getElementById('metaDescription');
+        const metaDescCount = document.getElementById('metaDescCount');
+        metaDescription.addEventListener('input', function() {
+            metaDescCount.textContent = this.value.length;
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UIDD | Where Design Meets Code</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Background Animation -->
+    <div class="bg-animation">
+        <div class="grid-lines"></div>
+        <div class="floating-shapes">
+            <div class="floating-shape"></div>
+            <div class="floating-shape"></div>
+            <div class="floating-shape"></div>
+        </div>
+        <canvas id="particles-canvas"></canvas>
+    </div>
+
+    <!-- Header -->
+    <header id="header">
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">
+                    <span class="logo-text">UIDD<span class="logo-dot"></span></span>
+                </a>
+                
+                <ul class="nav-links">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="services.html" class="nav-link">Services</a></li>
+                    <li><a href="pricing.html" class="nav-link">Pricing</a></li>
+                    <li><a href="projects.html" class="nav-link">Projects</a></li>
+                    <li><a href="blog.html" class="nav-link">Blog</a></li>
+                    <li><a href="team.html" class="nav-link">Team</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+                
+                <div class="nav-cta">
+                    <a href="#contact" class="btn btn-secondary">Get Quote</a>
+                </div>
+                
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div class="mobile-menu" id="mobileMenu">
+            <button class="mobile-menu-close" id="mobileMenuClose">
+                <i class="fas fa-times"></i>
+            </button>
+            <ul class="mobile-nav-links">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="services.html" class="nav-link">Services</a></li>
+                    <li><a href="pricing.html" class="nav-link">Pricing</a></li>
+                    <li><a href="projects.html" class="nav-link">Projects</a></li>
+                    <li><a href="blog.html" class="nav-link">Blog</a></li>
+                    <li><a href="team.html" class="nav-link">Team</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+            <a href="#contact" class="btn">Get Quote</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content fade-in">
+                <div class="hero-title">
+                    Where <span class="highlight">Design</span> Meets <span class="highlight">Code</span>
+                </div>
+                <p class="hero-subtitle">
+                    We build cutting-edge digital experiences that merge exceptional UI/UX design with robust, scalable development. Our team transforms ideas into interactive realities.
+                </p>
+                <div class="hero-cta">
+                    <a href="#projects" class="btn">
+                        <i class="fas fa-rocket"></i>
+                        View Our Work
+                    </a>
+                    <a href="#contact" class="btn btn-secondary">
+                        <i class="fas fa-comment-dots"></i>
+                        Start a Project
+                    </a>
+                </div>
+                <div class="tech-stack">
+                    <div class="tech-label">Tech Stack:</div>
+                    <div class="tech-icons">
+                        <div class="tech-icon"><i class="fab fa-react"></i></div>
+                        <div class="tech-icon"><i class="fab fa-vuejs"></i></div>
+                        <div class="tech-icon"><i class="fab fa-node-js"></i></div>
+                        <div class="tech-icon"><i class="fab fa-figma"></i></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="hero-visual">
+                <div class="code-window">
+                    <div class="code-content">
+                        <div class="code-line"><span class="line-number">1</span><span style="color: #ffcc00">import</span> { createApp } <span style="color: #ffcc00">from</span> <span style="color: #08ffc8">'vue'</span></div>
+                        <div class="code-line"><span class="line-number">2</span><span style="color: #ffcc00">import</span> App <span style="color: #ffcc00">from</span> <span style="color: #08ffc8">'./App.vue'</span></div>
+                        <div class="code-line"><span class="line-number">3</span></div>
+                        <div class="code-line"><span class="line-number">4</span><span style="color: #00d9ff">const</span> app = <span style="color: #ffcc00">createApp</span>(App)</div>
+                        <div class="code-line"><span class="line-number">5</span></div>
+                        <div class="code-line"><span class="line-number">6</span><span style="color: #ffcc00">app</span>.<span style="color: #ffcc00">use</span>(router)</div>
+                        <div class="code-line"><span class="line-number">7</span><span style="color: #ffcc00">app</span>.<span style="color: #ffcc00">use</span>(store)</div>
+                        <div class="code-line"><span class="line-number">8</span></div>
+                        <div class="code-line"><span class="line-number">9</span><span style="color: #ffcc00">app</span>.<span style="color: #ffcc00">mount</span>(<span style="color: #08ffc8">'#app'</span>)</div>
+                        <div class="code-line"><span class="line-number">10</span></div>
+                        <div class="code-line"><span class="line-number">11</span><span style="color: #8a9bb8">// Creating amazing digital experiences</span></div>
+                        <div class="code-line"><span class="line-number">12</span><span style="color: #8a9bb8">// Since 2018</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>Our <span class="highlight">Services</span></h2>
+                <p>We offer a comprehensive suite of services to bring your digital vision to life</p>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-pencil-ruler"></i>
+                    </div>
+                    <h3>UI/UX Design</h3>
+                    <p>Creating intuitive and aesthetically pleasing interfaces that enhance user experience and drive engagement through thoughtful design principles.</p>
+                    <div class="service-tech-tags">
+                        <div class="tech-tag">Figma</div>
+                        <div class="tech-tag">Adobe XD</div>
+                        <div class="tech-tag">Sketch</div>
+                    </div>
+                </div>
+                
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>Frontend Development</h3>
+                    <p>Transforming designs into pixel-perfect, responsive, and performant web applications using modern technologies like React, Vue, and Angular.</p>
+                    <div class="service-tech-tags">
+                        <div class="tech-tag">React</div>
+                        <div class="tech-tag">Vue.js</div>
+                        <div class="tech-tag">TypeScript</div>
+                    </div>
+                </div>
+                
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Mobile Development</h3>
+                    <p>Building responsive mobile applications that provide seamless experiences across iOS and Android platforms using React Native and Flutter.</p>
+                    <div class="service-tech-tags">
+                        <div class="tech-tag">React Native</div>
+                        <div class="tech-tag">Flutter</div>
+                        <div class="tech-tag">Swift</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>Recent <span class="highlight">Projects</span></h2>
+                <p>Explore some of our latest work that showcases our design and development expertise</p>
+            </div>
+            
+            <div class="projects-grid">
+                <div class="project-card fade-in">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="FinTech Dashboard" class="project-image">
+                    <div class="project-overlay">
+                        <h3>FinTech Analytics Dashboard</h3>
+                        <p>Interactive dashboard for financial data visualization with real-time analytics.</p>
+                        <div class="project-tech">
+                            <div class="tech-tag">React</div>
+                            <div class="tech-tag">D3.js</div>
+                            <div class="tech-tag">Node.js</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card fade-in">
+                    <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="E-commerce Platform" class="project-image">
+                    <div class="project-overlay">
+                        <h3>Modern E-commerce Platform</h3>
+                        <p>Full-featured online shopping experience with advanced filtering and checkout.</p>
+                        <div class="project-tech">
+                            <div class="tech-tag">Vue.js</div>
+                            <div class="tech-tag">Stripe API</div>
+                            <div class="tech-tag">MongoDB</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card fade-in">
+                    <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Health & Fitness App" class="project-image">
+                    <div class="project-overlay">
+                        <h3>Health & Wellness App</h3>
+                        <p>Mobile application for tracking workouts, nutrition, and health metrics.</p>
+                        <div class="project-tech">
+                            <div class="tech-tag">React Native</div>
+                            <div class="tech-tag">GraphQL</div>
+                            <div class="tech-tag">Firebase</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <div class="cta-content fade-in">
+                <h2>Ready to Build Something <span class="highlight">Amazing</span>?</h2>
+                <p>Let's collaborate to create a digital experience that stands out. Our team of designers and developers is ready to bring your vision to life with cutting-edge technology and innovative design.</p>
+                <a href="#contact" class="btn">
+                    <i class="fas fa-paper-plane"></i>
+                    Start Your Project
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Subscribe -->
+    <section style="background: linear-gradient(135deg, rgba(0, 217, 255, 0.1), rgba(8, 255, 200, 0.1)); padding: 60px 0; border-top: 1px solid rgba(0, 217, 255, 0.2);">
+        <div class="container">
+            <div style="max-width: 600px; margin: 0 auto; text-align: center;">
+                <h2 style="margin-bottom: 10px;">Stay Updated</h2>
+                <p style="margin-bottom: 30px; color: var(--gray);">Subscribe to our newsletter for the latest design trends, development tips, and project insights.</p>
+                <form style="display: flex; gap: 12px; flex-wrap: wrap;" onsubmit="handleSubscribe(event)">
+                    <input type="email" placeholder="Enter your email" required style="flex: 1; min-width: 250px; padding: 12px 16px; background: rgba(19, 24, 44, 0.8); border: 1px solid rgba(0, 217, 255, 0.2); border-radius: 8px; color: var(--light); font-family: 'Inter', sans-serif;">
+                    <button type="submit" class="btn" style="padding: 12px 32px;"><i class="fas fa-paper-plane"></i> Subscribe</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <div class="footer-logo">UIDD<span style="color: var(--primary)">.</span></div>
+                    <p>We bridge the gap between design and development to create exceptional digital experiences that users love.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-dribbble"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> UI/UX Design</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Frontend Development</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Mobile Development</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Design Systems</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Contact</h3>
+                    <ul>
+                        <li><a href="#"><i class="fas fa-map-marker-alt"></i> 123 Tech Street, Silicon Valley</a></li>
+                        <li><a href="tel:+15551234567"><i class="fas fa-phone"></i> +1 (555) 123-4567</a></li>
+                        <li><a href="mailto:hello@uidd.com"><i class="fas fa-envelope"></i> hello@uidd.com</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2024 UIDD - UI Designers & Developers. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Newsletter subscription handler
+        function handleSubscribe(event) {
+            event.preventDefault();
+            const email = event.target.querySelector('input[type="email"]').value;
+            if (email) {
+                alert('Thank you for subscribing! Check your email for confirmation.');
+                event.target.reset();
+            }
+        }
+
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileMenuClose = document.getElementById('mobileMenuClose');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+        
+        mobileMenuClose.addEventListener('click', () => {
+            mobileMenu.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        });
+        
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.mobile-nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            });
+        });
+        
+        // Header scroll effect
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+        
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+        
+        // Observe elements for animation
+        document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right').forEach(el => {
+            observer.observe(el);
+        });
+        
+        // Particle animation
+        const canvas = document.getElementById('particles-canvas');
+        const ctx = canvas.getContext('2d');
+        
+        // Set canvas dimensions
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        
+        // Particle array
+        let particles = [];
+        const particleCount = 100;
+        
+        // Particle class
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 2 + 0.5;
+                this.speedX = Math.random() * 1 - 0.5;
+                this.speedY = Math.random() * 1 - 0.5;
+                this.color = `rgba(${Math.floor(Math.random() * 100 + 155)}, ${Math.floor(Math.random() * 100 + 155)}, 255, ${Math.random() * 0.5 + 0.1})`;
+            }
+            
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+                
+                // Bounce off edges
+                if (this.x > canvas.width || this.x < 0) {
+                    this.speedX = -this.speedX;
+                }
+                if (this.y > canvas.height || this.y < 0) {
+                    this.speedY = -this.speedY;
+                }
+            }
+            
+            draw() {
+                ctx.fillStyle = this.color;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+        
+        // Initialize particles
+        function initParticles() {
+            particles = [];
+            for (let i = 0; i < particleCount; i++) {
+                particles.push(new Particle());
+            }
+        }
+        
+        // Animate particles
+        function animateParticles() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            // Draw connecting lines
+            for (let i = 0; i < particles.length; i++) {
+                for (let j = i + 1; j < particles.length; j++) {
+                    const dx = particles[i].x - particles[j].x;
+                    const dy = particles[i].y - particles[j].y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+                    
+                    if (distance < 100) {
+                        ctx.beginPath();
+                        ctx.strokeStyle = `rgba(0, 217, 255, ${0.1 * (1 - distance/100)})`;
+                        ctx.lineWidth = 0.5;
+                        ctx.moveTo(particles[i].x, particles[i].y);
+                        ctx.lineTo(particles[j].x, particles[j].y);
+                        ctx.stroke();
+                    }
+                }
+            }
+            
+            // Update and draw particles
+            particles.forEach(particle => {
+                particle.update();
+                particle.draw();
+            });
+            
+            requestAnimationFrame(animateParticles);
+        }
+        
+        // Handle window resize
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            initParticles();
+        });
+        
+        // Initialize and start animation
+        initParticles();
+        animateParticles();
+        
+        // Typewriter effect for hero subtitle
+        const heroSubtitle = document.querySelector('.hero-subtitle');
+        const originalText = heroSubtitle.textContent;
+        heroSubtitle.textContent = '';
+        
+        let charIndex = 0;
+        function typeWriter() {
+            if (charIndex < originalText.length) {
+                heroSubtitle.textContent += originalText.charAt(charIndex);
+                charIndex++;
+                setTimeout(typeWriter, 20);
+            }
+        }
+        
+        // Start typing after a short delay
+        setTimeout(typeWriter, 500);
+        
+        // Animated tech icons
+        const techIcons = document.querySelectorAll('.tech-icon');
+        techIcons.forEach(icon => {
+            icon.addEventListener('mouseenter', () => {
+                icon.style.transform = 'scale(1.2)';
+            });
+            
+            icon.addEventListener('mouseleave', () => {
+                icon.style.transform = 'scale(1)';
+            });
+        });
+    </script>
+</body>
+</html>

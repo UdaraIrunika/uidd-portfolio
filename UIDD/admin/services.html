@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services | UIDD Admin</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/admin-style.css">
+</head>
+<body class="admin-page">
+    <div class="admin-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>UIDD<span class="dot">.</span></h2>
+                <button class="sidebar-toggle" id="sidebarToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <a href="/admin/dashboard.html" class="nav-item">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="/admin/projects.html" class="nav-item">
+                    <i class="fas fa-folder"></i>
+                    <span>Projects</span>
+                </a>
+                <a href="/admin/services.html" class="nav-item active">
+                    <i class="fas fa-cogs"></i>
+                    <span>Services</span>
+                </a>                <a href="blog.html" class="nav-item">
+                    <i class="fas fa-blog"></i>
+                    <span>Blog</span>
+                </a>                <a href="/admin/pricing.html" class="nav-item">
+                    <i class="fas fa-tag"></i>
+                    <span>Pricing</span>
+                </a>
+                <a href="/admin/team-members.html" class="nav-item">
+                    <i class="fas fa-users"></i>
+                    <span>Team</span>
+                </a>
+                <a href="/admin/consultations.html" class="nav-item">
+                    <i class="fas fa-phone-alt"></i>
+                    <span>Consultations</span>
+                </a>
+                <a href="/admin/invoices.html" class="nav-item">
+                    <i class="fas fa-file-invoice-dollar"></i>
+                    <span>Invoices</span>
+                </a>                <a href="/admin/testimonials.html" class="nav-item">
+                    <i class="fas fa-star"></i>
+                    <span>Testimonials</span>
+                </a>
+                <a href="/admin/users.html" class="nav-item">
+                    <i class="fas fa-users"></i>
+                    <span>Users</span>
+                </a>
+                <a href="/admin/inquiries.html" class="nav-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>Inquiries</span>
+                </a>
+                <a href="/admin/profile.html" class="nav-item">
+                    <i class="fas fa-user-circle"></i>
+                    <span>Profile</span>
+                </a>
+                <a href="/admin/settings.html" class="nav-item">
+                    <i class="fas fa-sliders-h"></i>
+                    <span>Settings</span>
+                </a>
+            </nav>
+            
+            <div class="sidebar-footer">
+                <button class="btn-logout" id="logoutBtn">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Top Bar -->
+            <div class="topbar">
+                <div class="topbar-left">
+                    <button class="btn-menu" id="menuToggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <h1>Services Management</h1>
+                </div>
+                
+                <div class="topbar-right">
+                    <div class="notifications">
+                        <button class="notification-btn">
+                            <i class="fas fa-bell"></i>
+                            <span class="notification-badge">3</span>
+                        </button>
+                    </div>
+                    
+                    <div class="user-profile">
+                        <img src="https://via.placeholder.com/40" alt="Admin">
+                        <span id="adminUsername">Admin</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Services Content -->
+            <div class="content">
+                <div class="section-header">
+                    <h2>All Services</h2>
+                    <a href="/admin/add-service.html" class="btn-primary" id="addServiceBtn">
+                        <i class="fas fa-plus"></i> Add New Service
+                    </a>
+                </div>
+
+                <div class="table-section">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Service Name</th>
+                                <th>Category</th>
+                                <th>Description</th>
+                                <th>Price</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Web Development</strong></td>
+                                <td>Development</td>
+                                <td>Full-stack web application development</td>
+                                <td>$5,000+</td>
+                                <td><span class="badge completed">Active</span></td>
+                                <td>
+                                    <a href="/admin/edit-service.html?id=1" class="btn-action"><i class="fas fa-edit"></i></a>
+                                    <button class="btn-action"><i class="fas fa-trash"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>UI/UX Design</strong></td>
+                                <td>Design</td>
+                                <td>User interface and experience design</td>
+                                <td>$3,000+</td>
+                                <td><span class="badge completed">Active</span></td>
+                                <td>
+                                    <a href="/admin/edit-service.html?id=2" class="btn-action"><i class="fas fa-edit"></i></a>
+                                    <button class="btn-action"><i class="fas fa-trash"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>Mobile App Development</strong></td>
+                                <td>Development</td>
+                                <td>iOS & Android native app development</td>
+                                <td>$8,000+</td>
+                                <td><span class="badge completed">Active</span></td>
+                                <td>
+                                    <a href="/admin/edit-service.html?id=3" class="btn-action"><i class="fas fa-edit"></i></a>
+                                    <button class="btn-action"><i class="fas fa-trash"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>Backend Development</strong></td>
+                                <td>Development</td>
+                                <td>Server-side logic and database design</td>
+                                <td>$6,000+</td>
+                                <td><span class="badge completed">Active</span></td>
+                                <td>
+                                    <a href="/admin/edit-service.html?id=4" class="btn-action"><i class="fas fa-edit"></i></a>
+                                    <button class="btn-action"><i class="fas fa-trash"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>E-Commerce Solutions</strong></td>
+                                <td>Development</td>
+                                <td>Complete e-commerce platform setup</td>
+                                <td>$10,000+</td>
+                                <td><span class="badge completed">Active</span></td>
+                                <td>
+                                    <a href="/admin/edit-service.html?id=5" class="btn-action"><i class="fas fa-edit"></i></a>
+                                    <button class="btn-action"><i class="fas fa-trash"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>Digital Marketing Strategy</strong></td>
+                                <td>Marketing</td>
+                                <td>Comprehensive digital marketing planning</td>
+                                <td>$4,000+</td>
+                                <td><span class="badge completed">Active</span></td>
+                                <td>
+                                    <a href="/admin/edit-service.html?id=6" class="btn-action"><i class="fas fa-edit"></i></a>
+                                    <button class="btn-action"><i class="fas fa-trash"></i></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Add Service Modal -->
+    <div class="modal" id="serviceModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Add New Service</h2>
+                <button class="modal-close">&times;</button>
+            </div>
+            <form class="modal-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Service Name</label>
+                        <input type="text" placeholder="Enter service name" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Category</label>
+                        <select required>
+                            <option>Design</option>
+                            <option>Development</option>
+                            <option>Marketing</option>
+                            <option>Consulting</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Price (Base)</label>
+                        <input type="number" placeholder="Enter price" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Status</label>
+                        <select required>
+                            <option>Active</option>
+                            <option>Inactive</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Description</label>
+                    <textarea placeholder="Service description..." rows="4"></textarea>
+                </div>
+                <div class="modal-buttons">
+                    <button type="submit" class="btn-primary">Add Service</button>
+                    <button type="button" class="btn-secondary modal-close-btn">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="/admin/js/admin-script.js"></script>
+
+    <!-- Notification Modal -->
+    <div class="notification-modal" id="notificationModal">
+        <div class="notification-header">
+            <h3>Notifications</h3>
+            <button class="notification-close">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="notification-list">
+            <div class="notification-item unread">
+                <div class="notification-icon success">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <div class="notification-content">
+                    <div class="notification-title">Project Completed</div>
+                    <div class="notification-message">E-Commerce Platform project has been successfully completed</div>
+                    <div class="notification-time">2 minutes ago</div>
+                </div>
+            </div>
+
+            <div class="notification-item unread">
+                <div class="notification-icon info">
+                    <i class="fas fa-info-circle"></i>
+                </div>
+                <div class="notification-content">
+                    <div class="notification-title">New Inquiry Received</div>
+                    <div class="notification-message">John Smith submitted a new project inquiry for Web Development</div>
+                    <div class="notification-time">15 minutes ago</div>
+                </div>
+            </div>
+
+            <div class="notification-item unread">
+                <div class="notification-icon warning">
+                    <i class="fas fa-exclamation-circle"></i>
+                </div>
+                <div class="notification-content">
+                    <div class="notification-title">Project Deadline</div>
+                    <div class="notification-message">Mobile App Design project deadline is in 2 days</div>
+                    <div class="notification-time">1 hour ago</div>
+                </div>
+            </div>
+
+            <div class="notification-item">
+                <div class="notification-icon success">
+                    <i class="fas fa-star"></i>
+                </div>
+                <div class="notification-content">
+                    <div class="notification-title">New Testimonial</div>
+                    <div class="notification-message">Sarah Johnson left a 5-star testimonial on your services</div>
+                    <div class="notification-time">3 hours ago</div>
+                </div>
+            </div>
+
+            <div class="notification-item">
+                <div class="notification-icon info">
+                    <i class="fas fa-user-plus"></i>
+                </div>
+                <div class="notification-content">
+                    <div class="notification-title">New Client Joined</div>
+                    <div class="notification-message">TechCorp Inc has registered as a new client</div>
+                    <div class="notification-time">5 hours ago</div>
+                </div>
+            </div>
+        </div>
+        <div class="notification-footer">
+            <a href="#">Mark as read</a>
+            <a href="#">Clear all</a>
+        </div>
+    </div>
+</body>
+</html>

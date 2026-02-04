@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Project | UIDD Admin</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/admin-style.css">
+</head>
+<body class="admin-page">
+    <div class="admin-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>UIDD<span class="dot">.</span></h2>
+                <button class="sidebar-toggle" id="sidebarToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <a href="/admin/dashboard.html" class="nav-item">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="/admin/projects.html" class="nav-item active">
+                    <i class="fas fa-folder"></i>
+                    <span>Projects</span>
+                </a>
+                <a href="/admin/services.html" class="nav-item">
+                    <i class="fas fa-cogs"></i>
+                    <span>Services</span>
+                </a>                <a href="blog.html" class="nav-item">
+                    <i class="fas fa-blog"></i>
+                    <span>Blog</span>
+                </a>                <a href="/admin/pricing.html" class="nav-item">
+                    <i class="fas fa-tag"></i>
+                    <span>Pricing</span>
+                </a>
+                <a href="/admin/team-members.html" class="nav-item">
+                    <i class="fas fa-users"></i>
+                    <span>Team</span>
+                </a>
+                <a href="/admin/consultations.html" class="nav-item">
+                    <i class="fas fa-phone-alt"></i>
+                    <span>Consultations</span>
+                </a>
+                <a href="/admin/invoices.html" class="nav-item">
+                    <i class="fas fa-file-invoice-dollar"></i>
+                    <span>Invoices</span>
+                </a>
+                <a href="/admin/testimonials.html" class="nav-item">
+                    <i class="fas fa-star"></i>
+                    <span>Testimonials</span>
+                </a>
+                <a href="/admin/users.html" class="nav-item">
+                    <i class="fas fa-users"></i>
+                    <span>Users</span>
+                </a>
+                <a href="/admin/inquiries.html" class="nav-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>Inquiries</span>
+                </a>
+                <a href="/admin/profile.html" class="nav-item">
+                    <i class="fas fa-user-circle"></i>
+                    <span>Profile</span>
+                </a>
+                <a href="/admin/settings.html" class="nav-item">
+                    <i class="fas fa-sliders-h"></i>
+                    <span>Settings</span>
+                </a>
+            </nav>
+            
+            <div class="sidebar-footer">
+                <button class="btn-logout" id="logoutBtn">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Top Bar -->
+            <div class="topbar">
+                <div class="topbar-left">
+                    <button class="btn-menu" id="menuToggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <h1>Add New Project</h1>
+                </div>
+                
+                <div class="topbar-right">
+                    <div class="notifications">
+                        <button class="notification-btn">
+                            <i class="fas fa-bell"></i>
+                            <span class="notification-badge">3</span>
+                        </button>
+                    </div>
+                    
+                    <div class="user-profile">
+                        <img src="https://via.placeholder.com/40" alt="Admin">
+                        <span id="adminUsername">Admin</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Form Content -->
+            <div class="content">
+                <div class="form-header">
+                    <a href="/admin/projects.html" class="btn-back">
+                        <i class="fas fa-arrow-left"></i> Back to Projects
+                    </a>
+                </div>
+
+                <form class="edit-form" id="projectForm">
+                    <div class="form-section">
+                        <h3><i class="fas fa-info-circle"></i> Basic Information</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Project Name <span class="required">*</span></label>
+                                <input type="text" name="project_name" placeholder="Enter project name" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Client Name <span class="required">*</span></label>
+                                <input type="text" name="client_name" placeholder="Enter client name" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Category <span class="required">*</span></label>
+                                <select name="category" required>
+                                    <option value="">Select Category</option>
+                                    <option value="web">Web Development</option>
+                                    <option value="mobile">Mobile Development</option>
+                                    <option value="design">UI/UX Design</option>
+                                    <option value="backend">Backend Development</option>
+                                    <option value="ecommerce">E-Commerce</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Status <span class="required">*</span></label>
+                                <select name="status" required>
+                                    <option value="">Select Status</option>
+                                    <option value="pending">Pending</option>
+                                    <option value="in-progress" selected>In Progress</option>
+                                    <option value="completed">Completed</option>
+                                    <option value="on-hold">On Hold</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Description <span class="required">*</span></label>
+                            <textarea name="description" rows="4" placeholder="Enter project description..." required></textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3><i class="fas fa-calendar"></i> Timeline</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Start Date <span class="required">*</span></label>
+                                <input type="date" name="start_date" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Due Date <span class="required">*</span></label>
+                                <input type="date" name="due_date" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Progress (%)</label>
+                                <input type="number" name="progress" min="0" max="100" value="0" placeholder="0-100">
+                                <small>Enter value between 0 and 100</small>
+                            </div>
+                            <div class="form-group">
+                                <label>Priority</label>
+                                <select name="priority">
+                                    <option value="low">Low</option>
+                                    <option value="medium" selected>Medium</option>
+                                    <option value="high">High</option>
+                                    <option value="urgent">Urgent</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3><i class="fas fa-dollar-sign"></i> Budget & Payment</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Budget Amount ($)</label>
+                                <input type="number" name="budget" placeholder="Enter budget amount">
+                            </div>
+                            <div class="form-group">
+                                <label>Paid Amount ($)</label>
+                                <input type="number" name="paid" placeholder="Enter paid amount">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Payment Status</label>
+                            <select name="payment_status">
+                                <option value="pending">Pending</option>
+                                <option value="partial">Partial Payment</option>
+                                <option value="paid">Fully Paid</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3><i class="fas fa-users"></i> Team & Resources</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Project Manager</label>
+                                <select name="manager">
+                                    <option value="">Select Manager</option>
+                                    <option value="1">Admin User</option>
+                                    <option value="2">John Editor</option>
+                                    <option value="3">Sarah Viewer</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Team Size</label>
+                                <input type="number" name="team_size" min="1" placeholder="Number of team members">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Technologies Used</label>
+                            <input type="text" name="technologies" placeholder="e.g., React, Node.js, MongoDB">
+                            <small>Separate multiple technologies with commas</small>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3><i class="fas fa-image"></i> Media</h3>
+                        <div class="form-group">
+                            <label>Project Image</label>
+                            <input type="file" name="project_image" accept="image/*">
+                            <small>Upload project thumbnail (JPG, PNG, max 5MB)</small>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Project URL</label>
+                            <input type="url" name="project_url" placeholder="https://example.com">
+                        </div>
+
+                        <div class="form-group">
+                            <label>GitHub Repository</label>
+                            <input type="url" name="github_url" placeholder="https://github.com/username/project">
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3><i class="fas fa-sticky-note"></i> Additional Notes</h3>
+                        <div class="form-group">
+                            <label>Notes</label>
+                            <textarea name="notes" rows="4" placeholder="Add any additional notes about the project..."></textarea>
+                        </div>
+
+                        <div class="form-group checkbox-group">
+                            <label>
+                                <input type="checkbox" name="featured">
+                                <span>Mark as Featured Project</span>
+                            </label>
+                        </div>
+
+                        <div class="form-group checkbox-group">
+                            <label>
+                                <input type="checkbox" name="notifications" checked>
+                                <span>Send notifications to team members</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn-primary">
+                            <i class="fas fa-save"></i> Save Project
+                        </button>
+                        <button type="button" class="btn-secondary" onclick="window.history.back()">
+                            <i class="fas fa-times"></i> Cancel
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </main>
+    </div>
+
+    <script src="/admin/js/admin-script.js"></script>
+    <script>
+        document.getElementById('projectForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Project created successfully!');
+            window.location.href = '/admin/projects.html';
+        });
+
+        // Auto-fill today's date as start date
+        document.querySelector('input[name="start_date"]').valueAsDate = new Date();
+    </script>
+
+    <!-- Notification Modal -->
+    <div class="notification-modal" id="notificationModal">
+        <div class="notification-header">
+            <h3>Notifications</h3>
+            <button class="notification-close">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="notification-list">
+            <div class="notification-item unread">
+                <div class="notification-icon success">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <div class="notification-content">
+                    <div class="notification-title">Project Completed</div>
+                    <div class="notification-message">E-Commerce Platform project has been successfully completed</div>
+                    <div class="notification-time">2 minutes ago</div>
+                </div>
+            </div>
+        </div>
+        <div class="notification-footer">
+            <a href="#">Mark as read</a>
+            <a href="#">Clear all</a>
+        </div>
+    </div>
+</body>
+</html>
